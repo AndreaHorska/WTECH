@@ -3,16 +3,17 @@
 <head>
   <title>Lucky Quacky</title>
   <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
 <header class="navbar">
   <div class="logo">LOGO</div>
   <div class="search_frame">
-    <div class="search">
+    <form class="search">
       <input type="text" placeholder="Hľadaj produkty...">
-      <button>Search</button>
-    </div>
+      <button class="search_button">Search</button>
+    </form>
   </div>
   <div class="icons">
     <a href=""><img src="image/cart.png" alt="Cart"></a>
@@ -34,7 +35,9 @@
   </div>
 
   <div class="products_box">
-    <div class="product"></div>
+    <a class="product" href="product.html">
+      
+    </a>
     <div class="product"></div>
     <div class="product"></div>
     <div class="product"></div>
@@ -45,9 +48,10 @@
   </div>
 </main>
 
-<footer>
-
+<footer class="footer">
+  <p>© 2026 Lucky Quacky</p>
 </footer>
 
+<script src="index.js"></script>
 </body>
 </html>
