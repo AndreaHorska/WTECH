@@ -1,0 +1,155 @@
+/* Variables */
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --yellow: #F5C518;
+    --yellow-dark: #d4a800;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*outline: 1px solid red;*/       /* WOW velmi dobre na debug */
+}
+
+
+body {
+  margin: 0;
+}
+
+/* Horna lista */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+  background-color: var(--black);
+  width: 100%;
+  border-bottom: 3px solid var(--yellow);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  gap: 20px;
+  z-index: 1000;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--yellow-dark);
+}
+.logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  color: var(--yellow);
+  letter-spacing: -0.5px;
+  text-decoration: none;
+}
+
+.logo span { color: var(--white); }
+
+/* SEARCH */
+
+.search-frame {
+  flex: 1;
+  display: flex;
+  padding: 0 10px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1.5px solid #333;
+  width: 100%;
+  max-width: 500px;
+}
+
+.search input {
+  flex: 1;
+  padding: 8px 10px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: var(--black);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+}
+
+.search button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 15px;
+  font-size: 16px;
+  height: 100%;
+  color: #333;
+  border: none;
+  background-color: var(--yellow);
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  font-size: 0.90rem;
+  cursor: pointer;
+}
+.search-button:hover { background: var(--yellow-dark); }
+
+/* ICONS */
+.icons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+  fill: white;
+  border: 1px solid #333;
+  cursor: pointer;
+  transition: 0.2s;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.icon:hover {
+  fill: #f2cd45;
+}
+
+/* FOOTER */
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@media (max-width:768px) {
+  .header {
+    gap: 0px;
+    padding: 12px 10px;
+    flex-wrap: wrap;
+  } 
+  .search-frame {
+    order: 3;
+    min-width: 440px;
+    padding: 5px 0px;
+  }
+  .search {
+    max-width: unset;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-frame {
+    order: 3;
+    min-width: 300px;
+    padding: 5px 0px;
+  }
+
+}
