@@ -4,6 +4,7 @@
     --white: #ffffff;
     --yellow: #F5C518;
     --yellow-dark: #d4a800;
+    --darker-gray: #5a5a5a;
 }
 
 * {
@@ -51,6 +52,27 @@ body {
 .logo span { color: var(--white); }
 
 /* SEARCH */
+.search {
+  background: white;
+}
+
+.search-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  background: white;
+  flex-shrink: 0;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  color: #666;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
 
 .search-frame {
   flex: 1;

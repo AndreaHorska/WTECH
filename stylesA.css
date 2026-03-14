@@ -30,15 +30,6 @@ body {
     min-height: 100vh;
 }
 
-/* HEADER */
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* min, idealne v percentach pre view, maximalne */
-    padding: clamp(5px, 3vw, 20px) clamp(5px, 5vw, 50px) clamp(5px, 3vw, 20px) clamp(5px, 3vw, 20px);
-}
-
 /* Logo */
 .logo {
     display: flex;
@@ -52,80 +43,6 @@ body {
     width: auto;     /* dopocita sa */
 }
 
-.logo-text {
-    /* Typography */
-    font-family: var(--font-playfair);
-    font-weight: 500;
-    line-height: 1.05;
-    letter-spacing: 0;
-    color: var(--black);
-
-    /* Layout */
-    width: auto;
-    height: auto;
-
-    /* Alignment */
-    text-align: left;
-}
-
-/* Search */
-.search-container {
-    display: flex;
-    flex: 1;  /* vlastnost dietata vo flexe rodica -> rovnakou rychlostou ako rastie rodic rastie aj dieta, zabera rovnaky podiel rodicovskeho miesta */
-    margin: 0 auto;
-    padding: 15px 22px;
-    justify-content: center;
-}
-
-.search-box {
-    display: flex;
-    max-width: 736px;
-    width: 100%;
-    align-items: center;
-    border: 1px solid var(--primary-color);
-    border-radius: 5px;
-    background-color: var(--white);
-}
-
-.search-icon {
-    width: 20px;
-    height: 20px;
-    margin-left: 5px;
-    color: var(--small-text-color);
-}
-
-.search-input {
-    flex: 1;
-    border: none;
-    outline: none;
-    padding: 8px 10px;
-    font-family: var(--font-inter);
-    font-size: var(--small-text-size);
-    color: var(--small-text-color);
-}
-
-.search-input::placeholder {
-    color: var(--small-text-color);
-}
-
-.search-button {
-    height: 100%;
-    line-height: 100%;  /* vyska riadku */
-    text-align: center;
-    padding: 0 1.5em;
-    background-color: var(--primary-color);
-    color: var(--bg-color);
-    border: none;
-    border-radius: 0 5px 5px 0;
-    font-family: var(--font-kaisei);
-    font-size: var(--normal-text-size);
-    font-weight: 500;
-    cursor: pointer;
-}
-
-.search-button:hover {
-    background-color: var(--darker-primary);
-}
 
 /* NOVA MAGIA  !!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 .visually-hidden {
@@ -141,29 +58,6 @@ body {
 }
 /* display: none; alebo visibility: hidden; citacka pre nevidiacich tiez ignoruje */
 
-/* Menu */
-.menu {
-    display: flex;
-    flex: 0.5;
-    align-items: center;
-    max-width: 296px;
-    justify-content: space-between;  /* gap - auto */
-}
-
-.menu-item {
-    display: flex;
-    align-items: center;
-    font-family: var(--font-kaisei);
-    font-size: var(--normal-text-size);
-    font-weight: 500;
-    color: var(--black);
-    gap: 1px;
-    flex: 0 0 auto;
-}
-
-.menu-item:hover {
-    color: var(--primary-color);
-}
 
 /* Main content */
 .main-content {
