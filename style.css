@@ -1,20 +1,3 @@
-/* Variables */
-:root {
-    --bg-color: #f3f3f3;
-    --primary-color: #003e7c;
-    --darker-primary: #002d5c;
-    --small-text-color: #5a5a5a;
-    --white: #ffffff;
-    --black: #000000;
-    --light-gray: #b6b6b6;
-
-    --font-playfair: 'Playfair Display SC', serif;
-    --font-inter: 'Inter', sans-serif;
-    --font-kaisei: 'Kaisei HarunoUmi', serif;
-
-    --small-text-size: 12px;
-    --normal-text-size: 16px;
-}
 
 * {
     margin: 0;
@@ -25,272 +8,6 @@
 body {
   margin: 0;
 }
-
-/* Horna lista */
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 10px;
-  background-color: #f8f8f8;
-  width: 100%;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.logo {
-  font-weight: bold;
-  font-size: 22px;
-}
-
-/* SEARCH */
-
-.search-frame {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  padding: 0 10px;
-  min-width: 100px;
-}
-
-.search {
-  display: flex;
-  align-items: center;
-  border-radius: 30px;
-  overflow: hidden;
-  border: 1px solid #8e8d8d;
-  width: 100%;
-  max-width: 500px;
-}
-
-.search input {
-  flex: 1;
-  padding: 8px 10px;
-  font-size: 16px;
-  min-width: 100px;
-  border: none;
-  outline: none;
-}
-
-.search button {
-  padding: 8px 15px;
-  font-size: 16px;
-  color: #fff;
-  border: none;
-  background-color: #2474C4;
-  cursor: pointer;
-}
-
-/* ICONS */
-
-.icons img {
-  width: 28px;
-  height: 28px;
-  margin-left: 10px;
-}
-
-/* Mozme si to rozdelit na svoje polky
-a kazdy bude robit svoju cast*/
-
-/* ANDREA */
-
-/* Menu */
-.menu {
-    display: flex;
-    flex: 0.5;
-    align-items: center;
-    max-width: 296px;
-    justify-content: space-between;  /* gap - auto */
-}
-
-.menu-item {
-    display: flex;
-    align-items: center;
-    font-family: var(--font-kaisei);
-    font-size: var(--normal-text-size);
-    font-weight: 500;
-    color: var(--black);
-    gap: 1px;
-    flex: 0 0 auto;
-}
-
-.menu-item:hover {
-    color: var(--primary-color);
-}
-
-/* Main content */
-.main-content {
-    display: flex;
-    justify-content: space-between;
-}
-
-/* Sidebar */
-.sidebar {
-    width: 288px;
-    padding: 16px;
-    border-radius: 10px;
-    flex-shrink: 0;  /* default flex-shrink: 1 - moze sa zmensit, ked 0, tak nemoze */
-}
-
-.filter-title {
-    font-family: var(--font-kaisei);
-    font-size: 34px;
-    font-weight: 500;
-    color: var(--primary-color);
-    margin-bottom: 16px;
-}
-
-.filter-section {
-    margin-bottom: 16px;
-    padding: 8px 10px;
-}
-
-.filter-heading {
-    font-family: var(--font-kaisei);
-    font-size: 24px;
-    font-weight: 500;
-    margin-bottom: 8px;
-}
-
-/* Price */
-.slider {
-    position: relative;
-    height: 6px;
-    margin: 16px 4px;
-}
-
-.track {
-    position: absolute;
-    width: 100%;
-    height: 6px;
-    background: var(--light-gray);
-    border-radius: 5px;
-}
-
-.progress {
-    position: absolute;
-    height: 6px;
-    background: var(--primary-color);
-}
-
-.handle {
-    position: absolute;
-    top: 50%;  /* horny okraj handle bude v polovici vysky slider */
-    transform: translate(-50%, -50%);  /* posunie hore o polovicu svojej vysky, inak by zacinal horny okraj tam a druhe -50% zas dolava */
-    width: 14px;
-    height: 14px;
-    background: var(--primary-color);
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.price-inputs {
-    display: flex;
-    flex-wrap: wrap; /* ak sa nezmestia vedla seba, tak sa zalomia*/
-    align-items: flex-start;  /* zarovnanie na zaciatok */
-    justify-content: space-between;
-    padding: 8px 10px;
-}
-
-.price-input {
-    appearance: none;
-    -moz-appearance: textfield;
-    width: calc(50% - 10px);
-    margin: 0 5px;
-    padding: 2px 19px;
-    border: 1px solid var(--black);
-    border-radius: 5px;
-    text-align: center;
-    font-family: var(--font-inter);
-    font-size: var(--normal-text-size);
-    background-color: var(--white);
-}
-
-/* Stars */
-.stars {
-    display: flex;
-    width: 90%;
-    padding: 4px 0;
-    justify-content: space-between;
-}
-
-.star {
-    height: 1.7em;
-    width: 1.7em;
-    cursor: pointer;
-    fill: transparent;
-    stroke: black;
-}
-
-.star.filled {
-    fill: black;
-}
-
-/* Accessories */
-.accessories-filer {
-    margin-bottom: 10px;
-    padding: 2px 15px;
-}
-
-.filter-subheading {
-    font-family: var(--font-inter);
-    font-size: 20px;
-    font-weight: 400;
-    margin-bottom: 10px;
-}
-
-.checkbox-group {
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
-    padding: 7px 16px;
-}
-
-.checkbox-label {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    font-family: var(--font-inter);
-    font-size: var(--normal-text-size);
-    cursor: pointer;
-}
-
-.checkbox-label input[type="checkbox"] {
-    width: 1.2em;
-    height: 1.2em;
-    border: 1px solid var(--primary-color);
-    border-radius: 5px;
-    cursor: pointer;  /* tieto specialne prvk maju vlasny styl, ktorym mozu niekedy prebit to, co je v rodivcovi */
-    accent-color: var(--primary-color);  /* ta po kliknuti */
-}
-
-/* Filter Button */
-.filter-button {
-    display: block;  /* bude na celom riadku */
-    width: 40%;
-    margin: 5px auto;  /* auto - vpravo, vlavo sa vycentruje */
-    padding: 9px;
-    background-color: var(--primary-color);
-    color: var(--bg-color);
-    border: none;
-    border-radius: 5px;
-    font-family: var(--font-kaisei);
-    font-size: var(--normal-text-size);
-    font-weight: 500;
-    cursor: pointer;
-}
-
-.filter-button:hover {
-    background-color: var(--darker-primary);
-}
-
-
-/* Mozme si to rozdelit na svoje polky a kazdy bude robit svoju cast*/
-
-/* ADAM */
 
 /* MAIN CONTAINER */
 
@@ -358,14 +75,6 @@ a kazdy bude robit svoju cast*/
   background-color: #a3a3a3;
 }
 
-/* FOOTER */
-
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 
 /* PRODUCT.HTML */
 /* gallery */
@@ -381,7 +90,7 @@ a kazdy bude robit svoju cast*/
   display: flex;
   gap: 10px;
   padding: 10px;
-  min-width: 200px;
+  min-width: 500px;
 }
 
 .thumbnails {
@@ -396,6 +105,7 @@ a kazdy bude robit svoju cast*/
   align-items: center;
   justify-content: center;
   aspect-ratio: 1 / 1;
+  min-width: 60px;
   background-color: #2474C4;
 }
 
@@ -478,4 +188,30 @@ a kazdy bude robit svoju cast*/
 .spec-table td {
   padding: 10px 2px;
   border-bottom: 1px solid #ccc;
+}
+
+@media (max-width:768px) {
+  .product_gallery, .product_info {
+    gap: 10px;
+    padding: 10px;
+    min-width: 400px;
+    flex-wrap: wrap;
+  }
+  .main_product_box {
+    order: 1;
+    min-width: unset;
+    width: 100%;
+  }
+  .thumbnails {
+    display: flex;
+    order: 2;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 480px) {
+  .product_gallery, .product_info {
+    min-width: 300px;
+  }
 }
