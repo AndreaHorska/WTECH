@@ -61,21 +61,12 @@ body {
 
 .products-box {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 2fr));
-  gap: 15px;
-  padding: 15px;
-  background-color: #f3f3f3;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
   width: 100%;
-  border-radius: 2px;
 }
 
-.product {
-  width: 100%;
-  aspect-ratio: 2 / 3;
-  background-color: #a3a3a3;
-}
-
-
+/* ---------------------------------------------------------------- */
 /* PRODUCT.HTML */
 /* gallery */
 .product_section {
@@ -190,7 +181,75 @@ body {
   border-bottom: 1px solid #ccc;
 }
 
+
+/* RELATED PRODUCTS */
+
+.related_products {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 10px;
+}
+
+.related_products h2 {
+  margin-bottom: 15px;
+}
+
+.related_products_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.product:hover {
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.product_img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #cfcfcf;
+  border-radius: 8px;
+}
+
+.cart-button {
+  padding: 4px 20px;
+  border-radius: 6px;
+  background-color: #ffb400;
+  color: white;
+  border: none;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.cart-button:hover {
+  background-color: #ffaa00;
+  transform: translateY(-1px); /* maly zdvih */
+}
+
+
 @media (max-width:768px) {
+  .products-box {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  .related_products_grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+  }
   .product_gallery, .product_info {
     gap: 10px;
     padding: 10px;
@@ -211,6 +270,14 @@ body {
   }
 }
 @media (max-width: 480px) {
+  .products-box {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+  }
+  .related_products_grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+  }
   .product_gallery, .product_info {
     min-width: 300px;
   }
