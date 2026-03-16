@@ -9,14 +9,6 @@
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 /* MAIN CONTAINER */
 
 .main {
@@ -32,10 +24,12 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
+    max-width: 1000px;
+    margin: 0px auto;
     gap: 10px;
 }
 
-.logo {
+.logo-account {
   font-family: 'Syne', sans-serif;
   font-size: 30px;
   font-weight: 800;
@@ -45,10 +39,11 @@ body {
   text-decoration: none;
 }
 
-.logo span {
+.logo-account span {
   color: black;
 }
 
+/* KOLONKY */
 .login-tab h3 {
     padding-bottom: 20px;
     font-family: 'Inter', sans-serif;
@@ -74,14 +69,16 @@ body {
     padding: 25px;
     gap: 2px;
     border-radius: 12px;
-    max-width: 360px;
+    min-width: 350px;
+    max-width: 450px;
     background-color: #f0ede6;
     border: 1px solid #d8d3c8;
     font-family: 'Inter', sans-serif;
     font-size: small;
 }
 
-.login-button {
+/* BUTTONS */
+.first-button {
     padding: 10px;
     border: none;
     border-radius: 8px;
@@ -93,12 +90,12 @@ body {
     font-size: medium;
     margin-top: 15px;
 }
-.login-button:hover {
+.first-button:hover {
     background-color: #ffaa00;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-.register-button {
+.secondary-button {
   padding: 10px;
   border: 1px solid #8e8d8d;
   border-radius: 8px;
@@ -108,7 +105,7 @@ body {
   transition: all 0.2s;
 }
 
-.register-button:hover {
+.secondary-button:hover {
   background-color: #f0f0f0;
   border-color: #555;
 }
@@ -118,12 +115,83 @@ hr {
     margin-bottom: 12px;
 }
 
-@media (max-width: 480px) {
-    body {
-        align-items: flex-start;
-        padding-top: 50px;
+/* PRAVA STRANA */
+.info-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 12px;
+    background-color: #f0ede6;
+    border: 1px solid #d8d3c8;
+}
+
+.account-tab,
+.password-tab {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    gap: 2px;
+    border-radius: 12px;
+    min-width: 350px;
+    max-width: 400px;
+    font-family: 'Inter', sans-serif;
+    font-size: small;
+}
+
+.account-tab h3, .password-tab h3 {
+    padding-bottom: 20px;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.5px;
+    font-size: large;
+}
+
+.account-tab input, .password-tab input {
+  padding: 8px 10px;
+  color: var(--dark-grey);
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.95rem;
+  border-radius: 5px;
+  border: 1px solid #d8d3c8;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.oddelovac {
+  width: 100%;
+  height: 50px;
+}
+
+@media (max-width:768px) {
+    .info-box {
+        flex-direction: column;
     }
+}
+
+@media (max-width: 480px) {
     .main {
         padding: 5px;
+        margin: 0 auto;
+        margin-top: 20px;
     }
+    .login-tab,
+    .account-tab,
+    .password-tab {
+        padding: 15px;
+    }
+}
+@media (max-width: 400px) {
+    .main {
+        padding: 5px;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    .login-tab,
+    .account-tab,
+    .password-tab {
+        min-width: 300px;
+        max-width: 400px;
+        width: 100%;
+    }
+    
 }
