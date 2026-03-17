@@ -136,20 +136,19 @@ body {
   } 
   .search-frame {
     order: 3;
-    min-width: 440px;
+    min-width: 480px;
     padding: 5px 0px;
   }
   .search {
     max-width: unset;
+    min-width: unset;
     width: 100%;
   }
 }
 
 @media (max-width: 480px) {
   .search-frame {
-    order: 3;
-    min-width: 300px;
-    padding: 5px 0px;
+    min-width: 200px;
   }
 
 }
