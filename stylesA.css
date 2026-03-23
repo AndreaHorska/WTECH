@@ -323,8 +323,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    animation: fadeInUp 1s ease forwards;
-    opacity: 0;
 }
 
 .product-card{
