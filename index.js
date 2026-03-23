@@ -1,5 +1,11 @@
 
-const logo_button = document.querySelector(".search_button");
-logo_button.addEventListener("click", () => {
-    alert("Search kliknuty!")
+const thumbnails = document.querySelectorAll(".thumb");
+const mainImage = document.getElementById("mainImage");
+
+thumbnails.forEach(thumb => {
+  thumb.addEventListener("click", () => {
+    mainImage.src = thumb.src;
+    thumbnails.forEach(t => t.classList.remove("active"));
+    thumb.classList.add("active");
+  });
 });
