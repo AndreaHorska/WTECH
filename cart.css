@@ -439,7 +439,7 @@ cart-item-total-price
     width: 100%;
 }
 
-.order-summary_buttons button {
+.back-button, .continue-button{
     flex: 1;
     padding: 12px 24px;
     font-size: 1rem;
@@ -450,6 +450,7 @@ cart-item-total-price
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
 }
 
 .back-button {
@@ -575,5 +576,14 @@ cart-item-total-price
     .order-summary {
         position: static;
     }
+}
+
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 10px;
 }
 
