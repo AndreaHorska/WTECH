@@ -42,14 +42,14 @@
 
 </header>
 
-<main class="shipping-page">
+<main class="cart-page">
     <nav class="checkout-steps" aria-label="Checkout steps">
         <ol class="checkout-steps-list">
-            <li class="checkout-step active">
+            <li class="checkout-step">
                 <span class="checkout-step-circle">1</span>
                 <span class="checkout-step-label">Cart</span>
             </li>
-            <li class="checkout-step">
+            <li class="checkout-step active">
                 <span class="checkout-step-circle">2</span>
                 <span class="checkout-step-label">Shipping &amp; Payment</span>
             </li>
@@ -60,7 +60,44 @@
         </ol>
     </nav>
 
-    <section class="cart-layout" aria-labelledby="cart-heading">
+    <section class="cart-shipping-layout" aria-labelledby="cart-heading">
+
+        <div class="checkout-options">
+            <h2 class="section-title">Select delivery method</h2>
+            <div class="options-group">
+                <label class="option-item">
+                    <input type="radio" name="delivery">
+                    <span class="option-icon">🏠</span>
+                    <span class="option-name">Home Delivery</span>
+                    <span class="option-price">2,99 €</span>
+                    <span class="option-eta">do 28.9.</span>
+                </label>
+
+                <label class="option-item">
+                    <input type="radio" name="delivery">
+                    <span class="option-icon">🏪</span>
+                    <span class="option-name">Store Pickup</span>
+                    <span class="option-price">free</span>
+                    <span class="option-eta">now</span>
+                </label>
+            </div>
+
+            <h2 class="section-title">Select payment method</h2>
+            <div class="options-group">
+                <label class="option-item">
+                    <input type="radio" name="payment">
+                    <span class="option-icon">💳</span>
+                    <span class="option-name">Credit Card</span>
+                    <span class="option-price">2,99 €</span>
+                </label>
+            </div>
+
+            <div class="form-buttons">
+                <a href="cart.html" class="back-button">Back</a>
+                <a href="cart-customer-info.html" class="continue-button">Continue</a>
+            </div>
+        </div>
+
         <section class="cart-main">
 
             <ul class="cart-list">
@@ -74,7 +111,7 @@
                     </div>
 
                     <p class="cart-item-total-price">294,60 €</p>
-                    
+
                 </li>
 
                 <li class="cart-item">
@@ -84,37 +121,10 @@
 
                     <div class="cart-item-description">
                         <a href="product.html" class="cart-item-title">Duck with sunglasses</a>
-                        <p class="cart-item-info">60 × 65 cm</p>
                     </div>
 
-                    <p class="stock-status out-of-stock">
-                        <svg class="stock-icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M18 6L6 18M6 6l12 12"/>
-                        </svg>
-                        <span>Out of stock</span>
-                    </p>
-
-                    <div class="quantity-picker">
-                        <button type="button" class="quantity-button" aria-label="Decrease quantity">
-                            <svg class="quantity-icon" viewBox="0 0 24 24"><path d="M5 12h14"/></svg>
-                        </button>
-
-                        <input type="number" value="2" min="1" class="quantity-input">
-
-                        <button type="button" class="quantity-button" aria-label="Increase quantity">
-                            <svg class="quantity-icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-                        </button>
-                    </div>
-
-                    <p class="cart-item-unit-price">147,30 € / pcs</p>
                     <p class="cart-item-total-price">294,60 €</p>
 
-                    <button type="button" class="remove-button" aria-label="Remove Product from Cart">
-                        <svg class="remove-icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M6 6l12 12"></path>
-                            <path d="M18 6L6 18"></path>
-                        </svg>
-                    </button>
                 </li>
 
                 <li class="cart-item">
@@ -124,37 +134,10 @@
 
                     <div class="cart-item-description">
                         <a href="product.html" class="cart-item-title">Duck with sunglasses</a>
-                        <p class="cart-item-info">60 × 65 cm</p>
                     </div>
 
-                    <p class="stock-status in-stock">
-                        <svg class="stock-icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M20 6L9 17L4 12"/>
-                        </svg>
-                        <span>In stock</span>
-                    </p>
-
-                    <div class="quantity-picker">
-                        <button type="button" class="quantity-button" aria-label="Decrease quantity">
-                            <svg class="quantity-icon" viewBox="0 0 24 24"><path d="M5 12h14"/></svg>
-                        </button>
-
-                        <input type="number" value="2" min="1" class="quantity-input">
-
-                        <button type="button" class="quantity-button" aria-label="Increase quantity">
-                            <svg class="quantity-icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-                        </button>
-                    </div>
-
-                    <p class="cart-item-unit-price">147,30 € / pcs</p>
                     <p class="cart-item-total-price">294,60 €</p>
 
-                    <button type="button" class="remove-button" aria-label="Remove Product from Cart">
-                        <svg class="remove-icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M6 6l12 12"></path>
-                            <path d="M18 6L6 18"></path>
-                        </svg>
-                    </button>
                 </li>
 
                 <li class="cart-item">
@@ -164,37 +147,10 @@
 
                     <div class="cart-item-description">
                         <a href="product.html" class="cart-item-title">Duck with sunglasses</a>
-                        <p class="cart-item-info">60 × 65 cm</p>
                     </div>
 
-                    <p class="stock-status in-stock">
-                        <svg class="stock-icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M20 6L9 17L4 12"/>
-                        </svg>
-                        <span>In stock</span>
-                    </p>
-
-                    <div class="quantity-picker">
-                        <button type="button" class="quantity-button" aria-label="Decrease quantity">
-                            <svg class="quantity-icon" viewBox="0 0 24 24"><path d="M5 12h14"/></svg>
-                        </button>
-
-                        <input type="number" value="2" min="1" class="quantity-input">
-
-                        <button type="button" class="quantity-button" aria-label="Increase quantity">
-                            <svg class="quantity-icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-                        </button>
-                    </div>
-
-                    <p class="cart-item-unit-price">147,30 € / pcs</p>
                     <p class="cart-item-total-price">294,60 €</p>
 
-                    <button type="button" class="remove-button" aria-label="Remove Product from Cart">
-                        <svg class="remove-icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M6 6l12 12"></path>
-                            <path d="M18 6L6 18"></path>
-                        </svg>
-                    </button>
                 </li>
 
                 <li class="cart-item">
@@ -204,37 +160,10 @@
 
                     <div class="cart-item-description">
                         <a href="product.html" class="cart-item-title">Duck with sunglasses</a>
-                        <p class="cart-item-info">60 × 65 cm</p>
                     </div>
 
-                    <p class="stock-status in-stock">
-                        <svg class="stock-icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M20 6L9 17L4 12"/>
-                        </svg>
-                        <span>In stock</span>
-                    </p>
-
-                    <div class="quantity-picker">
-                        <button type="button" class="quantity-button" aria-label="Decrease quantity">
-                            <svg class="quantity-icon" viewBox="0 0 24 24"><path d="M5 12h14"/></svg>
-                        </button>
-
-                        <input type="number" value="2" min="1" class="quantity-input">
-
-                        <button type="button" class="quantity-button" aria-label="Increase quantity">
-                            <svg class="quantity-icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-                        </button>
-                    </div>
-
-                    <p class="cart-item-unit-price">147,30 € / pcs</p>
                     <p class="cart-item-total-price">294,60 €</p>
 
-                    <button type="button" class="remove-button" aria-label="Remove Product from Cart">
-                        <svg class="remove-icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M6 6l12 12"></path>
-                            <path d="M18 6L6 18"></path>
-                        </svg>
-                    </button>
                 </li>
 
                 <li class="cart-item">
@@ -244,37 +173,10 @@
 
                     <div class="cart-item-description">
                         <a href="product.html" class="cart-item-title">Duck with sunglasses</a>
-                        <p class="cart-item-info">60 × 65 cm</p>
                     </div>
 
-                    <p class="stock-status in-stock">
-                        <svg class="stock-icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M20 6L9 17L4 12"/>
-                        </svg>
-                        <span>In stock</span>
-                    </p>
-
-                    <div class="quantity-picker">
-                        <button type="button" class="quantity-button" aria-label="Decrease quantity">
-                            <svg class="quantity-icon" viewBox="0 0 24 24"><path d="M5 12h14"/></svg>
-                        </button>
-
-                        <input type="number" value="2" min="1" class="quantity-input">
-
-                        <button type="button" class="quantity-button" aria-label="Increase quantity">
-                            <svg class="quantity-icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-                        </button>
-                    </div>
-
-                    <p class="cart-item-unit-price">147,30 € / pcs</p>
                     <p class="cart-item-total-price">294,60 €</p>
 
-                    <button type="button" class="remove-button" aria-label="Remove Product from Cart">
-                        <svg class="remove-icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M6 6l12 12"></path>
-                            <path d="M18 6L6 18"></path>
-                        </svg>
-                    </button>
                 </li>
 
                 <li class="cart-item">
@@ -284,37 +186,10 @@
 
                     <div class="cart-item-description">
                         <a href="product.html" class="cart-item-title">Duck with sunglasses</a>
-                        <p class="cart-item-info">60 × 65 cm</p>
                     </div>
 
-                    <p class="stock-status in-stock">
-                        <svg class="stock-icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M20 6L9 17L4 12"/>
-                        </svg>
-                        <span>In stock</span>
-                    </p>
-
-                    <div class="quantity-picker">
-                        <button type="button" class="quantity-button" aria-label="Decrease quantity">
-                            <svg class="quantity-icon" viewBox="0 0 24 24"><path d="M5 12h14"/></svg>
-                        </button>
-
-                        <input type="number" value="2" min="1" class="quantity-input">
-
-                        <button type="button" class="quantity-button" aria-label="Increase quantity">
-                            <svg class="quantity-icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-                        </button>
-                    </div>
-
-                    <p class="cart-item-unit-price">147,30 € / pcs</p>
                     <p class="cart-item-total-price">294,60 €</p>
 
-                    <button type="button" class="remove-button" aria-label="Remove Product from Cart">
-                        <svg class="remove-icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M6 6l12 12"></path>
-                            <path d="M18 6L6 18"></path>
-                        </svg>
-                    </button>
                 </li>
 
                 <li class="cart-item">
@@ -324,72 +199,27 @@
 
                     <div class="cart-item-description">
                         <a href="product.html" class="cart-item-title">Duck with sunglasses</a>
-                        <p class="cart-item-info">60 × 65 cm</p>
                     </div>
 
-                    <p class="stock-status in-stock">
-                        <svg class="stock-icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M20 6L9 17L4 12"/>
-                        </svg>
-                        <span>In stock</span>
-                    </p>
-
-                    <div class="quantity-picker">
-                        <button type="button" class="quantity-button" aria-label="Decrease quantity">
-                            <svg class="quantity-icon" viewBox="0 0 24 24"><path d="M5 12h14"/></svg>
-                        </button>
-
-                        <input type="number" value="2" min="1" class="quantity-input">
-
-                        <button type="button" class="quantity-button" aria-label="Increase quantity">
-                            <svg class="quantity-icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-                        </button>
-                    </div>
-
-                    <p class="cart-item-unit-price">147,30 € / pcs</p>
                     <p class="cart-item-total-price">294,60 €</p>
 
-                    <button type="button" class="remove-button" aria-label="Remove Product from Cart">
-                        <svg class="remove-icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M6 6l12 12"></path>
-                            <path d="M18 6L6 18"></path>
-                        </svg>
-                    </button>
                 </li>
 
 
             </ul>
         </section>
-
-        <aside class="order-summary" aria-labelledby="summary-heading">
-            <h2 id="summary-heading" class="order-summary-title">Order summary</h2>
-
-            <form class="discount-form">
-                <label class="discount-checkbox-wrapper">
-                    <input type="checkbox" class="discount-input-real">
-                    <span class="discount-label-text">Apply discount code</span>
-                </label>
-
-                <input
-                        type="text"
-                        name="discount-code"
-                        class="discount-form-input"
-                        placeholder="Enter discount code"
-                >
-            </form>
-
-            <dl class="summary-totals">
-                <dt>Total</dt>
-                <dd>385,70 €</dd>
-            </dl>
-
-            <div class="order-summary_buttons">
-                <button type="button" class="back-button">Back</button>
-                <button type="button" class="continue-button">Continue</button>
-            </div>
-        </aside>
     </section>
+
+
 </main>
 </div>
 </body>
 </html>
+
+
+
+
+
+
+
+

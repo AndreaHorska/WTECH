@@ -487,6 +487,7 @@ cart-item-total-price
 
 /* CUSTOMER INFO PAGE */
 
+.cart-shipping-layout,
 .customer-info-layout {
     display: grid;
     grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
@@ -569,6 +570,7 @@ cart-item-total-price
 }
 
 @media (max-width: 700px) {
+    .cart-shipping-layput,
     .customer-info-layout {
         grid-template-columns: 1fr;
     }
@@ -587,3 +589,52 @@ cart-item-total-price
     padding: 10px;
 }
 
+.checkout-options {
+    max-width: 600px;
+    font-family: sans-serif;
+}
+
+.options-group {
+    border: 1px solid #888;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.option-item {
+    display: grid;
+    /* Stlpce: Radio | Ikona | Nazov | Cena | Datum */
+    grid-template-columns: auto auto 1fr auto auto;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.option-item:not(:last-child) {
+    border-bottom: 1px solid #eee;
+}
+
+.option-item:hover {
+    background-color: #f9f9f9;
+}
+
+.option-item:has(input:checked) {
+    background-color: #f0f7ff;
+}
+
+.option-name {
+    font-weight: 600;
+}
+
+.option-price, .option-eta {
+    color: #333;
+    min-width: 60px;
+    text-align: right;
+}
+
+.option-item input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #004080;
+}
