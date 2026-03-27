@@ -156,9 +156,21 @@ body {
 /* FOOTER */
 
 .footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  padding: 2px;
+  background: black;
+  color: white;
+}
+
+.image-credits {
+  font-size: 11px;
+  color: #777;
+  margin-top: 10px;
+}
+
+.image-credits a {
+  color: #777;
+  text-decoration: none;
 }
 
 
@@ -182,7 +194,11 @@ body {
 
 @media (max-width: 480px) {
   .search-frame {
-    min-width: 200px;
+    min-width: unset;
+    width: 100%;
+  }
+  .header {
+    flex-direction: column;
   }
 
 }
