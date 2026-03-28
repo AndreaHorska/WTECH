@@ -469,6 +469,10 @@ body {
     padding: 1.5rem;
 }
 
+.form-section.hidden {
+    display: none;
+}
+
 .section-title {
     font-size: 1.25rem;
     margin-bottom: 1.25rem;
@@ -526,6 +530,29 @@ body {
     padding: 10px;
 }
 
+.different-billing-address {
+    displey: flex;
+    gap: 15px;
+    margin: 20px 0;
+    padding: 10px 0;
+    padding-left: 1.5rem;
+}
+
+.billing-checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.checkbox {
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    accent-color: var(--color-primary);
+}
 /* Summary kosika */
 
 .summary-item {
