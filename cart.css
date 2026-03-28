@@ -151,6 +151,10 @@ body {
     border-top: 1px solid var(--color-border);
 }
 
+.summary-item + .summary-item {
+    border-top: 1px solid var(--color-border);
+}
+
 .cart-item {
     display: grid;
     /* Obrazok | Popis | Status | Picker | Jednotkova cena | Cena | Remove */
@@ -624,6 +628,69 @@ body {
     gap: 1rem;
     margin-top: 2rem;
     padding: 10px;
+}
+
+/* Summary kosika */
+
+.summary-item {
+    display: grid;
+    /* Obrazok | Nazov | Cena */
+    grid-template-columns: 60px 1fr 90px;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0;
+    width: 100%;
+}
+
+.summary-item-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;         /* Pocet riadkov */
+    -webkit-box-orient: vertical;   /* Smer orientacie boxu*/
+    overflow: hidden;               /* Skryje zvysny text */
+    text-overflow: ellipsis;        /* Prida tri bodky na konci druheho riadku */
+
+    margin: 0 0 0.25rem;
+    font-size: 16px;
+    text-decoration: none;
+    color: var(--color-text);
+}
+
+.summary-item-title:hover {
+    text-decoration: underline;
+}
+
+.summary-item-details {
+    display: flex;
+    gap: 5px;
+}
+
+.summary-item-price {
+    font-weight: 500;
+    font-size: 1.05rem;
+    white-space: nowrap;
+    text-align: right;
+}
+
+.summary-divider {
+    border: 0;
+    border-top: 2px solid var(--color-text);
+    margin: 1rem 0;
+    opacity: 0.75;
+}
+
+
+.summary-prices {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem;
+    margin: 0 0 0.5rem;
+    width: 100%;
+    font-size: 16px;
+
+}
+
+.summary-prices dd{
+    text-align: right;
 }
 
 /* SHIPPING */
