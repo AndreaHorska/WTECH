@@ -7,20 +7,23 @@
     --white: #ffffff;
     --black: #000000;
     --light-gray: #b6b6b6;
+    --yellow: #F5C518;
+    --yellow-hover: #f5db18;
+    --color-border: #d9d9d9;
 
-    --font-playfair: 'Playfair Display SC', serif;
-    --font-inter: 'Inter', sans-serif;
-    --font-kaisei: 'Kaisei HarunoUmi', serif;
+
+    --font-inter: 'Inter', Arial, sans-serif;
 
     --small-text-size: 12px;
     --normal-text-size: 16px;
 }
 
-/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /*outline: 1px solid red;*/
+
 }
 
 body {
@@ -30,21 +33,14 @@ body {
     min-height: 100vh;
 }
 
-/* Logo */
-.logo {
-    display: flex;
-    align-items: center;
-    font-size: 26px;
-    gap: 0.15em;  /* zavisi od pisma -> gap = font-size * gap em */
-}
-
-.logo-image {
-    height: 2em;
-    width: auto;     /* dopocita sa */
-}
-
-
 /* Main content */
+/*.main-content {*/
+/*    display: grid;*/
+/*    grid-template-columns: 320px minmax(0, 1fr);*/
+/*    gap: 1.5rem;*/
+/*    align-items: start;*/
+/*}*/
+
 .main-content {
     display: flex;
     justify-content: space-between;
@@ -52,29 +48,29 @@ body {
 
 /* Sidebar */
 .sidebar {
-    width: 288px;
-    padding: 16px;
+    width: 100%;
+    padding: 1rem 1.5rem;
     border-radius: 10px;
-    flex-shrink: 0;  /* default flex-shrink: 1 - moze sa zmensit, ked 0, tak nemoze */
-    max-width: 300px;
+    flex-shrink: 0;
+    max-width: 320px;
+    background: #f8f9fb;
+    border-right: 1px solid var(--color-border);
 }
 
 .filter-title {
-    font-family: var(--font-kaisei);
-    font-size: 34px;
-    font-weight: 500;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
     color: var(--primary-color);
-    margin-bottom: 16px;
+    font-weight: 700;
 }
 
 .filter-section {
-    margin-bottom: 16px;
+    margin: 8px 0;
     padding: 8px 10px;
 }
 
-.filter-heading {
-    font-family: var(--font-kaisei);
-    font-size: 24px;
+.filter-section-title {
+    font-size: 1.2rem;
     font-weight: 500;
     margin-bottom: 8px;
 }
@@ -113,8 +109,8 @@ body {
 
 .price-inputs {
     display: flex;
-    flex-wrap: wrap; /* ak sa nezmestia vedla seba, tak sa zalomia*/
-    align-items: flex-start;  /* zarovnanie na zaciatok */
+    flex-wrap: wrap;
+    align-items: flex-start;
     justify-content: space-between;
     padding: 8px 10px;
 }
@@ -128,7 +124,6 @@ body {
     border: 1px solid var(--black);
     border-radius: 5px;
     text-align: center;
-    font-family: var(--font-inter);
     font-size: var(--normal-text-size);
     background-color: var(--white);
 }
@@ -160,9 +155,8 @@ body {
 }
 
 .filter-subheading {
-    font-family: var(--font-inter);
-    font-size: 20px;
-    font-weight: 400;
+    font-size: 1rem;
+    font-weight: 500;
     margin-bottom: 10px;
 }
 
@@ -177,7 +171,6 @@ body {
     display: flex;
     align-items: center;
     gap: 14px;
-    font-family: var(--font-inter);
     font-size: var(--normal-text-size);
     cursor: pointer;
 }
@@ -187,21 +180,20 @@ body {
     height: 1.2em;
     border: 1px solid var(--primary-color);
     border-radius: 5px;
-    cursor: pointer;  /* tieto specialne prvk maju vlasny styl, ktorym mozu niekedy prebit to, co je v rodivcovi */
-    accent-color: var(--primary-color);  /* ta po kliknuti */
+    cursor: pointer;
+    accent-color: var(--primary-color);
 }
 
 /* Filter Button */
 .filter-button {
-    display: block;  /* bude na celom riadku */
+    display: block;
     width: 40%;
-    margin: 5px auto;  /* auto - vpravo, vlavo sa vycentruje */
+    margin: 5px auto;
     padding: 9px;
     background-color: var(--primary-color);
     color: var(--bg-color);
     border: none;
     border-radius: 5px;
-    font-family: var(--font-kaisei);
     font-size: var(--normal-text-size);
     font-weight: 500;
     cursor: pointer;
@@ -210,7 +202,6 @@ body {
 .filter-button:hover {
     background-color: var(--darker-primary);
 }
-
 
 
 /* Product Section */
@@ -237,12 +228,11 @@ body {
 
 .tab {
     min-width: 138px;
-    height: 42px;
+    height: 38px;
     padding: 0 5px;
-    background-color: #d9d9d9;
+    background-color: #e1e1e1;
     border: none;
     border-radius: 5px 5px 0 0;
-    font-family: var(--font-inter);
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s;
@@ -251,7 +241,7 @@ body {
 .tab.active {
     background: linear-gradient(
             180deg,   /*180 stupnov - zhora dole*/
-            #003E7C 19%,
+            var(--yellow) 19%,
             #FFFFFF 19%
     );
 }
@@ -277,7 +267,6 @@ body {
 }
 
 .items-label {
-    font-family: var(--font-inter);
     font-size: 16px;
     text-align: right;
 }
@@ -286,7 +275,6 @@ body {
     display: flex;
     gap: 4px;
     flex-wrap: wrap;
-    font-family: var(--font-inter);
     font-size: 16px;
 }
 
@@ -378,13 +366,11 @@ body {
 }
 
 .rating-number {
-    font-family: var(--font-inter);
     font-size: 12px;
     text-align: center;
 }
 
 .rating-count {
-    font-family: var(--font-inter);
     font-size: 8.7px;
     color: var(--small-text-color);
     text-align: center;
@@ -393,7 +379,6 @@ body {
 .product-title {
     width: 139px;
     margin: 0;
-    font-family: var(--font-inter);
     font-size: 16px;
     font-weight: 400;
     text-align: center;
@@ -401,7 +386,6 @@ body {
 
 .product-price {
     margin: 0;
-    font-family: var(--font-kaisei);
     font-size: 24px;
     font-weight: 500;
     text-align: center;
@@ -414,18 +398,16 @@ body {
     align-items: center;
     justify-content: center;
     gap: 4px;
-    border: 1px solid var(--primary-color);
     border-radius: 5px;
-    background-color: var(--white);
-    font-family: var(--font-kaisei);
+    background-color: var(--yellow);
+    border: none;
     font-size: 13.4px;
     font-weight: 500;
     cursor: pointer;
 }
 
 .add-to-cart:hover {
-    background-color: var(--primary-color);
-    color: var(--white);
+    background: var(--yellow-hover);
 }
 
 .cart-icon {
@@ -446,7 +428,6 @@ body {
 }
 
 .page-link {
-    font-family: var(--font-inter);
     font-size: 16px;
     color: var(--primary-color);
     text-decoration: none;
@@ -463,7 +444,6 @@ body {
 }
 
 .page-ellipsis {
-    font-family: var(--font-inter);
     font-size: 16px;
     color: var(--primary-color);
     letter-spacing: 1.92px;
@@ -493,7 +473,7 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 880px) {
     .main-content {
         flex-direction: column;
     }
@@ -535,6 +515,81 @@ body {
 
     .pagination {
         justify-content: center;
+    }
+}
+
+
+@media (min-width: 600px) and (max-width: 880px) {
+    .sidebar {
+        width: 100%;
+        max-width: none;
+        display: grid;
+        /* price stars */
+        grid-template-columns: 1fr 1fr;
+        column-gap: 0.5rem;
+        row-gap: 0.75rem;
+        align-items: top;
+        border: none;
+    }
+
+    .filter-section-title {
+        grid-column: 1 / 3;
+        grid-row: 1;
+    }
+
+    .filter-section:nth-of-type(1) {
+        grid-column: 1;
+    }
+
+    .filter-section:nth-of-type(2) {
+        grid-column: 2;
+    }
+
+    .filter-section:nth-of-type(1),
+    .filter-section:nth-of-type(2) {
+        grid-row: 2;
+        width: 100%;
+        width: minmax(200px, 300px);
+    }
+
+    .accessories-filer {
+        width: 200px;
+    }
+
+    .filter-section:nth-of-type(3) {
+        grid-column: 1 / 3;
+        grid-row: 3;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .filter-section:nth-of-type(3) .filter-section-title {
+        width: 100%;
+        margin-bottom: 0.5rem;
+        text-align: left;
+    }
+
+    .filter-button {
+        grid-column: 1 / 3;
+        grid-row: 4;
+        max-width: 200px;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .sidebar {
+        max-width: none;
+        border: none;
+    }
+
+    .filter-section,
+    .filter-title,
+    .filter-button {
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 

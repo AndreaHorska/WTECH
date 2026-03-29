@@ -147,3 +147,5 @@ stars.forEach((star, index) => {
 });
 
 fillStars(2);
+
+window.addEventListener("resize", updateUI);
