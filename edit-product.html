@@ -13,7 +13,7 @@
 <body>
 
 <header class="header">
-    <a href="homepage.html" class="logo">Lucky<span>Quacky</span></a>
+    <a href="index.html" class="logo">Lucky<span>Quacky</span></a>
     <div class="search-frame">
         <form action="/search" method="GET" class="search">
             <div class="search-icon-box">
@@ -180,7 +180,7 @@ There will be basic information about the product
         <table class="spec-table">
             <tr>
                 <td><input type="text" class="form-control" value="Material"></td>
-                <td><input type="text" class="form-control" value="Plastic"></td>
+                <td><input type="text" class="form-control" value="Vinyl"></td>
                 <td><button type="button" class="remove-button" aria-label="Remove Product from Cart">
                     <svg class="remove-icon" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M6 6l12 12"></path>
@@ -216,12 +216,15 @@ There will be basic information about the product
     </div>
 
   <div class="right_spec">
-    <h2>About edition</h2>
+    <h2>Customer Review</h2>
+    <p class="text-muted small">How would you rate this product?</p>
 
-    <textarea class="form-control" rows="6" maxlength="1000">
-Eco-friendly: Our products are made...
-Luxury Packaging: Each product comes...
-    </textarea>
+    <form class="review-form">
+        <div class="star-rating-admin mb-3">
+            <label for="stars">★★★★★</label>
+        </div>
+    </form>
+
   </div>
 
 </section>
