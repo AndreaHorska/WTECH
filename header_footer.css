@@ -6,7 +6,7 @@
 }
 
 html, body {
-  height: 100%; /* Dôležité pre správne fungovanie min-height na body */
+  height: 100%;
   margin: 0;
 }
 
@@ -16,13 +16,12 @@ body {
   min-height: 100vh;
 }
 
-/* Toto opraví tú úzku šírku */
 header, main, footer {
   width: 100%;
 }
 
 main {
-  flex: 1 0 auto; /* Zabezpečí, že main vyplní medzeru a footer bude dole */
+  flex: 1 0 auto;
 }
 
 footer {

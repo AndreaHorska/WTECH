@@ -139,6 +139,11 @@ body {
   min-width: 500px;
 }
 
+.product_info {
+  flex-direction: column;
+  gap: 5px;
+}
+
 .thumbnails {
   display: flex;
   flex-direction: column;
@@ -181,11 +186,6 @@ body {
 .main_product_box img {
   max-width: 100%;
   max-height: 100%;
-}
-
-.product_info {
-  flex-direction: column;
-  gap: 5px;
 }
 
 .star-icons {
