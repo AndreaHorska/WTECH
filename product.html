@@ -62,16 +62,40 @@
 
     <div class="product_info">
       <h1>Super-duper Duck</h1>
-      <span class="star-icons">★★★★★</span>
-      <div class="description">
-        There will be basic information about the product
+      <div class="product-rating" aria-label="Rated 5 out of 5 stars">
+            <div class="stars" aria-hidden="true">
+                <div class="stars-base">★★★★★</div>
+                <div class="stars-fill">★★★★★</div>
+            </div>
+
+            <p class="rating-text">
+                <span class="rating-number">4.7</span>
+                <span class="rating-count">214x</span>
+            </p>
       </div>
+      <div class="description">
+        Bring some "quack" to your life! This premium vinyl sticker
+        is perfect for personalizing your laptop, water bottle, 
+        phone case, or notebook.
+      </div>
+
       <p>20pcs in one package</p>
+
       <div class="quantity_control">
         <p>Quantity:</p>
         <input type="number" value="1" min="1" id="quantityInput">
       </div>
-      <h1>49€</h1>
+
+      <div class="stock-info mb-2">
+        <span class="text-success fw-bold fs-6 d-flex align-items-center">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="me-2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            In stock &gt; 5
+        </span>
+      </div>
+
+      <h1>12,99€</h1>
       <button class="btn btn-warning w-100">Add to cart</button>
     </div>
 
@@ -88,7 +112,7 @@
     <table class="spec-table">
       <tr>
         <td>Material</td>
-        <td>Plastic</td>
+        <td>Vinyl</td>
       </tr>
       <tr>
         <td>Size</td>
@@ -96,7 +120,7 @@
       </tr>
       <tr>
         <td>Weight</td>
-        <td>200 g</td>
+        <td>100 g</td>
       </tr>
       <tr>
         <td>Color</td>
