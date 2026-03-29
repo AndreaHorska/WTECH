@@ -71,7 +71,6 @@ body {
     color: var(--color-muted);
 }
 
-
 .checkout-step:not(:first-child)::before {
     content: "";
     height: 2px;
@@ -473,7 +472,7 @@ body {
     display: none;
 }
 
-.section-title {
+.form-section-title {
     font-size: 1.25rem;
     margin-bottom: 1.25rem;
     color: var(--color-text);
