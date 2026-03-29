@@ -90,9 +90,14 @@
             <section class="form-section">
                 <h2 class="form-section-title">Shipping Address</h2>
                 <div class="form-grid">
-                    <div class="form-group full-width">
-                        <label for="address">Street and House Number</label>
-                        <input type="text" id="address" name="address" placeholder="Main Street 123" required>
+                    <div class="form-group half-width">
+                        <label for="street">Street</label>
+                        <input type="text" id="street" name="street" placeholder="Main Street">
+                    </div>
+
+                    <div class="form-group half-width">
+                        <label for="house-number">House Number</label>
+                        <input type="text" id="house-number" name="house-number" placeholder="123">
                     </div>
                     <div class="form-group half-width">
                         <label for="city">City</label>
@@ -129,10 +134,16 @@
                         <input type="text" id="billing-company" name="billing-company" placeholder="Firma s.r.o.">
                     </div>
 
-                    <div class="form-group full-width">
-                        <label for="billing-address">Street and House Number</label>
-                        <input type="text" id="billing-address" name="billing-address" placeholder="Billing Street 456">
+                    <div class="form-group half-width">
+                        <label for="billing-street">Street</label>
+                        <input type="text" id="billing-street" name="billing-street" placeholder="Billing Street">
                     </div>
+
+                    <div class="form-group half-width">
+                        <label for="billing-house-number">Street and House Number</label>
+                        <input type="text" id="billing-house-number" name="billing-house-number" placeholder="456">
+                    </div>
+
                     <div class="form-group half-width">
                         <label for="billing-city">City</label>
                         <input type="text" id="billing-city" name="billing-city" placeholder="Bratislava">
@@ -141,6 +152,14 @@
                         <label for="billing-zip">ZIP Code</label>
                         <input type="text" id="billing-zip" name="billing-zip" placeholder="841 05">
                     </div>
+                    <div class="form-group full-width">
+                    <label for="billing-country">Country</label>
+                    <select id="billing-country" name="country">
+                        <option value="sk">Slovakia</option>
+                        <option value="cz">Czech Republic</option>
+                        <option value="de">Germany</option>
+                    </select>
+                </div>
                 </div>
             </section>
 
