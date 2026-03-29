@@ -5,9 +5,26 @@
     /*outline: 1px solid red;*/       /* WOW velmi dobre na debug */
 }
 
+html, body {
+  min-height: 100vh;
+  margin: 0;
+}
 
 body {
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  flex-shrink: 0;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 /* Horna lista */
