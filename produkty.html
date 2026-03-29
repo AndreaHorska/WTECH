@@ -5,6 +5,7 @@
     <title>Lucky Quacky</title>
     <link rel="stylesheet" href="variables.css">
     <link rel="stylesheet" href="header_footer.css">
+    <link rel="stylesheet" href="product_card.css">
     <link rel="stylesheet" href="produkty.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -66,19 +67,19 @@
 
         <section class="filter-section">
             <h3 class="filter-section-title">Star Rating (min.)</h3>
-            <div class="stars" id="starRating">
+            <div class="stars-filter" id="starRating">
                 <svg style="display:none;">
                     <symbol id="star-icon" viewBox="0 0 24 24">
                         <path d="M12 2l3 7 7 .5-5.5 4.5 1.5 7-6-4-6 4 1.5-7L2 9.5 9 9z"/>
                     </symbol>
                 </svg>
 
-                <div class="stars">
-                    <svg class="star" data-value="1"><use href="#star-icon"></use></svg>
-                    <svg class="star" data-value="2"><use href="#star-icon"></use></svg>
-                    <svg class="star" data-value="3"><use href="#star-icon"></use></svg>
-                    <svg class="star" data-value="4"><use href="#star-icon"></use></svg>
-                    <svg class="star" data-value="5"><use href="#star-icon"></use></svg>
+                <div class="stars-filter">
+                    <svg class="star-filter" data-value="1"><use href="#star-icon"></use></svg>
+                    <svg class="star-filter" data-value="2"><use href="#star-icon"></use></svg>
+                    <svg class="star-filter" data-value="3"><use href="#star-icon"></use></svg>
+                    <svg class="star-filter" data-value="4"><use href="#star-icon"></use></svg>
+                    <svg class="star-filter" data-value="5"><use href="#star-icon"></use></svg>
                 </div>
             </div>
         </section>
@@ -141,18 +142,18 @@
 
         <div class="product-grid">
 
-            <article class="product-card" data-href="product.html" data-rating="5" data-reviews="256">
+            <article class="product-card" data-href="product.html" data-rating="4.7" data-reviews="1756">
                     <img src="image/duck_with_sunglasses.png" alt="Duck with Sunglasses" class="product-image">
 
-                    <div class="product-rating" aria-label="Rated 5 out of 5 stars">
+                    <div class="product-rating" aria-label="Rated 4.7 out of 5 stars">
                         <div class="stars" aria-hidden="true">
                             <div class="stars-base">★★★★★</div>
                             <div class="stars-fill">★★★★★</div>
                         </div>
 
                         <p class="rating-text">
-                            <span class="rating-number">5</span>
-                            <span class="rating-count">256x</span>
+                            <span class="rating-number">4,7</span>
+                            <span class="rating-count">1756x</span>
                         </p>
                     </div>
 
@@ -169,11 +170,9 @@
                         <span>Add to cart</span>
                     </button>
                 </article>
-            </a>
-
 
             <article class="product-card" data-href="product.html" data-rating="5" data-reviews="256">
-                <img src="image/duck_with_sunglasses.png" alt="Duck with Sunglasses" class="product-image">
+                <img src="image/duck.png" alt="Duck" class="product-image">
 
                 <div class="product-rating" aria-label="Rated 5 out of 5 stars">
                     <div class="stars" aria-hidden="true">
@@ -187,7 +186,123 @@
                     </p>
                 </div>
 
-                <h3 class="product-title">Duck with Sunglasses</h3>
+                <h3 class="product-title">Super-duper Duck</h3>
+
+                <p class="product-price">0,30€</p>
+
+                <button class="add-to-cart" type="button" aria-label="Add Duck with Sunglasses to cart">
+                    <svg class="cart-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="18" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h7.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span>Add to cart</span>
+                </button>
+            </article>
+
+            <article class="product-card" data-href="product.html" data-rating="5" data-reviews="6">
+                <img src="image/duck2.png" alt="Duck" class="product-image">
+
+                <div class="product-rating" aria-label="Rated 5 out of 5 stars">
+                    <div class="stars" aria-hidden="true">
+                        <div class="stars-base">★★★★★</div>
+                        <div class="stars-fill">★★★★★</div>
+                    </div>
+
+                    <p class="rating-text">
+                        <span class="rating-number">5</span>
+                        <span class="rating-count">6x</span>
+                    </p>
+                </div>
+
+                <h3 class="product-title">Standing Duck</h3>
+
+                <p class="product-price">7,20€</p>
+
+                <button class="add-to-cart" type="button" aria-label="Add Duck with Sunglasses to cart">
+                    <svg class="cart-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="18" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h7.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span>Add to cart</span>
+                </button>
+            </article>
+
+            <article class="product-card" data-href="product.html" data-rating="5" data-reviews="37">
+                <img src="image/rubber-duck.png" alt="Duck" class="product-image">
+
+                <div class="product-rating" aria-label="Rated 5 out of 5 stars">
+                    <div class="stars" aria-hidden="true">
+                        <div class="stars-base">★★★★★</div>
+                        <div class="stars-fill">★★★★★</div>
+                    </div>
+
+                    <p class="rating-text">
+                        <span class="rating-number">5</span>
+                        <span class="rating-count">37x</span>
+                    </p>
+                </div>
+
+                <h3 class="product-title">Bubble Duck</h3>
+
+                <p class="product-price">58,62€</p>
+
+                <button class="add-to-cart" type="button" aria-label="Add Duck with Sunglasses to cart">
+                    <svg class="cart-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="18" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h7.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span>Add to cart</span>
+                </button>
+            </article>
+
+            <article class="product-card" data-href="product.html" data-rating="4.5" data-reviews="25">
+                <img src="image/duck1.png" alt="Duck with Sunglasses" class="product-image">
+
+                <div class="product-rating" aria-label="Rated 4.5 out of 5 stars">
+                    <div class="stars" aria-hidden="true">
+                        <div class="stars-base">★★★★★</div>
+                        <div class="stars-fill">★★★★★</div>
+                    </div>
+
+                    <p class="rating-text">
+                        <span class="rating-number">4.5</span>
+                        <span class="rating-count">25x</span>
+                    </p>
+                </div>
+
+                <h3 class="product-title">Quacky Ducky</h3>
+
+                <p class="product-price">58,60€</p>
+
+                <button class="add-to-cart" type="button" aria-label="Add Duck with Sunglasses to cart">
+                    <svg class="cart-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="18" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h7.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span>Add to cart</span>
+                </button>
+            </article>
+
+            <article class="product-card" data-href="product.html" data-rating="5" data-reviews="256">
+                <img src="image/duck3.png" alt="Duck" class="product-image">
+
+                <div class="product-rating" aria-label="Rated 5 out of 5 stars">
+                    <div class="stars" aria-hidden="true">
+                        <div class="stars-base">★★★★★</div>
+                        <div class="stars-fill">★★★★★</div>
+                    </div>
+
+                    <p class="rating-text">
+                        <span class="rating-number">5</span>
+                        <span class="rating-count">256x</span>
+                    </p>
+                </div>
+
+                <h3 class="product-title">Quacky Quack</h3>
 
                 <p class="product-price">147,30€</p>
 
@@ -201,8 +316,8 @@
                 </button>
             </article>
 
-            <article class="product-card" data-href="product.html" data-rating="5" data-reviews="256">
-                <img src="image/duck_with_sunglasses.png" alt="Duck with Sunglasses" class="product-image">
+            <article class="product-card" data-href="product.html" data-rating="5" data-reviews="1056">
+                <img src="image/duckling.png" alt="Ducklings" class="product-image">
 
                 <div class="product-rating" aria-label="Rated 5 out of 5 stars">
                     <div class="stars" aria-hidden="true">
@@ -212,129 +327,13 @@
 
                     <p class="rating-text">
                         <span class="rating-number">5</span>
-                        <span class="rating-count">256x</span>
+                        <span class="rating-count">1056x</span>
                     </p>
                 </div>
 
-                <h3 class="product-title">Duck with Sunglasses</h3>
+                <h3 class="product-title">Ducklings</h3>
 
-                <p class="product-price">147,30€</p>
-
-                <button class="add-to-cart" type="button" aria-label="Add Duck with Sunglasses to cart">
-                    <svg class="cart-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                        <circle cx="9" cy="21" r="1"></circle>
-                        <circle cx="18" cy="21" r="1"></circle>
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h7.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
-                    <span>Add to cart</span>
-                </button>
-            </article>
-
-            <article class="product-card" data-href="product.html" data-rating="5" data-reviews="256">
-                <img src="image/duck_with_sunglasses.png" alt="Duck with Sunglasses" class="product-image">
-
-                <div class="product-rating" aria-label="Rated 5 out of 5 stars">
-                    <div class="stars" aria-hidden="true">
-                        <div class="stars-base">★★★★★</div>
-                        <div class="stars-fill">★★★★★</div>
-                    </div>
-
-                    <p class="rating-text">
-                        <span class="rating-number">5</span>
-                        <span class="rating-count">256x</span>
-                    </p>
-                </div>
-
-                <h3 class="product-title">Duck with Sunglasses</h3>
-
-                <p class="product-price">147,30€</p>
-
-                <button class="add-to-cart" type="button" aria-label="Add Duck with Sunglasses to cart">
-                    <svg class="cart-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                        <circle cx="9" cy="21" r="1"></circle>
-                        <circle cx="18" cy="21" r="1"></circle>
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h7.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
-                    <span>Add to cart</span>
-                </button>
-            </article>
-
-            <article class="product-card" data-href="product.html" data-rating="5" data-reviews="256">
-                <img src="image/duck_with_sunglasses.png" alt="Duck with Sunglasses" class="product-image">
-
-                <div class="product-rating" aria-label="Rated 5 out of 5 stars">
-                    <div class="stars" aria-hidden="true">
-                        <div class="stars-base">★★★★★</div>
-                        <div class="stars-fill">★★★★★</div>
-                    </div>
-
-                    <p class="rating-text">
-                        <span class="rating-number">5</span>
-                        <span class="rating-count">256x</span>
-                    </p>
-                </div>
-
-                <h3 class="product-title">Duck with Sunglasses</h3>
-
-                <p class="product-price">147,30€</p>
-
-                <button class="add-to-cart" type="button" aria-label="Add Duck with Sunglasses to cart">
-                    <svg class="cart-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                        <circle cx="9" cy="21" r="1"></circle>
-                        <circle cx="18" cy="21" r="1"></circle>
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h7.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
-                    <span>Add to cart</span>
-                </button>
-            </article>
-
-            <article class="product-card" data-href="product.html" data-rating="5" data-reviews="256">
-                <img src="image/duck_with_sunglasses.png" alt="Duck with Sunglasses" class="product-image">
-
-                <div class="product-rating" aria-label="Rated 5 out of 5 stars">
-                    <div class="stars" aria-hidden="true">
-                        <div class="stars-base">★★★★★</div>
-                        <div class="stars-fill">★★★★★</div>
-                    </div>
-
-                    <p class="rating-text">
-                        <span class="rating-number">5</span>
-                        <span class="rating-count">256x</span>
-                    </p>
-                </div>
-
-                <h3 class="product-title">Duck with Sunglasses</h3>
-
-                <p class="product-price">147,30€</p>
-
-                <button class="add-to-cart" type="button" aria-label="Add Duck with Sunglasses to cart">
-                    <svg class="cart-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                        <circle cx="9" cy="21" r="1"></circle>
-                        <circle cx="18" cy="21" r="1"></circle>
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h7.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
-                    <span>Add to cart</span>
-                </button>
-            </article>
-
-            <article class="product-card" data-href="product.html" data-rating="5" data-reviews="256">
-                <img src="image/duck_with_sunglasses.png" alt="Duck with Sunglasses" class="product-image">
-
-                <div class="product-rating" aria-label="Rated 5 out of 5 stars">
-                    <div class="stars" aria-hidden="true">
-                        <div class="stars-base">★★★★★</div>
-                        <div class="stars-fill">★★★★★</div>
-                    </div>
-
-                    <p class="rating-text">
-                        <span class="rating-number">5</span>
-                        <span class="rating-count">256x</span>
-                    </p>
-                </div>
-
-                <h3 class="product-title">Duck with Sunglasses</h3>
-
-                <p class="product-price">147,30€</p>
+                <p class="product-price">4,85€</p>
 
                 <button class="add-to-cart" type="button" aria-label="Add Duck with Sunglasses to cart">
                     <svg class="cart-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -368,7 +367,9 @@
 <footer>
     <p>© 2026 Lucky Quacky</p>
     <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by vectorsmarket15 - Flaticon</a>
-    <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by vectorsmarket15 - Flaticon</a></footer>
+    <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber-duck icons">Rubber-duck icons created by Freepik - Flaticon</a>
+    <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by June Design - Flaticon</a>
+</footer>
 
 <script src="filter.js"></script>
 <script src="products.js"></script>

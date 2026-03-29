@@ -11,7 +11,7 @@ const state = {
     max: Number(maxInput.value)
 };
 
-const stars = document.querySelectorAll(".star");
+const stars = document.querySelectorAll(".star-filter");
 
 
 function updateUI() {
