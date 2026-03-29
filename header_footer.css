@@ -5,9 +5,26 @@
     /*outline: 1px solid red;*/       /* WOW velmi dobre na debug */
 }
 
+html, body {
+  min-height: 100vh;
+  margin: 0;
+}
 
 body {
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  flex-shrink: 0;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 /* Horna lista */
@@ -162,6 +179,83 @@ body {
 .image-credits a {
   color: #777;
   text-decoration: none;
+}
+
+
+/* FOOTER STYLING */
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  border-top: 4px solid var(--yellow);
+  padding: 10px;
+}
+
+.footer-contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.contact-label {
+  font-weight: bold;
+  font-family: 'Syne', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.contact-item a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  color: var(--yellow);
+}
+
+.footer-icon {
+  width: 18px;
+  height: 18px;
+  filter: invert(1); /* Ak su ikonky cierne, zmeni ich na biele */
+}
+
+.copyright {
+  font-size: 0.85rem;
+  color: #bbbbbb;
+}
+
+.image-credits {
+  font-size: 10px;
+  color: #555555;
+}
+
+.image-credits a {
+  color: #555555;
+  text-decoration: none;
+}
+
+.image-credits a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .footer-contact {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
 

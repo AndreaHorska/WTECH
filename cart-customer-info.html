@@ -90,9 +90,14 @@
             <section class="form-section">
                 <h2 class="form-section-title">Shipping Address</h2>
                 <div class="form-grid">
-                    <div class="form-group full-width">
-                        <label for="address">Street and House Number</label>
-                        <input type="text" id="address" name="address" placeholder="Main Street 123" required>
+                    <div class="form-group half-width">
+                        <label for="street">Street</label>
+                        <input type="text" id="street" name="street" placeholder="Main Street">
+                    </div>
+
+                    <div class="form-group half-width">
+                        <label for="house-number">House Number</label>
+                        <input type="text" id="house-number" name="house-number" placeholder="123">
                     </div>
                     <div class="form-group half-width">
                         <label for="city">City</label>
@@ -129,10 +134,16 @@
                         <input type="text" id="billing-company" name="billing-company" placeholder="Firma s.r.o.">
                     </div>
 
-                    <div class="form-group full-width">
-                        <label for="billing-address">Street and House Number</label>
-                        <input type="text" id="billing-address" name="billing-address" placeholder="Billing Street 456">
+                    <div class="form-group half-width">
+                        <label for="billing-street">Street</label>
+                        <input type="text" id="billing-street" name="billing-street" placeholder="Billing Street">
                     </div>
+
+                    <div class="form-group half-width">
+                        <label for="billing-house-number">Street and House Number</label>
+                        <input type="text" id="billing-house-number" name="billing-house-number" placeholder="456">
+                    </div>
+
                     <div class="form-group half-width">
                         <label for="billing-city">City</label>
                         <input type="text" id="billing-city" name="billing-city" placeholder="Bratislava">
@@ -141,6 +152,14 @@
                         <label for="billing-zip">ZIP Code</label>
                         <input type="text" id="billing-zip" name="billing-zip" placeholder="841 05">
                     </div>
+                    <div class="form-group full-width">
+                    <label for="billing-country">Country</label>
+                    <select id="billing-country" name="country">
+                        <option value="sk">Slovakia</option>
+                        <option value="cz">Czech Republic</option>
+                        <option value="de">Germany</option>
+                    </select>
+                </div>
                 </div>
             </section>
 
@@ -238,7 +257,36 @@
         </section>
     </section>
 </main>
-</div>
+
+<footer class="footer">
+    <div class="footer-contact">
+        <span class="contact-label">Contact</span>
+
+        <div class="contact-item">
+            <svg class="footer-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/>
+            </svg>
+            <span>0912 345 678</span>
+        </div>
+
+        <div class="contact-item">
+            <svg class="footer-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
+            </svg>
+            <a href="mailto:lucky.quacky@gmail.com">lucky.quacky@gmail.com</a>
+        </div>
+    </div>
+
+    <p class="copyright">© Lucky Quacky 2026</p>
+
+    <div class="image-credits">
+        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by vectorsmarket15 - Flaticon</a> |
+        <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber-duck icons">Rubber-duck icons created by Freepik - Flaticon</a> |
+        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by June Design - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber duck icons">Rubber duck icons created by kerismaker - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by Freepik - Flaticon</a>
+    </div>
+</footer>
 
 <script src="billing_address.js"></script>
 
