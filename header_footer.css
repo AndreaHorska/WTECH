@@ -6,26 +6,29 @@
 }
 
 html, body {
-  min-height: 100vh;
+  height: 100%; /* Dôležité pre správne fungovanie min-height na body */
   margin: 0;
 }
 
 body {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Toto opraví tú úzku šírku */
+header, main, footer {
+  width: 100%;
 }
 
 main {
-  flex: 1;
+  flex: 1 0 auto; /* Zabezpečí, že main vyplní medzeru a footer bude dole */
 }
 
 footer {
   flex-shrink: 0;
 }
 
-main {
-  flex: 1 0 auto;
-}
 
 /* Horna lista */
 
@@ -203,6 +206,12 @@ main {
   flex-wrap: wrap;
 }
 
+.copyright {
+    margin: 0;        /* Odstráni predvolený horný a dolný odstup odseku */
+    padding: 0;       /* Pre istotu, ak by tam nejaký bol */
+    line-height: 1;   /* Zníži výšku riadku na minimum */
+}
+
 .contact-label {
   font-weight: bold;
   font-family: 'Syne', sans-serif;
@@ -240,6 +249,7 @@ main {
 .image-credits {
   font-size: 10px;
   color: #555555;
+  margin: 0px;
 }
 
 .image-credits a {
@@ -267,7 +277,7 @@ main {
   } 
   .search-frame {
     order: 3;
-    min-width: 480px;
+    min-width: 460px;
     padding: 5px 0px;
   }
   .search {
