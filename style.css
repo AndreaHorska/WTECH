@@ -511,3 +511,27 @@ body {
     min-width: 220px;
   }
 }
+
+.remove-button {
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-icon {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: #A9A9A9;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.remove-button:hover .remove-icon {
+    stroke: #737373;
+}
