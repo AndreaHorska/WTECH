@@ -1,26 +1,3 @@
-:root {
-    --color-bg: #f7f7f7;
-    --color-surface: #ffffff;
-    --color-text: #111111;
-    --color-muted: #5a5a5a;
-    --color-border: #d9d9d9;
-    --color-primary: #003e7c;
-    --green: #1ddb00;
-    --red: #d92323;
-
-    --font-body: "Inter", Arial, sans-serif;
-    --font-heading: "Playfair Display SC", serif;
-    --font-accent: "Kaisei HarunoUmi", serif;
-
-    --radius-sm: 0.375rem;
-    --radius-md: 0.75rem;
-    --radius-lg: 1rem;
-
-    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.06);
-
-    --container-max: 1200px;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -34,9 +11,9 @@ html {
 
 body {
     margin: 0;
-    background: var(--color-bg);
+    background: var(--bg-color);
     color: var(--color-text);
-    font-family: var(--font-body);
+    font-family: var(--font-inter);
     line-height: 1.5;
 }
 
@@ -68,7 +45,7 @@ body {
 .checkout-step {
     display: flex;
     align-items: center;
-    color: var(--color-muted);
+    color: var(--small-text-color);
 }
 
 .checkout-step:not(:first-child)::before {
@@ -100,15 +77,15 @@ body {
 }
 
 .checkout-step.active {
-    color: var(--color-primary);
+    color: var(--dark-blue);
 }
 
 .checkout-step.active::before {
-    background-color: var(--color-primary);
+    background-color: var(--dark-blue);
 }
 
 .checkout-step.active .checkout-step-circle {
-    background-color: var(--color-primary);
+    background-color: var(--dark-blue);
 }
 
 
@@ -122,7 +99,7 @@ body {
 /* oramovanie */
 .cart-main,
 .order-summary {
-    background: var(--color-surface);
+    background: var(--white);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
@@ -206,7 +183,7 @@ body {
 
 .cart-item-info {
     margin: 0;
-    color: var(--color-muted);
+    color: var(--small-text-color);
     font-size: 0.95rem;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -362,7 +339,7 @@ body {
 .discount-input-real {
     width: 1.2em;
     height: 1.2em;
-    accent-color: var(--color-primary);
+    accent-color: var(--dark-blue);
     cursor: pointer;
     margin: 0;
 }
@@ -457,7 +434,7 @@ body {
     flex-direction: column;
     gap: 1rem;
     max-width: 800px;
-    background: var(--color-surface);
+    background: var(--white);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     container-type: inline-size;
@@ -494,7 +471,7 @@ body {
 .form-group label {
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--color-muted);
+    color: var(--small-text-color);
 }
 
 .form-group input,
@@ -503,13 +480,13 @@ body {
     padding: 0.75rem;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-sm);
-    font-family: var(--font-body);
+    font-family: var(--font-inter);
     font-size: 1rem;
 }
 
 .form-group input:focus {
     outline: none;
-    border-color: var(--color-primary);
+    border-color: var(--dark-blue);
 }
 
 .full-width {
@@ -550,7 +527,7 @@ body {
     height: 1.2em;
     border-radius: 5px;
     cursor: pointer;
-    accent-color: var(--color-primary);
+    accent-color: var(--dark-blue);
 }
 /* Summary kosika */
 
@@ -710,7 +687,7 @@ body {
         grid-column: 3;
         grid-row: 2;
         font-size: 0.85rem;
-        color: var(--color-muted);
+        color: var(--small-text-color);
         white-space: nowrap;
     }
 }
