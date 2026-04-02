@@ -5,6 +5,9 @@
         'resources/css/style.css'
     ])
 @endpush
+@push('scripts')
+    @vite(['resources/js/products.js'])
+@endpush
 
 @section('title', '- homepage')
 
