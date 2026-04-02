@@ -1,0 +1,780 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*outline: 1px solid red;*/
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    background: var(--bg-color);
+    color: var(--color-text);
+    font-family: var(--font-inter);
+    line-height: 1.5;
+}
+
+/* MAIN */
+
+.cart-page {
+    padding: 1.5rem clamp(1rem, 5vw, 10rem);
+}
+
+
+/* Checkout steps */
+.checkout-steps {
+    margin-bottom: 1.5rem;
+    gap: 1.5rem;
+    max-width: 100%;
+}
+
+.checkout-steps-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.checkout-step {
+    display: flex;
+    align-items: center;
+    color: var(--small-text-color);
+}
+
+.checkout-step:not(:first-child)::before {
+    content: "";
+    height: 2px;
+    background-color: #d9d9d9;
+    width: 5vw;
+    margin-left: 1.5rem;
+    margin-right: 0.rem;
+}
+
+.checkout-step-circle {
+    width: 2.3rem;
+    height: 2.3rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--color-border);
+    color: #fff;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.checkout-step-label {
+    margin-left: 0.75rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.checkout-step.active {
+    color: var(--dark-blue);
+}
+
+.checkout-step.active::before {
+    background-color: var(--dark-blue);
+}
+
+.checkout-step.active .checkout-step-circle {
+    background-color: var(--dark-blue);
+}
+
+
+.cart-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+/* oramovanie */
+.cart-main,
+.order-summary {
+    background: var(--white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.cart-main {
+    padding: 1rem;
+}
+
+.cart-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    container-type: inline-size;
+    container-name: cart;
+}
+
+ /* Daj horny ramik kazdemu prvku .cart-item, pred ktorym je iny .cart-item */
+.cart-item + .cart-item {
+    border-top: 1px solid var(--color-border);
+}
+
+.summary-item + .summary-item {
+    border-top: 1px solid var(--color-border);
+}
+
+.cart-item {
+    display: grid;
+    /* Obrazok | Popis | Status | Picker | Jednotkova cena | Cena | Remove */
+    grid-template-columns: 60px minmax(100px, 3fr) 120px 120px 100px 90px 40px;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0;
+    width: 100%;
+}
+
+.cart-item-description {
+    min-width: 0;
+}
+
+.stock-status,
+.cart-item-unit-price,
+.cart-item-total-price {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.cart-item-image {
+    width: 50px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    background: #ececec;
+    flex-shrink: 0;
+}
+
+.cart-item-description {
+    font-size: 16px;
+    flex-grow: 2;
+    text-align: left;
+    min-width: 100px;
+}
+
+.cart-item-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;          /* Pocet riadkov */
+    -webkit-box-orient: vertical;   /* Smer orientacie boxu*/
+    overflow: hidden;               /* Skryje zvysny text */
+    text-overflow: ellipsis;        /* Prida tri bodky na konci druheho riadku */
+
+    margin: 0 0 0.25rem;
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--color-text);
+}
+
+.cart-item-title:hover {
+    text-decoration: underline;
+}
+
+.cart-item-info {
+    margin: 0;
+    color: var(--small-text-color);
+    font-size: 0.95rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+}
+
+.stock-status {
+    display: inline-flex;
+    gap: 0.5rem;
+    margin: 0;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.stock-status.in-stock {
+    color: var(--green);
+}
+
+.stock-status.out-of-stock {
+    color: var(--red);
+}
+
+.stock-icon {
+    width: 20px;
+    aspect-ratio: 1 / 1;
+    stroke: currentColor;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
+
+.quantity-picker {
+    display: inline-flex;
+    align-items: right;
+    gap: 8px;
+}
+
+.quantity-button {
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    transition: opacity 0.2s;
+}
+
+.quantity-button:hover {
+    opacity: 0.7;
+}
+
+.quantity-icon {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+.quantity-input {
+    appearance: none;
+    -moz-appearance: textfield;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--black);
+    border-radius: 5px;
+    text-align: center;
+    font-family: var(--font-inter);
+    font-size: var(--normal-text-size);
+    background-color: var(--white);
+}
+
+
+.cart-item-unit-price,
+.cart-item-total-price {
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.cart-item-unit-price {
+    font-size: 0.95rem;
+}
+
+.cart-item-total-price {
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.remove-button {
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-icon {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: #A9A9A9;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.remove-button:hover .remove-icon {
+    stroke: #737373;
+}
+
+
+/* SUMMARY */
+
+.order-summary {
+    padding: 1.25rem;
+    position: sticky;
+    top: 1rem;
+}
+
+.order-summary-title {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+}
+
+.discount-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    font-family: var(--font-inter);
+}
+
+.discount-checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+}
+
+.discount-input-real {
+    width: 1.2em;
+    height: 1.2em;
+    accent-color: var(--dark-blue);
+    cursor: pointer;
+    margin: 0;
+}
+
+.discount-form-input {
+    width: 100%;
+    min-height: 44px;
+    padding: 0.75rem 0.875rem;
+    border: 1px solid #000;
+    border-radius: var(--radius-sm);
+    background: #fff;
+    box-sizing: border-box;
+}
+
+
+.summary-totals {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    margin: 0 0 1.5rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.summary-totals dt,
+.summary-totals dd {
+    margin: 0;
+}
+
+.order-summary_buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.order-summary_buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+.back-button, .continue-button{
+    flex: 1;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: var(--font-inter);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.back-button {
+    background-color: #ffffff;
+    color: #004080;
+    border: 1px solid #004080;
+}
+
+.continue-button {
+    background-color: #004080;
+    color: #ffffff;
+    border: none;
+}
+
+.back-button:hover {
+    background-color: #f0f5fa;
+    filter: brightness(0.95);
+}
+
+.continue-button:hover {
+    filter: brightness(0.85);
+}
+
+/* CUSTOMER INFO PAGE */
+
+.cart-shipping-layout,
+.customer-info-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.customer-info-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 800px;
+    background: var(--white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    container-type: inline-size;
+    container-name: customer-info;
+}
+
+.form-section {
+    padding: 1.5rem;
+}
+
+.form-section.hidden {
+    display: none;
+}
+
+.form-section-title {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+    color: var(--color-text);
+    font-weight: 700;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--small-text-color);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-inter);
+    font-size: 1rem;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--dark-blue);
+}
+
+.full-width {
+    grid-column: span 2;  /* na 2 stlpce */
+}
+
+.half-width {
+    grid-column: span 1;
+}
+
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 10px;
+}
+
+.different-billing-address {
+    displey: flex;
+    gap: 15px;
+    margin: 20px 0;
+    padding: 10px 0;
+    padding-left: 1.5rem;
+}
+
+.billing-checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.checkbox {
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    accent-color: var(--dark-blue);
+}
+/* Summary kosika */
+
+.summary-item {
+    display: grid;
+    /* Obrazok | Nazov | Cena */
+    grid-template-columns: 60px 1fr 90px;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0;
+    width: 100%;
+}
+
+.summary-item-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;         /* Pocet riadkov */
+    -webkit-box-orient: vertical;   /* Smer orientacie boxu*/
+    overflow: hidden;               /* Skryje zvysny text */
+    text-overflow: ellipsis;        /* Prida tri bodky na konci druheho riadku */
+
+    margin: 0 0 0.25rem;
+    font-size: 16px;
+    text-decoration: none;
+    color: var(--color-text);
+}
+
+.summary-item-title:hover {
+    text-decoration: underline;
+}
+
+.summary-item-details {
+    display: flex;
+    gap: 5px;
+}
+
+.summary-item-price {
+    font-weight: 500;
+    font-size: 1.05rem;
+    white-space: nowrap;
+    text-align: right;
+}
+
+.summary-divider {
+    border: 0;
+    border-top: 2px solid var(--color-text);
+    margin: 1rem 0;
+    opacity: 0.75;
+}
+
+
+.summary-prices {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem;
+    margin: 0 0 0.5rem;
+    width: 100%;
+    font-size: 16px;
+
+}
+
+.summary-prices dd{
+    text-align: right;
+}
+
+
+/* SHIPPING */
+
+.checkout-options {
+    max-width: 600px;
+    font-family: sans-serif;
+}
+
+.options-group {
+    border: 1px solid #888;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+
+    container-type: inline-size;
+    container-name: delivery-options;
+}
+
+.option-item {
+    display: grid;
+    /* Stlpce: Radio | Ikona | Nazov | Cena | Datum */
+    grid-template-columns: auto auto 1fr auto auto;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.option-item:not(:last-child) {
+    border-bottom: 1px solid #eee;
+}
+
+.option-item:hover {
+    background-color: #f9f9f9;
+}
+
+.option-item:has(input:checked) {
+    background-color: #f0f7ff;
+}
+
+.option-name {
+    font-weight: 600;
+}
+
+.option-price, .option-eta {
+    color: #333;
+    min-width: 60px;
+    text-align: right;
+}
+
+.option-item input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #004080;
+}
+
+@media (max-width: 650px) {
+    .checkout-step:not(:first-child)::before {
+        display: none;
+    }
+}
+
+@container cart (max-width: 700px) {
+    .cart-item {
+        display: grid;
+        /* Obrazok | Popis | Cena | Zrusit */
+        grid-template-columns: 60px 1fr 100px auto;
+        column-gap: 0.5rem;
+        row-gap: 0.75rem;
+        align-items: center;
+    }
+
+    .cart-item-image { grid-column: 1; grid-row: 1; allign-item: right }
+    .cart-item-description { grid-column: 2; grid-row: 1; }
+    .cart-item-total-price { grid-column: 3; grid-row: 1; }
+    .remove-button { grid-column: 4; grid-row: 1; }
+
+    .stock-status {
+        grid-column: 1 / 3;
+        grid-row: 2;
+        margin: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .quantity-picker {
+        grid-column: 2;
+        grid-row: 2;
+        justify-self: center;
+    }
+
+    .cart-item-unit-price {
+        grid-column: 3;
+        grid-row: 2;
+        font-size: 0.85rem;
+        color: var(--small-text-color);
+        white-space: nowrap;
+    }
+}
+
+@container cart (max-width: 480px) {
+    .quantity-picker {
+        justify-self: right;
+    }
+}
+
+
+@container cart (max-width: 400px) {
+    .summary-item,
+    .cart-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .summary-item-title {
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 1100px) {
+    .cart-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .order-summary {
+        position: static;
+    }
+}
+
+@media (max-width: 700px) {
+    .cart-shipping-layout,
+    .customer-info-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .order-summary {
+        position: static;
+    }
+}
+
+@media (max-width: 500px) {
+    .checkout-step:not(:first-child)::before {
+        display: none;
+    }
+
+    .form-buttons,
+    .order-summary_buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .back-button, .continue-button {
+        width: 100%;
+    }
+
+    /* Zmena poradia buttonov, nech je continue hore */
+    .continue-button {
+        order: -1;
+    }
+}
+
+@container customer-info (max-width: 500px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full-width, half-width {
+        grid-column: span 1;
+    }
+}
+
+@container delivery-options (max-width: 315px) {
+    .option-item {
+        display: grid;
+        /* Stlpce: Radio | Ikona | Nazov | Cena | Datum */
+        grid-template-columns: auto auto 1fr;
+        align-items: center;
+        gap: 15px;
+        padding: 15px;
+        cursor: pointer;
+    }
+
+    .option-eta { grid-column: 1/3; grid-row: 2}
+    .option-price { grid-column: 3; grid-row: 2; }
+}
+
