@@ -6,7 +6,7 @@
     ])
 @endpush
 
-@section('title', 'Lucky Quacky')
+@section('title', '- homepage')
 
 @section('content')
 <main class="main">

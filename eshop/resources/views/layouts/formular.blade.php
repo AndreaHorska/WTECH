@@ -9,7 +9,7 @@
 
     @vite([
         'resources/css/variables.css',
-        'resources/css/header_footer.css',
+        'resources/css/user_style.css',
         'resources/js/app.js',
         'resources/js/products.js'
     ])
@@ -21,11 +21,7 @@
 </head>
 <body>
 
-    @include('layouts.header')
-
     @yield('content')
-
-    @include('layouts.footer')
 
 </body>
 </html>

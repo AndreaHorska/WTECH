@@ -6,7 +6,7 @@
     ])
 @endpush
 
-@section('title', 'Lucky Quacky')
+@section('title', '- product detail')
 
 @section('content')
 <main class="main_product">
