@@ -8,7 +8,7 @@ Route::get('/', function () {
 });
 
 Route::get('/products', function () {
-    return view('index');
+    return view('products');
 });
 
 Route::get('/product', function () {

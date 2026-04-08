@@ -13,6 +13,7 @@ class Product extends Model
         'quantity',
         'price',
         'rating',
+        'review_count'
     ];
 
     public function orderItems()

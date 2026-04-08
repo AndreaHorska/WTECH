@@ -12,11 +12,10 @@
         'resources/css/variables.css',
         'resources/css/header_footer.css',
         'resources/js/app.js',
-        'resources/js/products.js'
     ])
 
     @stack('styles')
-    
+
     @stack('scripts')
 
 </head>

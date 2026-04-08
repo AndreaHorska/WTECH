@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->decimal('price', 8, 2);
             $table->decimal('rating', 3, 2)->default(0)->check('rating >= 0 AND rating <= 5');
+            $table->integer('review_count')->default(0);
             $table->timestamps();
         });
     }
