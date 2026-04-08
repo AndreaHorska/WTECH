@@ -34,12 +34,6 @@
                 <input name="password" type="password" class="form-control" required>
             </div>
 
-            <div class="mb-3">
-                <label class="form-check-label">
-                    <input type="checkbox" name="remember" class="form-check-input"> Remember me
-                </label>
-            </div>
-
             <button type="submit" class="btn btn-warning w-100">Login</button>
 
             <hr>
