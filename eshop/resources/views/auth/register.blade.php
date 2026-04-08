@@ -15,9 +15,17 @@
             <h1 class="mb-3 h3">Registration</h1>
 
             <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input name="name" type="text" class="form-control" value="{{ old('name') }}" required autofocus>
-                @error('name')
+                <label class="form-label">First Name</label>
+                <input name="first_name" type="text" class="form-control" value="{{ old('first_name') }}" required>
+                @error('first_name')
+                    <div class="text-danger small">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Last Name</label>
+                <input name="last_name" type="text" class="form-control" value="{{ old('last_name') }}" required>
+                @error('last_name')
                     <div class="text-danger small">{{ $message }}</div>
                 @enderror
             </div>
