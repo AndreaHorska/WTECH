@@ -10,7 +10,6 @@ return new class extends Migration
     {
         Schema::create('user_info', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->string('first_name', 50);
             $table->string('last_name', 50);
             $table->string('email_address', 255)->unique();

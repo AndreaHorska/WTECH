@@ -9,7 +9,6 @@ class UserInfo extends Model
     protected $table = 'user_info';
 
     protected $fillable = [
-        'user_id',
         'first_name',
         'last_name',
         'email_address',
@@ -18,6 +17,6 @@ class UserInfo extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasOne(User::class);
     }
 }

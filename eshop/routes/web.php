@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -30,7 +31,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/user-account', function () {
-        return view('user-account');
+        $userInfo = Auth::user()->userInfo;
+        return view('user-account', compact('userInfo'));
     })->name('user-account');
 });
 
