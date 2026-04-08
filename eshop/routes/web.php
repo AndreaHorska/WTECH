@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Shop\ProductController;
 
 Route::get('/', function () {
     return view('index');
@@ -35,5 +36,8 @@ Route::middleware('auth')->group(function () {
         return view('user-account', compact('userInfo'));
     })->name('user-account');
 });
+
+/* ked niekto otvori /products, tak laravel zavola funkciu index() v ProductControlleri */
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
 require __DIR__.'/auth.php';

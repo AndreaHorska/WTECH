@@ -92,19 +92,34 @@
 
         <div class="sort-header">
             <div class="tabs">
-                <button class="tab">Recommended</button>
-                <button class="tab active">Most Popular</button>
-                <button class="tab">Price: Low to High</button>
-                <button class="tab">Price: High to Low</button>
+                <a href="{{ route('products.index', ['sort' => 'recommended', 'per_page' => $perPage]) }}"
+                   class="tab {{ $sort === 'recommended' ? 'active' : '' }}">
+                    Recommended
+                </a>
+
+                <a href="{{ route('products.index', ['sort' => 'popular', 'per_page' => $perPage]) }}"
+                   class="tab {{ $sort === 'popular' ? 'active' : '' }}">
+                    Most Popular
+                </a>
+
+                <a href="{{ route('products.index', ['sort' => 'price_asc', 'per_page' => $perPage]) }}"
+                   class="tab {{ $sort === 'price_asc' ? 'active' : '' }}">
+                    Price: Low to High
+                </a>
+
+                <a href="{{ route('products.index', ['sort' => 'price_desc', 'per_page' => $perPage]) }}"
+                   class="tab {{ $sort === 'price_desc' ? 'active' : '' }}">
+                    Price: High to Low
+                </a>
             </div>
 
             <div class="items-per-page">
                 <div class="items-label">Items per page</div>
                 <div class="items-options">
-                    <a href="#">10</a> /
-                    <a href="#">25</a> /
-                    <a href="#">50</a> /
-                    <a href="#">100</a>
+                    <a href="{{ route('products.index', ['sort' => $sort, 'per_page' => 10]) }}">10</a> /
+                    <a href="{{ route('products.index', ['sort' => $sort, 'per_page' => 25]) }}">25</a> /
+                    <a href="{{ route('products.index', ['sort' => $sort, 'per_page' => 50]) }}">50</a> /
+                    <a href="{{ route('products.index', ['sort' => $sort, 'per_page' => 100]) }}">100</a>
                 </div>
             </div>
         </div>
@@ -346,16 +361,9 @@
         </div>
 
 
-        <nav class="pagination" aria-label="Pagination">
-            <a href="?page=1" class="page-link" aria-label="Previous page">&lt;</a>
-            <a href="?page=1" class="page-link">1</a>
-            <a href="?page=2" class="page-link active" aria-current="page">2</a>
-            <a href="?page=3" class="page-link">3</a>
-            <span class="page-ellipsis">...</span>
-            <a href="?page=14" class="page-link">14</a>
-            <a href="?page=15" class="page-link">15</a>
-            <a href="?page=3" class="page-link" aria-label="Next page">&gt;</a>
-        </nav>
+        <div class="pagination-wrapper">
+            {{ $products->links() }}
+        </div>
 
     </section>
 
