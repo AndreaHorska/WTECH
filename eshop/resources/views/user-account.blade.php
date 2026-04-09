@@ -18,12 +18,12 @@
 
         <div class="mb-3">
           <label for="first-name" class="form-label">First Name</label>
-          <input id="first-name" type="text" class="form-control" required>
+          <input id="first-name" type="text" class="form-control" value="{{ $userInfo->first_name ?? '' }}" required>
         </div>
 
         <div class="mb-3">
           <label for="last-name" class="form-label">Last Name</label>
-          <input id="last-name" type="text" class="form-control" required>
+          <input id="last-name" type="text" class="form-control" value="{{ $userInfo->last_name ?? '' }}" required>
         </div>
 
         <div class="mb-3">

@@ -14,9 +14,9 @@
 
     <div class="product_gallery">
       <div class="thumbnails">
-        <img class="thumb active" src="{{ asset('image/duck1.png') }}" alt="">
-        <img class="thumb" src="{{ asset('image/duck2.png') }}" alt="">
-        <img class="thumb" src="{{ asset('image/duck3.png') }}" alt="">
+        <img class="thumb active" src="{{ asset('image/duck1.png') }}" alt="thumb1">
+        <img class="thumb" src="{{ asset('image/duck2.png') }}" alt="thumb2">
+        <img class="thumb" src="{{ asset('image/duck3.png') }}" alt="thumb3">
       </div>
       <div class="main_product_box">
         <img id="mainImage" src="{{ asset('image/duck1.png') }}" alt="main image">
