@@ -124,6 +124,8 @@
             </div>
         </div>
 
+        <div class="product-grid">
+
         @forelse ($products as $product)
             @php
                 $image = $product->images->first();
@@ -131,7 +133,7 @@
 
             <article class="product-card" data-href="{{ url('/product') }}" data-rating="{{ $product->rating }}" data-reviews="{{ $product->review_count }}">
 
-                <img src="{{ asset($product->images->first()->image_path) }}" alt="{{ $product->name }}" class="product-image">
+                <img src="{{  $image ? asset($image->image_path) : asset('image/duck.png')  }}" alt="{{ $product->name }}" class="product-image">
 
                 <div class="product-rating" aria-label="Rated {{ $product->rating }} out of 5 stars">
                     <div class="stars" aria-hidden="true">
@@ -172,6 +174,8 @@
         <div class="pagination-wrapper">
             {{ $products->links() }}
         </div>
+        </div>
+
 
     </section>
 
