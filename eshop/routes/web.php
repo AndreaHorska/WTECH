@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Shop\ProductController;
 
+Route::get('/search', [ProductController::class, 'index']);
+
 Route::get('/', function () {
     return view('index');
 });
@@ -16,7 +18,7 @@ Route::get('/product', function () {
     return view('product');
 })->name('product');
 
-// Všetko, čo vyžaduje prihlásenie a admin rolu, daj SEM
+/* ADMIN */
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     
     Route::get('/', function () {

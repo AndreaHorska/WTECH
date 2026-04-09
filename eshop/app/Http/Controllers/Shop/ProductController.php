@@ -11,12 +11,17 @@ class ProductController extends Controller {
     public function index(Request $request): View {
         $sort = $request->query('sort', 'recommended');
         $perPage = (int) $request->query('per_page', 10);
+        $search = $request->query('query', '');
 
         if (!in_array($perPage, [10, 25, 50, 100], true)) {
             $perPage = 10;
         }
 
         $query = Product::with('images')->where('active', true);
+
+        if ($search) {
+            $query->whereRaw('LOWER(name) LIKE ?', ['%' . strtolower($search) . '%']);
+        }
 
         switch ($sort) {
             case 'price_asc':
@@ -46,6 +51,7 @@ class ProductController extends Controller {
             'products' => $products,
             'sort' => $sort,
             'perPage' => $perPage,
+            'search' => $search,
         ]);
     }
 }
