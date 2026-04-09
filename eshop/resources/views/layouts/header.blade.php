@@ -30,7 +30,7 @@
                 </a>
 
                 @if(Auth::user()->role && Auth::user()->role->name === 'admin')
-                    <a class="admin-link" href="{{ route('admin-panel') }}" title="Admin Panel" style="color: #ffc107; font-weight: bold;">
+                    <a class="admin-link" href="{{ route('admin.panel') }}" title="Admin Panel" style="color: #ffc107; font-weight: bold;">
                         Admin
                     </a>
                 @endif

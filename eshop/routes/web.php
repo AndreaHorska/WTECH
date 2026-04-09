@@ -16,18 +16,21 @@ Route::get('/product', function () {
     return view('product');
 })->name('product');
 
-Route::get('/admin-add-product', function () {
-    return view('admin-add-product');
-});
-
-Route::get('/admin-edit-product', function () {
-    return view('admin-edit-product');
-});
-
-Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin-panel', function () {
+// Všetko, čo vyžaduje prihlásenie a admin rolu, daj SEM
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    
+    Route::get('/', function () {
         return view('admin-panel');
-    })->name('admin-panel');
+    })->name('panel');
+
+    Route::get('/add-product', function () {
+        return view('admin-add-product');
+    })->name('product.add');
+
+    Route::get('/edit-product', function () {
+        return view('admin-edit-product');
+    })->name('product.edit');
+    
 });
 
 Route::middleware('auth')->group(function () {

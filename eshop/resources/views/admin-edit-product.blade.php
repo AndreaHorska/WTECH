@@ -30,7 +30,7 @@
     </div>
 
     <div class="main_product_box">
-      <img src="image/duck1.png" alt="preview">
+      <img src="{{ asset('image/duck1.png') }}" alt="main image">
     </div>
 
   </div>
