@@ -34,8 +34,25 @@ class ProductController extends Controller {
 
         $query = Product::with('images')->where('active', true);
 
-        if ($search) {
-            $query->whereRaw('LOWER(name) LIKE ?', ['%' . strtolower($search) . '%']);
+        if ($search !== '') {
+            /* trim($search) odstrani medzery na zaciatku a na konci, mb_strtolower male pismena (aj s diakritikou), \s+ jeden alebo viac bielych znakov */
+            $terms = preg_split('/\s+/', mb_strtolower(trim($search)));
+
+            $query->where(function ($q) use ($terms) {
+                foreach ($terms as $index => $term) {
+                    if ($index === 0) {
+                        $q->where(function ($subQ) use ($term) {
+                            $subQ->whereRaw('LOWER(name) LIKE ?', ['%' . $term . '%'])
+                                ->orWhereRaw('LOWER(description) LIKE ?', ['%' . $term . '%']);
+                        });
+                    } else {
+                        $q->orWhere(function ($subQ) use ($term) {
+                            $subQ->whereRaw('LOWER(name) LIKE ?', ['%' . $term . '%'])
+                                ->orWhereRaw('LOWER(description) LIKE ?', ['%' . $term . '%']);
+                        });
+                    }
+                }
+            });
         }
 
         $query->whereBetween('price', [$minPrice, $maxPrice]);

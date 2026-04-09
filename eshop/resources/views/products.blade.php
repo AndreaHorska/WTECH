@@ -21,7 +21,7 @@
             <input type="hidden" name="sort" value="{{ request('sort', 'recommended') }}">
             <input type="hidden" name="per_page" value="{{ request('per_page', 10) }}">
             <input type="hidden" name="query" value="{{ request('query', '') }}">
-            <input type="hidden" name="rating" id="ratingInput" value="{{ request('rating', 3) }}">
+            <input type="hidden" name="rating" id="ratingInput" value="{{ request('rating', 1) }}">
 
             <h2 class="filter-title">Filter</h2>
 

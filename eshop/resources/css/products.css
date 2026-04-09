@@ -280,12 +280,11 @@ body {
 /* Product Grid */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 25px 12px;
     padding: 16px;
     background-color: var(--white);
     border-radius: 0 10px 10px 10px;
-    justify-items: center;
 }
 
 /* Zvysok presunute do ineho suboru*/
@@ -352,7 +351,7 @@ body {
     }
 
     .product-grid {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
         padding: 15px;
     }
 }
