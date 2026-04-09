@@ -5,6 +5,8 @@ const progress = document.getElementById("progress");
 const minInput = document.getElementById("minInput");
 const maxInput = document.getElementById("maxInput");
 const maxValue = Number(maxInput.max);
+const ratingInput = document.getElementById("ratingInput");
+const filterForm = document.getElementById("filterForm");
 
 const state = {
     min: Number(minInput.value),
@@ -138,6 +140,9 @@ function fillStars(index) {
             s.classList.remove('filled');
         }
     });
+
+    /* indexuje sa od 0 */
+    ratingInput.value = index + 1;
 }
 
 stars.forEach((star, index) => {
@@ -146,6 +151,12 @@ stars.forEach((star, index) => {
     });
 });
 
-fillStars(2);
+const initialRating = Number(ratingInput.value);
+
+if (!isNaN(initialRating) && initialRating > 0) {
+    fillStars(initialRating - 1);
+} else {
+    ratingInput.value = 0;
+}
 
 window.addEventListener("resize", updateUI);

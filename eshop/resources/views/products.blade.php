@@ -16,98 +16,106 @@
 
 <main class="main-content">
     <aside class="sidebar">
-        <h2 class="filter-title">Filter</h2>
+        <form method="GET" action="{{ route('products.index') }}" id="filterForm">
+            {{-- zober aktualne nastavenia z url --}}
+            <input type="hidden" name="sort" value="{{ request('sort', 'recommended') }}">
+            <input type="hidden" name="per_page" value="{{ request('per_page', 10) }}">
+            <input type="hidden" name="query" value="{{ request('query', '') }}">
+            <input type="hidden" name="rating" id="ratingInput" value="{{ request('rating', 3) }}">
 
-        <section class="filter-section">
-            <h3 class="filter-section-title">Price</h3>
-            <div class="slider" id="slider">
-                <div class="track"></div>
-                <div class="progress" id="progress"></div>
-                <div class="handle" id="minHandle"></div>
-                <div class="handle" id="maxHandle"></div>
-            </div>
-            <div class="price-inputs">
-                <label for="minInput" class="visually-hidden">Minimum Price</label>
-                <input type="number" value="12" min="0" max="200" class="price-input" id="minInput">
-                <label for="maxInput" class="visually-hidden">Maximum Price</label>
-                <input type="number" value="132" min="0" max="200" class="price-input" id="maxInput">
-            </div>
-        </section>
+            <h2 class="filter-title">Filter</h2>
 
-        <section class="filter-section">
-            <h3 class="filter-section-title">Star Rating (min.)</h3>
-            <div class="stars-filter" id="starRating">
-                <svg style="display:none;">
-                    <symbol id="star-icon" viewBox="0 0 24 24">
-                        <path d="M12 2l3 7 7 .5-5.5 4.5 1.5 7-6-4-6 4 1.5-7L2 9.5 9 9z"/>
-                    </symbol>
-                </svg>
+            <section class="filter-section">
+                <h3 class="filter-section-title">Price</h3>
+                <div class="slider" id="slider">
+                    <div class="track"></div>
+                    <div class="progress" id="progress"></div>
+                    <div class="handle" id="minHandle"></div>
+                    <div class="handle" id="maxHandle"></div>
+                </div>
+                <div class="price-inputs">
+                    <label for="minInput" class="visually-hidden">Minimum Price</label>
+                    <input type="number" value="{{ request('min_price', 0) }}" min="0" max="200" class="price-input" id="minInput" name="min_price">
+                    <label for="maxInput" class="visually-hidden">Maximum Price</label>
+                    <input type="number" value="{{ request('max_price', 200) }}" min="0" max="200" class="price-input" id="maxInput" name="max_price">
+                </div>
+            </section>
 
-                <div class="stars-filter">
-                    <svg class="star-filter" data-value="1"><use href="#star-icon"></use></svg>
-                    <svg class="star-filter" data-value="2"><use href="#star-icon"></use></svg>
-                    <svg class="star-filter" data-value="3"><use href="#star-icon"></use></svg>
-                    <svg class="star-filter" data-value="4"><use href="#star-icon"></use></svg>
-                    <svg class="star-filter" data-value="5"><use href="#star-icon"></use></svg>
-                </div>
-            </div>
-        </section>
+            <section class="filter-section">
+                <h3 class="filter-section-title">Star Rating (min.)</h3>
+                <div class="stars-filter" id="starRating">
+                    <svg style="display:none;">
+                        <symbol id="star-icon" viewBox="0 0 24 24">
+                            <path d="M12 2l3 7 7 .5-5.5 4.5 1.5 7-6-4-6 4 1.5-7L2 9.5 9 9z"/>
+                        </symbol>
+                    </svg>
 
-        <section class="filter-section">
-            <h3 class="filter-section-title">Accessories</h3>
-            <div class="accessories-filter">
-                <h4 class="filter-subheading">Outfits</h4>
-                <div class="checkbox-group">
-                    <label class="checkbox-label"><input type="checkbox"><span>Hats</span></label>
-                    <label class="checkbox-label"><input type="checkbox" checked><span>Glasses</span></label>
-                    <label class="checkbox-label"><input type="checkbox"><span>Tie</span></label>
-                    <label class="checkbox-label"><input type="checkbox"><span>T-Shirt</span></label>
-                    <label class="checkbox-label"><input type="checkbox"><span>Jacket</span></label>
+                    <div class="stars-filter">
+                        <svg class="star-filter" data-value="1"><use href="#star-icon"></use></svg>
+                        <svg class="star-filter" data-value="2"><use href="#star-icon"></use></svg>
+                        <svg class="star-filter" data-value="3"><use href="#star-icon"></use></svg>
+                        <svg class="star-filter" data-value="4"><use href="#star-icon"></use></svg>
+                        <svg class="star-filter" data-value="5"><use href="#star-icon"></use></svg>
+                    </div>
                 </div>
-            </div>
-            <div class="accessories-filter">
-                <h4 class="filter-subheading">Professions</h4>
-                <div class="checkbox-group">
-                    <label class="checkbox-label"><input type="checkbox"><span>Student</span></label>
-                    <label class="checkbox-label"><input type="checkbox"><span>Scientist</span></label>
-                    <label class="checkbox-label"><input type="checkbox"><span>White Collar</span></label>
-                    <label class="checkbox-label"><input type="checkbox"><span>Other</span></label>
+            </section>
+
+            <section class="filter-section">
+                <h3 class="filter-section-title">Accessories</h3>
+                <div class="accessories-filter">
+                    <h4 class="filter-subheading">Outfits</h4>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label"><input type="checkbox"><span>Hats</span></label>
+                        <label class="checkbox-label"><input type="checkbox" checked><span>Glasses</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span>Tie</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span>T-Shirt</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span>Jacket</span></label>
+                    </div>
                 </div>
-            </div>
-            <div class="accessories-filter">
-                <h4 class="filter-subheading">Gear</h4>
-                <div class="checkbox-group">
-                    <label class="checkbox-label"><input type="checkbox"><span>Weapons</span></label>
-                    <label class="checkbox-label"><input type="checkbox"><span>Tools</span></label>
-                    <label class="checkbox-label"><input type="checkbox"><span>School</span></label>
-                    <label class="checkbox-label"><input type="checkbox"><span>Sports</span></label>
-                    <label class="checkbox-label"><input type="checkbox"><span>DIY</span></label>
+                <div class="accessories-filter">
+                    <h4 class="filter-subheading">Professions</h4>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label"><input type="checkbox"><span>Student</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span>Scientist</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span>White Collar</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span>Other</span></label>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <button class="filter-button">Filter</button>
+                <div class="accessories-filter">
+                    <h4 class="filter-subheading">Gear</h4>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label"><input type="checkbox"><span>Weapons</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span>Tools</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span>School</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span>Sports</span></label>
+                        <label class="checkbox-label"><input type="checkbox"><span>DIY</span></label>
+                    </div>
+                </div>
+            </section>
+            <button class="filter-button">Filter</button>
+        </form>
     </aside>
 
     <section class="product-section">
 
         <div class="sort-header">
             <div class="tabs">
-                <a href="{{ route('products.index', ['sort' => 'recommended', 'per_page' => $perPage]) }}"
+                <a href="{{ route('products.index', array_merge(request()->query(), ['sort' => 'recommended', 'per_page' => $perPage])) }}"
                     @class(['tab', 'active' => $sort === 'recommended'])>
                     Recommended
                 </a>
 
-                <a href="{{ route('products.index', ['sort' => 'popular', 'per_page' => $perPage]) }}"
+                <a href="{{ route('products.index', array_merge(request()->query(), ['sort' => 'popular', 'per_page' => $perPage])) }}"
                     @class(['tab', 'active' => $sort === 'popular'])>
                     Most Popular
                 </a>
 
-                <a href="{{ route('products.index', ['sort' => 'price_asc', 'per_page' => $perPage]) }}"
+                <a href="{{ route('products.index', array_merge(request()->query(), ['sort' => 'price_asc', 'per_page' => $perPage])) }}"
                     @class(['tab', 'active' => $sort === 'price_asc'])>
                     Price: Low to High
                 </a>
 
-                <a href="{{ route('products.index', ['sort' => 'price_desc', 'per_page' => $perPage]) }}"
+                <a href="{{ route('products.index', array_merge(request()->query(), ['sort' => 'price_desc', 'per_page' => $perPage])) }}"
                     @class(['tab', 'active' => $sort === 'price_desc'])>
                     Price: High to Low
                 </a>
@@ -116,13 +124,13 @@
             <div class="items-per-page">
                 <div class="items-label">Items per page</div>
                 <div class="items-options">
-                    <a href="{{ route('products.index', ['sort' => $sort, 'per_page' => 10]) }}"
+                    <a href="{{ route('products.index', array_merge(request()->query(), ['sort' => $sort, 'per_page' => 10])) }}"
                         @class(['active' => $perPage === 10])>10</a> /
-                    <a href="{{ route('products.index', ['sort' => $sort, 'per_page' => 25]) }}"
+                    <a href="{{ route('products.index', array_merge(request()->query(), ['sort' => $sort, 'per_page' => 25])) }}"
                         @class(['active' => $perPage === 25])>25</a> /
-                    <a href="{{ route('products.index', ['sort' => $sort, 'per_page' => 50]) }}"
+                    <a href="{{ route('products.index', array_merge(request()->query(), ['sort' => $sort, 'per_page' => 50])) }}"
                         @class(['active' => $perPage === 50])>50</a> /
-                    <a href="{{ route('products.index', ['sort' => $sort, 'per_page' => 100]) }}"
+                    <a href="{{ route('products.index', array_merge(request()->query(), ['sort' => $sort, 'per_page' => 100])) }}"
                         @class(['active' => $perPage === 100])>100</a>
                 </div>
             </div>
