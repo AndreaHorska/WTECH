@@ -202,6 +202,9 @@ body {
 }
 
 .tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     min-width: 138px;
     height: 38px;
     padding: 0 5px;
@@ -211,6 +214,8 @@ body {
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s;
+    text-decoration: none;
+    color: var(--black);
 }
 
 .tab.active {
@@ -259,6 +264,11 @@ body {
     text-decoration: none;
 }
 
+.items-options a.active {
+    color: var(--black);
+    text-decoration: underline;
+}
+
 .items-options a:hover {
     text-decoration: underline;
 }
@@ -293,6 +303,9 @@ body {
     color: var(--dark-blue);
     text-decoration: none;
     padding: 7px 3px;
+    background: transparent;
+    border: none;
+    display: inline-block;
 }
 
 .page-link:hover {
@@ -302,6 +315,10 @@ body {
 .page-link.active {
     font-weight: 800;
     font-size: 16px;
+    color: var(--dark-blue);
+    text-decoration: none;
+    background: transparent;
+    border: none;
 }
 
 .page-ellipsis {
@@ -310,6 +327,16 @@ body {
     letter-spacing: 1.92px;
 }
 
+/* Vypnuta sipka */
+.pagination span.page-link {
+    color: #ccc;
+    cursor: default;
+}
+
+.pagination .page-link:focus {
+    box-shadow: none !important;
+    outline: none;
+}
 
 @media (max-width: 880px) {
     .main-content {

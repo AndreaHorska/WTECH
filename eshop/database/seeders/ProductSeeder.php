@@ -12,7 +12,10 @@ class ProductSeeder extends Seeder
      * Run the database seeds.
      */
     public function run(): void
-    {   $products = [
+    {   // falosne produkty
+        \App\Models\Product::factory(100)->create();
+
+        $products = [
         [
             'active' => true,
             'name' => 'Duck with Sunglasses',
@@ -91,7 +94,6 @@ class ProductSeeder extends Seeder
             Product::create($product);
         }
 
-        // falosne produkty
-        \App\Models\Product::factory(50)->create();
+
     }
 }
