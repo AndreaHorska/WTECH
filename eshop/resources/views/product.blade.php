@@ -28,42 +28,49 @@
     </div>
 
     <div class="product_info">
-      <h1>Super-duper Duck</h1>
-      <div class="product-rating" aria-label="Rated 5 out of 5 stars">
+      <h1>{{ $product->name }}</h1>
+      <div class="product-rating" aria-label="Rated {{ $product->rating }} out of 5 stars">
             <div class="stars" aria-hidden="true">
                 <div class="stars-base">★★★★★</div>
                 <div class="stars-fill">★★★★★</div>
             </div>
-
             <p class="rating-text">
-                <span class="rating-number">4.7</span>
-                <span class="rating-count">214x</span>
+                <span class="rating-number">{{ number_format($product->rating, 1, ',', ' ') }}</span>
+                <span class="rating-count">{{ $product->review_count }}x</span>
             </p>
       </div>
       <div class="description">
-        Bring some "quack" to your life! This premium vinyl sticker
-        is perfect for personalizing your laptop, water bottle, 
-        phone case, or notebook.
+        {{ $product->description }}
       </div>
 
-      <p>20pcs in one package</p>
-
-      <div class="quantity_control">
-        <p>Quantity:</p>
-        <input type="number" value="1" min="1" id="quantityInput">
-      </div>
-
-      <div class="stock-info mb-2">
-        <span class="text-success fw-bold fs-6 d-flex align-items-center">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="me-2">
-                <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-            In stock &gt; 5
-        </span>
-      </div>
-
-      <h1>12,99€</h1>
-      <button class="btn btn-warning w-100">Add to cart</button>
+      <form action="{{ route('cart.add') }}" method="POST">
+        @csrf
+        <input type="hidden" name="product_id" value="{{ $product->id }}">
+        <div class="quantity_control">
+            <p>Quantity:</p>
+            <input type="number" name="quantity" value="1" min="1" id="quantityInput">
+        </div>
+        <div class="stock-info mb-2">
+            @if ($product->quantity > 5)
+                <span class="text-success fw-bold fs-6 d-flex align-items-center">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="me-2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    In stock &gt; 5
+                </span>
+            @elseif ($product->quantity > 0)
+                <span class="text-warning fw-bold fs-6">
+                    Only {{ $product->quantity }} left!
+                </span>
+            @else
+                <span class="text-danger fw-bold fs-6">
+                    Out of stock
+                </span>
+            @endif
+        </div>
+        <h1>{{ number_format($product->price, 2, ',', ' ') }}€</h1>
+        <button type="submit" class="btn btn-warning w-100" {{ $product->quantity == 0 ? 'disabled' : '' }}>Add to cart</button>
+      </form>
     </div>
 
   </section>
@@ -151,14 +158,19 @@
                 </div>
                 <h3 class="product-title">{{ $item->name }}</h3>
                 <p class="product-price">{{ number_format($item->price, 2, ',', ' ') }}€</p>
-                <button class="add-to-cart" type="button">
-                    <svg class="cart-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="9" cy="21" r="1"></circle>
-                        <circle cx="18" cy="21" r="1"></circle>
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h7.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
-                    <span>Add to cart</span>
-                </button>
+                <form action="{{ route('cart.add') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="product_id" value="{{ $item->id }}">
+                    <input type="hidden" name="quantity" value="1">
+                    <button class="add-to-cart" type="submit" aria-label="Add product to cart">
+                        <svg class="cart-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="18" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h7.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span>Add to cart</span>
+                    </button>
+                </form>
             </article>
         @endforeach
 

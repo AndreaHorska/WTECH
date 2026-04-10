@@ -4,23 +4,18 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Shop\ProductController;
 
+Route::get('/', [ProductController::class, 'home']);
+
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+
 Route::get('/search', [ProductController::class, 'index']);
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
 
-Route::get('/products', function () {
-    return view('products');
-});
-
-Route::get('/product', function () {
-    return view('product');
-})->name('product');
+Route::post('/cart/add', [\App\Http\Controllers\Shop\CartController::class, 'add'])->name('cart.add');
 
 /* ADMIN */
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
-    
     Route::get('/', function () {
         return view('admin-panel');
     })->name('panel');
@@ -32,7 +27,6 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/edit-product', function () {
         return view('admin-edit-product');
     })->name('product.edit');
-    
 });
 
 Route::middleware('auth')->group(function () {
@@ -41,8 +35,5 @@ Route::middleware('auth')->group(function () {
         return view('user-account', compact('userInfo'));
     })->name('user-account');
 });
-
-/* ked niekto otvori /products, tak laravel zavola funkciu index() v ProductControlleri */
-Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
 require __DIR__.'/auth.php';

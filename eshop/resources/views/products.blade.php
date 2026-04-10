@@ -169,14 +169,19 @@
                         {{ number_format($product->price, 2, ',', ' ') }}€
                     </p>
 
-                    <button class="add-to-cart" type="button" aria-label="Add product to cart">
-                        <svg class="cart-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <circle cx="9" cy="21" r="1"></circle>
-                            <circle cx="18" cy="21" r="1"></circle>
-                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h7.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                        </svg>
-                        <span>Add to cart</span>
-                    </button>
+                    <form action="{{ route('cart.add') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <input type="hidden" name="quantity" value="1">
+                        <button class="add-to-cart" type="submit" aria-label="Add product to cart">
+                            <svg class="cart-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="18" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h7.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                            <span>Add to cart</span>
+                        </button>
+                    </form>
                 </article>
 
             @empty
