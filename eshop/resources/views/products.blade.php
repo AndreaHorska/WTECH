@@ -143,7 +143,7 @@
                     $image = $product->images->first();
                 @endphp
 
-                <article class="product-card" data-href="{{ url('/product') }}" data-rating="{{ $product->rating }}" data-reviews="{{ $product->review_count }}">
+                <article class="product-card" data-href="{{ route('product.show', $product->id) }}" data-rating="{{ $product->rating }}" data-reviews="{{ $product->review_count }}">
 
                     <img src="{{  $image ? asset($image->image_path) : asset('image/duck.png')  }}" alt="{{ $product->name }}" class="product-image">
 

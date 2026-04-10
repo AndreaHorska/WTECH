@@ -92,4 +92,33 @@ class ProductController extends Controller {
             'search' => $search,
         ]);
     }
+
+    public function home(): View
+    {
+        $products = Product::with('images')
+            ->where('active', true)
+            ->orderBy('id', 'desc')
+            ->take(10)
+            ->get();
+
+        return view('index', compact('products'));
+    }
+
+    public function show(int $id): View
+    {
+        $product = Product::with(['images', 'categories'])->findOrFail($id);
+
+        $categoryIds = $product->categories->pluck('id');
+
+        $similar = Product::with('images')
+            ->where('active', true)
+            ->where('id', '!=', $id)
+            ->whereHas('categories', function ($q) use ($categoryIds) {
+                $q->whereIn('categories.id', $categoryIds);
+            })
+            ->take(5)
+            ->get();
+
+        return view('product', compact('product', 'similar'));
+    }
 }
