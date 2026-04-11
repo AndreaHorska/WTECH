@@ -50,7 +50,6 @@
     position: absolute;
     top: 50%;
     left: 0;
-    width: 90%;
     transform: translate(0, -50%);
     overflow: hidden;  /* skryje cast hviezd, ktora presahuje sirku*/
     white-space: nowrap;  /* nezalomia sa na novy riadok*/

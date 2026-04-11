@@ -32,7 +32,7 @@
       <div class="product-rating" aria-label="Rated {{ $product->rating }} out of 5 stars">
             <div class="stars" aria-hidden="true">
                 <div class="stars-base">★★★★★</div>
-                <div class="stars-fill">★★★★★</div>
+                <div class="stars-fill" style="width: {{ ($product->rating / 5) * 100 }}%">★★★★★</div>
             </div>
             <p class="rating-text">
                 <span class="rating-number">{{ number_format($product->rating, 1, ',', ' ') }}</span>
@@ -78,7 +78,7 @@
 
 
 <section class="specification">
-  
+
   <div class="left_spec">
     <h2>Specification</h2>
     <table class="spec-table">
@@ -117,16 +117,16 @@
         <div class="star-rating-input mb-3">
             <input type="radio" id="star5" name="rating" value="5" required>
             <label for="star5" title="5 stars">★</label>
-            
+
             <input type="radio" id="star4" name="rating" value="4">
             <label for="star4" title="4 stars">★</label>
-            
+
             <input type="radio" id="star3" name="rating" value="3">
             <label for="star3" title="3 stars">★</label>
-            
+
             <input type="radio" id="star2" name="rating" value="2">
             <label for="star2" title="2 stars">★</label>
-            
+
             <input type="radio" id="star1" name="rating" value="1">
             <label for="star1" title="1 star">★</label>
         </div>
