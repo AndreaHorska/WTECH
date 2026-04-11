@@ -62,36 +62,24 @@
 
             <section class="filter-section">
                 <h3 class="filter-section-title">Accessories</h3>
-                <div class="accessories-filter">
-                    <h4 class="filter-subheading">Outfits</h4>
-                    <div class="checkbox-group">
-                        <label class="checkbox-label"><input type="checkbox"><span>Hats</span></label>
-                        <label class="checkbox-label"><input type="checkbox" checked><span>Glasses</span></label>
-                        <label class="checkbox-label"><input type="checkbox"><span>Tie</span></label>
-                        <label class="checkbox-label"><input type="checkbox"><span>T-Shirt</span></label>
-                        <label class="checkbox-label"><input type="checkbox"><span>Jacket</span></label>
+
+                @foreach($categoryTypes as $type)
+                    <div class="accessories-filter">
+                        <h4 class="filter-subheading">{{ $type->name }}</h4>
+
+                        <div class="checkbox-group">
+                            @foreach($type->categories as $category)
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="categories[]" value="{{ $category->slug }}"
+                                        @checked(in_array($category->slug, request('categories', [])))>
+                                    <span>{{ $category->name }}</span>
+                                </label>
+                            @endforeach
+                        </div>
                     </div>
-                </div>
-                <div class="accessories-filter">
-                    <h4 class="filter-subheading">Professions</h4>
-                    <div class="checkbox-group">
-                        <label class="checkbox-label"><input type="checkbox"><span>Student</span></label>
-                        <label class="checkbox-label"><input type="checkbox"><span>Scientist</span></label>
-                        <label class="checkbox-label"><input type="checkbox"><span>White Collar</span></label>
-                        <label class="checkbox-label"><input type="checkbox"><span>Other</span></label>
-                    </div>
-                </div>
-                <div class="accessories-filter">
-                    <h4 class="filter-subheading">Gear</h4>
-                    <div class="checkbox-group">
-                        <label class="checkbox-label"><input type="checkbox"><span>Weapons</span></label>
-                        <label class="checkbox-label"><input type="checkbox"><span>Tools</span></label>
-                        <label class="checkbox-label"><input type="checkbox"><span>School</span></label>
-                        <label class="checkbox-label"><input type="checkbox"><span>Sports</span></label>
-                        <label class="checkbox-label"><input type="checkbox"><span>DIY</span></label>
-                    </div>
-                </div>
+                @endforeach
             </section>
+
             <button class="filter-button">Filter</button>
         </form>
     </aside>

@@ -28,6 +28,7 @@ class ProductCategorySeeder extends Seeder
                 'lifestyle' => ['quirky'],
             ],
             'Standing Duck' => [
+                'main' => ['funny'],
                 'view' => ['full'],
                 'lifestyle' => ['chilled'],
             ],

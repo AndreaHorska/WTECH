@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Models\CategoryType;
 
 class ProductController extends Controller {
     public function index(Request $request): View {
@@ -32,7 +33,7 @@ class ProductController extends Controller {
             $rating = 0;
         }
 
-        $query = Product::with('images')->where('active', true);
+        $query = Product::with('images', 'categories')->where('active', true);
 
         if ($search !== '') {
             /* trim($search) odstrani medzery na zaciatku a na konci, mb_strtolower male pismena (aj s diakritikou), \s+ jeden alebo viac bielych znakov */
@@ -61,6 +62,16 @@ class ProductController extends Controller {
             $query->where('rating', '>=', $rating);
         }
 
+        if ($request->filled('categories')) {
+            $categories = $request->categories;
+
+            foreach ($categories as $slug) {
+                $query->whereHas('categories', function ($q) use ($slug) {
+                    $q->where('slug', $slug);
+                });
+            }
+        }
+
         switch ($sort) {
             case 'price_asc':
                 $query->orderBy('price', 'asc');
@@ -85,11 +96,16 @@ class ProductController extends Controller {
 
         $products = $query->paginate($perPage)->withQueryString();
 
+        $categoryTypes = CategoryType::with('categories')
+            ->where('slug', '!=', 'main')
+            ->get();
+
         return view('products', [
             'products' => $products,
             'sort' => $sort,
             'perPage' => $perPage,
             'search' => $search,
+            'categoryTypes' => $categoryTypes,
         ]);
     }
 
