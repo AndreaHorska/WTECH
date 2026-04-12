@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Shop\ProductController;
 use App\Http\Controllers\Shop\CartController;
+use App\Http\Controllers\Shop\AdminProductController;
 
 Route::get('/', [ProductController::class, 'home']);
 
@@ -23,17 +24,17 @@ Route::delete('/cart/remove/{productId}', [CartController::class, 'remove'])->na
 
 /* ADMIN */
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/', function () {
-        return view('admin-panel');
-    })->name('panel');
+    Route::get('/', [AdminProductController::class, 'index'])->name('panel');
 
     Route::get('/add-product', function () {
         return view('admin-add-product');
     })->name('product.add');
 
-    Route::get('/edit-product', function () {
+    Route::get('/edit-product/{id}', function () {
         return view('admin-edit-product');
     })->name('product.edit');
+
+    Route::delete('/product/{id}', [AdminProductController::class, 'destroy'])->name('product.destroy');
 });
 
 Route::middleware('auth')->group(function () {

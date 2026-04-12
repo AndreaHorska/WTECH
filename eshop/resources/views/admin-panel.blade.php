@@ -30,46 +30,28 @@
       </thead>
 
       <tbody>
-        <tr>
-          <td>1</td>
-          <td><img src="{{ asset('image/duck_with_sunglasses.png') }}" width="50"></td>
-          <td>Duck with Sunglasses</td>
-          <td>12.99€</td>
-          <td>Funny</td>
-          <td>
-            <a class="btn btn-sm btn-warning"
-                href="{{ route('admin.product.edit') }}">Edit</a>
-            <button class="btn btn-sm btn-danger">Delete</button>
-          </td>
-        </tr>
-
-        <tr>
-          <td>2</td>
-          <td><img src="{{ asset('image/duck2.png') }}" width="50"></td>
-          <td>Luxury Duck</td>
-          <td>50€</td>
-          <td>Luxurious</td>
-          <td>
-            <a class="btn btn-sm btn-warning"
-                href="{{ route('admin.product.edit') }}">Edit</a>
-            <button class="btn btn-sm btn-danger">Delete</button>
-          </td>
-        </tr>
-
-        <tr>
-          <td>3</td>
-          <td><img src="{{ asset('image/duck1.png') }}" width="50"></td>
-          <td>Funny Duck</td>
-          <td>10€</td>
-          <td>Luxurious</td>
-          <td>
-            <a class="btn btn-sm btn-warning"
-                href="{{ route('admin.product.edit') }}">Edit</a>
-            <button class="btn btn-sm btn-danger">Delete</button>
-          </td>
-        </tr>
-
-      </tbody>
+        @foreach ($products as $product)
+          @php $image = $product->images->first(); @endphp
+          <tr>
+            <td>{{ $product->id }}</td>
+            <td>
+              <img src="{{ asset($image?->image_path ?? 'image/duck.png') }}" width="50">
+            </td>
+            <td>{{ $product->name }}</td>
+            <td>{{ number_format($product->price, 2, ',', ' ') }}€</td>
+            <td>{{ $product->categories->pluck('name')->join(', ') }}</td>
+            <td>
+              <a class="btn btn-sm btn-warning"
+                  href="{{ route('admin.product.edit', $product->id) }}">Edit</a>
+              <form action="{{ route('admin.product.destroy', $product->id) }}" method="POST" style="display:inline">
+                  @csrf
+                  @method('DELETE')
+                  <button class="btn btn-sm btn-danger" onclick="return confirm('Naozaj zmazať?')">Delete</button>
+              </form>
+            </td>
+          </tr>
+        @endforeach
+    </tbody>
     </table>
   </div>
 

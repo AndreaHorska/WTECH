@@ -97,10 +97,6 @@
         <td>{{ $product->weight }}</td>
       </tr>
       <tr>
-        <td>Color</td>
-        <td>{{ $product->color }}</td>
-      </tr>
-      <tr>
         <td>Age</td>
         <td>{{ $product->age }}</td>
       </tr>

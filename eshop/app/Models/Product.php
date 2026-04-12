@@ -20,7 +20,6 @@ class Product extends Model
         'material',
         'size',
         'weight',
-        'color',
         'age',
         'country_of_origin'
     ];

@@ -15,7 +15,6 @@ return new class extends Migration
             $table->string('material', 50)->default('Vinyl');
             $table->string('size', 50)->default('5 cm');
             $table->string('weight', 50)->default('20 g');
-            $table->string('color', 50)->default('Yellow');
             $table->string('age', 20)->default('3+');
             $table->string('country_of_origin', 50)->default('Slovakia');
         });
