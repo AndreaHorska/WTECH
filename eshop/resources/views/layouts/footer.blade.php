@@ -25,5 +25,29 @@
         <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by June Design - Flaticon</a>
         <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber duck icons">Rubber duck icons created by kerismaker - Flaticon</a>
         <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by Freepik - Flaticon</a>
+
+        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by Nsit - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by Nsit - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by Nsit - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by pongsakornRed - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by vectorsmarket15 - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by vectorsmarket15 - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber duck icons">Rubber duck icons created by vectorsmarket15 - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber duck icons">Rubber duck icons created by vectorsmarket15 - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by vectorsmarket15 - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by jessicurr11 - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber duck icons">Rubber duck icons created by smashingstocks - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber duck icons">Rubber duck icons created by Rakib Hassan Rahim - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by IconBaandar - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by Freepik - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber duck icons">Rubber duck icons created by kerismaker - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/seasons" title="seasons icons">Seasons icons created by Rabbixcons - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/bird" title="bird icons">Bird icons created by Freepik - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by Leremy - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by vectorsmarket15 - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by vectorsmarket15 - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by Nsit - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by Nsit - Flaticon</a>
+
     </div>
 </footer>
