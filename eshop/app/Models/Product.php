@@ -16,7 +16,13 @@ class Product extends Model
         'quantity',
         'price',
         'rating',
-        'review_count'
+        'review_count',
+        'material',
+        'size',
+        'weight',
+        'color',
+        'age',
+        'country_of_origin'
     ];
 
     public function orderItems()
