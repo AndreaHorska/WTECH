@@ -27,10 +27,9 @@
 </section>
 
 <section class="category-box">
-    <div class="category" onclick="location.href='{{ url('/products') }}'">Funny</div>
-    <div class="category" onclick="location.href='{{ url('/products') }}'">Luxurious</div>
-    <div class="category" onclick="location.href='{{ url('/products') }}'">Seasonal</div>
-</section>
+    <div class="category" onclick="location.href='{{ route('products.index', ['main' => 'funny']) }}'">Funny</div>
+    <div class="category" onclick="location.href='{{ route('products.index', ['main' => 'luxurious']) }}'">Luxurious</div>
+    <div class="category" onclick="location.href='{{ route('products.index', ['main' => 'seasonal']) }}'">Seasonal</div></section>
 
 <section class="products-box">
     <h2 class="mb-4 h3">New Arrivals</h2>

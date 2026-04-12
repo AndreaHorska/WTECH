@@ -41,17 +41,16 @@ class ProductController extends Controller {
 
             $query->where(function ($q) use ($terms) {
                 foreach ($terms as $index => $term) {
-                    if ($index === 0) {
-                        $q->where(function ($subQ) use ($term) {
-                            $subQ->whereRaw('LOWER(name) LIKE ?', ['%' . $term . '%'])
-                                ->orWhereRaw('LOWER(description) LIKE ?', ['%' . $term . '%']);
-                        });
-                    } else {
-                        $q->orWhere(function ($subQ) use ($term) {
-                            $subQ->whereRaw('LOWER(name) LIKE ?', ['%' . $term . '%'])
-                                ->orWhereRaw('LOWER(description) LIKE ?', ['%' . $term . '%']);
-                        });
-                    }
+                    $method = $index === 0 ? 'where' : 'orWhere';
+
+                    $q->$method(function ($subQ) use ($term) {
+                        $subQ->whereRaw('LOWER(name) LIKE ?', ['%' . $term . '%'])
+                            ->orWhereRaw('LOWER(description) LIKE ?', ['%' . $term . '%'])
+                            ->orWhereHas('categories', function ($categoryQ) use ($term) {
+                                $categoryQ->whereRaw('LOWER(name) LIKE ?', ['%' . $term . '%'])
+                                    ->orWhereRaw('LOWER(slug) LIKE ?', ['%' . $term . '%']);
+                            });
+                    });
                 }
             });
         }
@@ -70,6 +69,17 @@ class ProductController extends Controller {
                     $q->where('slug', $slug);
                 });
             }
+        }
+
+        if ($request->filled('main')) {
+            $main = $request->main;
+
+            $query->whereHas('categories', function ($q) use ($main) {
+                $q->where('slug', $main)
+                    ->whereHas('categoryType', function ($typeQ) {
+                        $typeQ->where('slug', 'main');
+                    });
+            });
         }
 
         switch ($sort) {
