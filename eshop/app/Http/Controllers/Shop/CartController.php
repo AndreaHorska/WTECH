@@ -11,6 +11,30 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
+
+    public function index()
+    {
+        if (Auth::check()) {
+            $cart = Cart::with('cartItems.product')
+                ->where('user_id', Auth::id())
+                ->first();
+
+            $cartItems = $cart ? $cart->cartItems : collect();
+        } else {
+            $sessionCart = session()->get('cart', []);
+
+            $productIds = collect($sessionCart)->pluck('product_id')->filter()->all();
+            $products = Product::whereIn('id', $productIds)->get()->keyBy('id');
+
+            $cartItems = collect($sessionCart)->map(function ($item) use ($products) {
+                $item['product'] = $products[$item['product_id']] ?? null;
+                return $item;
+            });
+        }
+
+        return view('cart', compact('cartItems'));
+    }
+
     public function add(Request $request)
     {
         $productId = $request->input('product_id');
@@ -62,7 +86,70 @@ class CartController extends Controller
 
             session()->put('cart', $cart);
         }
-
         return back()->with('success', 'Product added to cart!');
     }
+
+    public function update(Request $request, $productId)
+    {
+        $quantity = max(1, (int) $request->input('quantity', 1));
+
+        if (Auth::check()) {
+            $cart = Cart::where('user_id', Auth::id())->first();
+
+            if ($cart) {
+                $item = CartItem::where('cart_id', $cart->id)
+                    ->where('product_id', $productId)
+                    ->first();
+
+                if ($item) {
+                    $item->quantity = $quantity;
+                    $item->save();
+
+                    $this->recalculateCartTotal($cart);
+                }
+            }
+        } else {
+            $cart = session()->get('cart', []);
+
+            if (isset($cart[$productId])) {
+                $cart[$productId]['quantity'] = $quantity;
+                session()->put('cart', $cart);
+            }
+        }
+
+        return back();
+    }
+
+    public function remove($productId)
+    {
+        if (Auth::check()) {
+            $cart = Cart::where('user_id', Auth::id())->first();
+
+            if ($cart) {
+                CartItem::where('cart_id', $cart->id)
+                    ->where('product_id', $productId)
+                    ->delete();
+
+                $this->recalculateCartTotal($cart);
+            }
+        } else {
+            $cart = session()->get('cart', []);
+
+            if (isset($cart[$productId])) {
+                unset($cart[$productId]);
+                session()->put('cart', $cart);
+            }
+        }
+
+        return back();
+    }
+    private function recalculateCartTotal(Cart $cart): void
+    {
+        $cart->total_price = $cart->cartItems()
+            ->join('products', 'cart_items.product_id', '=', 'products.id')
+            ->sum(\DB::raw('cart_items.quantity * products.price'));
+
+        $cart->save();
+    }
+
 }

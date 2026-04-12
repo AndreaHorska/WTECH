@@ -11,11 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
         decrease.addEventListener("click", () => {
             let value = parseInt(input.value, 10) || 1;
             input.value = Math.max(1, value - 1);
+            picker.submit();
         });
 
         increase.addEventListener("click", () => {
             let value = parseInt(input.value, 10) || 1;
             input.value = value + 1;
+            picker.submit();
         });
 
         input.addEventListener("input", () => {
@@ -26,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (input.value === "" || parseInt(input.value, 10) < 1) {
                 input.value = 1;
             }
+            picker.submit();
         });
     });
 });

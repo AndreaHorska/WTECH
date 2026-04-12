@@ -15,7 +15,7 @@
         </form>
     </div>
     <div class="icons">
-        <a class="cart" href="{{ url('/cart') }}">
+        <a class="cart" href="{{ route('cart.index') }}">
             <svg class="icon" viewBox="0 0 24 24">
                 <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.2 14h9.6c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0 0 21.29 5H6.21l-.94-2H2v2h2l3.6 7.59-1.35 2.44C5.52 15.37 6.48 17 8 17h12v-2H8l1.2-1z"/>
             </svg>

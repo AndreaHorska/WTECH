@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Shop\ProductController;
+use App\Http\Controllers\Shop\CartController;
 
 Route::get('/', [ProductController::class, 'home']);
 
@@ -13,6 +14,12 @@ Route::get('/search', [ProductController::class, 'index']);
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
 
 Route::post('/cart/add', [\App\Http\Controllers\Shop\CartController::class, 'add'])->name('cart.add');
+
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+
+Route::patch('/cart/update/{productId}', [CartController::class, 'update'])->name('cart.update');
+
+Route::delete('/cart/remove/{productId}', [CartController::class, 'remove'])->name('cart.remove');
 
 /* ADMIN */
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
