@@ -17,14 +17,16 @@
 <section class="product_section">
 
     <div class="product_gallery">
-      <div class="thumbnails">
-        <img class="thumb active" src="{{ asset('image/duck1.png') }}" alt="thumb1">
-        <img class="thumb" src="{{ asset('image/duck2.png') }}" alt="thumb2">
-        <img class="thumb" src="{{ asset('image/duck3.png') }}" alt="thumb3">
-      </div>
-      <div class="main_product_box">
-        <img id="mainImage" src="{{ asset('image/duck1.png') }}" alt="main image">
-      </div>
+        <div class="thumbnails">
+            @forelse ($product->images as $image)
+                <img class="thumb {{ $loop->first ? 'active' : '' }}" src="{{ asset($image->image_path) }}" alt="thumb{{ $loop->iteration }}">
+            @empty
+                <img class="thumb active" src="{{ asset('image/duck.png') }}" alt="thumb1">
+            @endforelse
+        </div>
+        <div class="main_product_box">
+            <img id="mainImage" src="{{ asset($product->images->first()?->image_path ?? 'image/duck.png') }}" alt="main image">
+        </div>
     </div>
 
     <div class="product_info">
@@ -84,27 +86,27 @@
     <table class="spec-table">
       <tr>
         <td>Material</td>
-        <td>Vinyl</td>
+        <td>{{ $product->material }}</td>
       </tr>
       <tr>
         <td>Size</td>
-        <td>10 cm</td>
+        <td>{{ $product->size }}</td>
       </tr>
       <tr>
         <td>Weight</td>
-        <td>100 g</td>
+        <td>{{ $product->weight }}</td>
       </tr>
       <tr>
         <td>Color</td>
-        <td>Yellow</td>
+        <td>{{ $product->color }}</td>
       </tr>
       <tr>
         <td>Age</td>
-        <td>3+</td>
+        <td>{{ $product->age }}</td>
       </tr>
       <tr>
         <td>Country of origin</td>
-        <td>Slovakia</td>
+        <td>{{ $product->country_of_origin  }}</td>
       </tr>
     </table>
   </div>

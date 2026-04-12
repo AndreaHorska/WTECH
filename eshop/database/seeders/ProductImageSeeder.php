@@ -17,18 +17,23 @@ class ProductImageSeeder extends Seeder
         $images = [
             'Duck with Sunglasses' => [
                 'image/duck_with_sunglasses.png',
+                'image/duck1.png',
             ],
             'Super-duper Duck' => [
                 'image/duck1.png',
+                'image/duck2.png',
             ],
             'Standing Duck' => [
                 'image/duck2.png',
+                'image/duck3.png',
             ],
             'Bubble Duck' => [
                 'image/duck3.png',
+                'image/rubber-duck.png',
             ],
             'Quacky Ducky' => [
                 'image/rubber-duck.png',
+                'image/duck_with_sunglasses.png',
             ],
         ];
 
