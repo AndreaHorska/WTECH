@@ -15,32 +15,63 @@ class ProductCategorySeeder extends Seeder
     public function run(): void
     {
         $productCategories = [
-            'Duck with Sunglasses' => [
-                'main' => ['luxurious', 'funny'],
-                'gear' => ['glasses'],
+            'Anas Platyrhynchos' => [
+                'main' => ['luxurious'],
                 'view' => ['full'],
                 'lifestyle' => ['chilled', 'swimming'],
             ],
-            'Super-duper Duck' => [
-                'main' => ['funny'],
-                'gear' => ['hat'],
+            'Bubble Duck' => [
+                'main' => ['funny', 'seasonal'],
+                'gear' => ['other'],
                 'view' => ['full'],
                 'lifestyle' => ['quirky'],
             ],
-            'Standing Duck' => [
+            'Chilled Duck' => [
                 'main' => ['funny'],
+                'gear' => ['glasses', 'other'],
                 'view' => ['full'],
                 'lifestyle' => ['chilled'],
             ],
             'Bubble Duck' => [
-                'main' => ['funny'],
+                'main' => ['seasonal'],
+                'gear' => ['other'],
                 'view' => ['full'],
-                'lifestyle' => ['quirky'],
+                'lifestyle' => ['other'],
             ],
-            'Quacky Ducky' => [
+            'Drowning Gluggy' => [
                 'main' => ['funny'],
                 'view' => ['full'],
                 'lifestyle' => ['swimming'],
+            ],
+            'Lovey' => [
+                'main' => ['seasonal'],
+                'gear' => ['other'],
+                'view' => ['full'],
+                'lifestyle' => ['quirky'],
+            ],
+            'Mallard' => [
+                'main' => ['Luxurious'],
+                'view' => ['full'],
+                'lifestyle' => ['chilled'],
+            ],
+            'Siluette Duck' => [
+                'main' => ['Seasonal'],
+                'view' => ['full'],
+            ],
+            'Splashy' => [
+                'main' => ['funny'],
+                'view' => ['full'],
+                'lifestyle' => ['swimming'],
+            ],
+            'Traveller' => [
+                'main' => ['funny'],
+                'view' => ['full'],
+                'lifestyle' => ['swimming', 'chilled'],
+            ],
+            'Wave Rider' => [
+                'main' => ['funny'],
+                'view' => ['full'],
+                'lifestyle' => ['swimming', 'chilled'],
             ],
         ];
 

@@ -29,6 +29,12 @@ class RandomProductCategorySeeder extends Seeder
                 if ($type->categories->isEmpty()) {
                     continue;
                 }
+
+                if ($type->slug === 'main') {
+                    $randomCategory = $type->categories->random();
+                    $categoryIds[] = $randomCategory->id;
+                }
+
                 $randomCategory = $type->categories->random();
                 $categoryIds[] = $randomCategory->id;
             }

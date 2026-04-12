@@ -56,8 +56,8 @@ class CategorySeeder extends Seeder
                     'slug' => 'head',
                 ],
                 [
-                    'name' => 'Other',
-                    'slug' => 'other',
+                    'name' => 'Abstract',
+                    'slug' => 'abstract',
                 ],
             ],
             'lifestyle' => [
@@ -72,10 +72,6 @@ class CategorySeeder extends Seeder
                 [
                     'name' => 'Quirky',
                     'slug' => 'quirky',
-                ],
-                [
-                    'name' => 'Other',
-                    'slug' => 'other',
                 ],
             ],
         ];

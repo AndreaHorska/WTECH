@@ -15,25 +15,52 @@ class ProductImageSeeder extends Seeder
     public function run(): void
     {
         $images = [
-            'Duck with Sunglasses' => [
-                'image/duck_with_sunglasses.png',
-                'image/duck1.png',
-            ],
-            'Super-duper Duck' => [
-                'image/duck1.png',
-                'image/duck2.png',
-            ],
-            'Standing Duck' => [
-                'image/duck2.png',
-                'image/duck3.png',
+            'Anas Platyrhynchos' => [
+                'image/anas_platyrhynchos.png',
+                'image/anas_platyrhynchos2.png',
             ],
             'Bubble Duck' => [
-                'image/duck3.png',
-                'image/rubber-duck.png',
+                'image/bubble_duck.png',
+                'image/bubble_duck2.png',
             ],
-            'Quacky Ducky' => [
-                'image/rubber-duck.png',
-                'image/duck_with_sunglasses.png',
+            'Chilled Duck' => [
+                'image/chilled_duck.png',
+                'image/chilled_duck2.png',
+                'image/chilled_duck3.png',
+                'image/chilled_duck4.png',
+            ],
+            'Coldy' => [
+                'image/coldy.png',
+                'image/coldy2.png',
+            ],
+            'Drowning Gluggy' => [
+                'image/drowning_gluggy.png',
+                'image/drowning_gluggy2.png',
+            ],
+            'Lovey' => [
+                'image/lovey.png',
+                'image/lovey2.png',
+            ],
+            'Mallard' => [
+                'image/mallard.png',
+                'image/mallard2.png',
+                'image/mallard3.png',
+            ],
+            'Siluette Duck' => [
+                'image/siluete_duck.png',
+                'image/siluete_duck2.png',
+            ],
+            'Splashy' => [
+                'image/splashy.png',
+                'image/splashy2.png',
+            ],
+            'Traveller' => [
+                'image/traveller.png',
+                'image/traveller2.png',
+            ],
+            'Wave Rider' => [
+                'image/wave_rider.png',
+                'image/wave_rider.png',
             ],
         ];
 
