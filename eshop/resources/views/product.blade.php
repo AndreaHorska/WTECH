@@ -72,7 +72,17 @@
         </div>
         <h1>{{ number_format($product->price, 2, ',', ' ') }}€</h1>
         <button type="submit" class="btn btn-warning w-100" {{ $product->quantity == 0 ? 'disabled' : '' }}>Add to cart</button>
-      </form>
+        @if(session('success'))
+            <div id="my-toast" class="my-toast text-success">
+                {{ session('success') }}
+            </div>
+        @elseif(session('error'))
+            <div id="my-toast" class="my-toast text-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+
+    </form>
     </div>
 
   </section>

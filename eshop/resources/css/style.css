@@ -218,6 +218,20 @@ body {
   border: 1.5px solid #d8d3c8;
 }
 
+.my-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #28a745;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  z-index: 9999;
+
+  opacity: 1;
+}
+
 /* SPECIFICATION */
 .specification {
   display: flex;

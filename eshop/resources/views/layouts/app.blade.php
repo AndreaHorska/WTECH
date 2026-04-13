@@ -16,8 +16,6 @@
 
     @stack('styles')
 
-    @stack('scripts')
-
 </head>
 <body>
 
@@ -26,6 +24,8 @@
     @yield('content')
 
     @include('layouts.footer')
+
+    @stack('scripts')
 
 </body>
 </html>

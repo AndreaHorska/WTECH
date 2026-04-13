@@ -63,7 +63,7 @@ class CartController extends Controller
         }
 
         if ($quantity <= 0) {
-            return back()->with('error', 'Produkt už nie je na sklade.');
+            return back()->with('error', 'Product is out of stock!');
         }
 
         if (Auth::check()) {
