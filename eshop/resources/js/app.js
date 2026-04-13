@@ -22,19 +22,43 @@ document.addEventListener("DOMContentLoaded", () => {
         const cartLink = document.querySelector('.cart');
         let badge = document.querySelector('.cart-badge');
 
+        if (!cartLink) {
+            return;
+        }
+
         if (count > 0) {
             if (badge) {
                 badge.textContent = count > 99 ? '99+' : count;
             } else {
-                const newBadge = document.createElement('span');
-                newBadge.className = 'cart-badge';
-                newBadge.textContent = count > 99 ? '99+' : count;
-                cartLink.appendChild(newBadge);
+                badge = document.createElement('span');
+                badge.className = 'cart-badge';
+                badge.textContent = count > 99 ? '99+' : count;
+                cartLink.appendChild(badge);
             }
+        } else if (badge) {
+            badge.remove();
         }
     }
 
-    // Session toast
+    async function refreshCartBadge() {
+        try {
+            const response = await fetch('/cart/count', {
+                headers: {
+                    'Accept': 'application/json',
+                },
+                cache: 'no-store',
+            });
+
+            if (!response.ok) {
+                return;
+            }
+
+            const data = await response.json();
+            updateCartBadge(data.count ?? 0);
+        } catch {
+        }
+    }
+
     const existingToast = document.getElementById("toast");
     if (existingToast) {
         setTimeout(() => existingToast.classList.add("show"), 100);
@@ -44,7 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 3000);
     }
 
-    // AJAX
     document.body.addEventListener('submit', async (e) => {
         const form = e.target;
         if (!form.querySelector('[name="product_id"]')) return;
@@ -66,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (data.success) {
                 showToast(data.message ?? 'Added to cart!', 'success');
-                updateCartBadge(data.cartCount);
+                updateCartBadge(data.cartCount ?? 0);
             } else if (data.warning) {
                 showToast(data.warning, 'warning');
             } else if (data.error) {
@@ -76,6 +99,14 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         } catch {
             showToast('Something went wrong.', 'error');
+        }
+    });
+
+    refreshCartBadge();
+
+    window.addEventListener('pageshow', function (event) {
+        if (event.persisted) {
+            window.location.reload();
         }
     });
 });

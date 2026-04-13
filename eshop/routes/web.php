@@ -22,6 +22,8 @@ Route::patch('/cart/update/{productId}', [CartController::class, 'update'])->nam
 
 Route::delete('/cart/remove/{productId}', [CartController::class, 'remove'])->name('cart.remove');
 
+Route::get('/cart/count', [CartController::class, 'count'])->name('cart.count');
+
 /* ADMIN */
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [AdminProductController::class, 'index'])->name('panel');

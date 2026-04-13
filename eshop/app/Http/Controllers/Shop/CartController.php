@@ -195,4 +195,21 @@ class CartController extends Controller
         $cart->save();
     }
 
+    public function count()
+    {
+        if (Auth::check()) {
+            $cart = Cart::with('cartItems')
+                ->where('user_id', Auth::id())
+                ->first();
+
+            $count = $cart ? $cart->cartItems->sum('quantity') : 0;
+        } else {
+            $count = collect(session()->get('cart', []))->sum('quantity');
+        }
+
+        return response()->json([
+            'count' => $count,
+        ]);
+    }
+
 }
