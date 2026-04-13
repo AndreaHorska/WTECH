@@ -42,6 +42,30 @@ class CartController extends Controller
 
         $product = Product::findOrFail($productId);
 
+        $currentInCart = 0;
+        if (Auth::check()) {
+            $cart = Cart::where('user_id', Auth::id())->first();
+            if ($cart) {
+                $item = CartItem::where('cart_id', $cart->id)
+                    ->where('product_id', $productId)
+                    ->first();
+                $currentInCart = $item ? $item->quantity : 0;
+            }
+        } else {
+            $cart = session()->get('cart', []);
+            $currentInCart = $cart[$productId]['quantity'] ?? 0;
+        }
+
+        $available = $product->quantity - $currentInCart;
+
+        if ($quantity > $available) {
+            $quantity = max(0, $available);
+        }
+
+        if ($quantity <= 0) {
+            return back()->with('error', 'Produkt už nie je na sklade.');
+        }
+
         if (Auth::check()) {
             // Prihlaseny - kosik je v databaze
             $cart = Cart::firstOrCreate(

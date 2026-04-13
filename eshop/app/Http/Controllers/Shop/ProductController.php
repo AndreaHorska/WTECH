@@ -142,7 +142,8 @@ class ProductController extends Controller {
             ->whereHas('categories', function ($q) use ($categoryIds) {
                 $q->whereIn('categories.id', $categoryIds);
             })
-            ->take(5)
+            ->inRandomOrder()
+            ->limit(5)
             ->get();
 
         return view('product', compact('product', 'similar'));

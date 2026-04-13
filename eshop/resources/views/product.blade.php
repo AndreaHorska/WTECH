@@ -144,10 +144,10 @@
             @php $image = $item->images->first(); @endphp
             <article class="product-card" data-href="{{ route('product.show', $item->id) }}" data-rating="{{ $item->rating }}" data-reviews="{{ $item->review_count }}">
                 <img src="{{ $image ? asset($image->image_path) : asset('image/duck.png') }}" alt="{{ $item->name }}" class="product-image">
-                <div class="product-rating">
+                <div class="product-rating" aria-label="Rated {{ $item->rating }} out of 5 stars">
                     <div class="stars" aria-hidden="true">
                         <div class="stars-base">★★★★★</div>
-                        <div class="stars-fill">★★★★★</div>
+                        <div class="stars-fill" style="width: {{ ($item->rating / 5) * 100 }}%">★★★★★</div>
                     </div>
                     <p class="rating-text">
                         <span class="rating-number">{{ number_format($item->rating, 1, ',', ' ') }}</span>
