@@ -204,6 +204,33 @@ footer {
   text-decoration: none;
 }
 
+/* POPUP */
+.toast-notification {
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    min-width: 260px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    z-index: 9999;
+
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.toast-notification.success { background: #1f9d55; }
+.toast-notification.warning { background: orange; }
+.toast-notification.error { background: #e3342f; }
+
+.toast-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 /* FOOTER STYLING */
 .footer {

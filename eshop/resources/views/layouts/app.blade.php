@@ -29,3 +29,19 @@
 
 </body>
 </html>
+
+@if(session('success'))
+    <div id="toast" class="toast-notification success">
+        {{ session('success') }}
+    </div>
+@endif
+@if(session('warning'))
+    <div id="toast" class="toast-notification warning">
+        {{ session('warning') }}
+    </div>
+@endif
+@if(session('error'))
+    <div id="toast" class="toast-notification error">
+        {{ session('error') }}
+    </div>
+@endif

@@ -22,12 +22,3 @@ thumbnails.forEach(thumb => {
     thumb.classList.add("active");
   });
 });
-
-document.addEventListener("DOMContentLoaded", function () {
-    const toast = document.getElementById('my-toast');
-    if (toast) {
-        setTimeout(() => {
-            toast.style.opacity = "0";
-        }, 3000);
-    }
-});

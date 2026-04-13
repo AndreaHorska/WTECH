@@ -58,12 +58,18 @@ class CartController extends Controller
 
         $available = $product->quantity - $currentInCart;
 
-        if ($quantity > $available) {
-            $quantity = max(0, $available);
+        if ($available <= 0) {
+            if ($request->expectsJson()) {
+                return response()->json(['error' => 'Out of stock.'], 422);
+            }
+            return back()->with('error', 'Out of stock.');
         }
 
-        if ($quantity <= 0) {
-            return back()->with('error', 'Product is out of stock!');
+        if ($quantity > $available) {
+            if ($request->expectsJson()) {
+                return response()->json(['warning' => "Only {$available} items available in stock."], 422);
+            }
+            return back()->with('warning', "Only {$available} items available in stock.");
         }
 
         if (Auth::check()) {
@@ -93,6 +99,8 @@ class CartController extends Controller
                 ->sum(\DB::raw('cart_items.quantity * products.price'));
             $cart->save();
 
+            $cartCount = $cart->cartItems()->sum('quantity');
+
         } else {
             // Neprihlaseny
             $cart = session()->get('cart', []);
@@ -109,7 +117,18 @@ class CartController extends Controller
             }
 
             session()->put('cart', $cart);
+
+            $cartCount = collect($cart)->sum('quantity');
         }
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Product added to cart!',
+                'cartCount' => $cartCount,
+            ]);
+        }
+
         return back()->with('success', 'Product added to cart!');
     }
 
