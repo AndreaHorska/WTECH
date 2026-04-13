@@ -14,13 +14,20 @@
 @section('content')
 <main class="main">
 <section class="top-news">
-    <div class="about_us">
+{{--    <div class="about_us">--}}
+{{--        <h2 class="about-title">Lucky Quacky</h2>--}}
+{{--        <p class="about-text">--}}
+{{--            Fun, stylish and unique duck stickers for everyone--}}
+{{--        </p>--}}
+{{--        <a href="{{ route('products.index') }}" class="all_categories">See every single one of our wonderful ducks</a>--}}
+{{--    </div>--}}
+    <a class="about_us" href="{{ route('products.index') }}" >
         <h2 class="about-title">Lucky Quacky</h2>
         <p class="about-text">
             Fun, stylish and unique duck stickers for everyone
         </p>
-        <a href="{{ route('products.index') }}" class="all_categories">See every single one of our wonderful ducks</a>
-    </div>
+        <p class="all_categories">See every single one of our wonderful ducks</p>
+    </a>
     <div class="sales">
         <span class="sale-big">-50%</span>
         <span class="sale-text">SALE</span>
