@@ -60,6 +60,11 @@ body {
   color: #dcdcdc;
 }
 
+.all_categories {
+    color: #dcdcdc;
+    font-weight: bolder;
+}
+
 /* SALE BOX */
 .sales {
   flex-direction: column;
