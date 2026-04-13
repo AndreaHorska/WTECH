@@ -105,7 +105,7 @@
                                         <svg class="quantity-icon" viewBox="0 0 24 24"><path d="M5 12h14"/></svg>
                                     </button>
 
-                                    <input type="number" name="quantity" value="{{ $quantity }}" min="1" class="quantity-input">
+                                    <input type="number" name="quantity" value="{{ $quantity }}" min="1" max="{{ data_get($product, 'quantity', 1) }}" class="quantity-input">
 
                                     <button type="button" class="quantity-button" aria-label="Increase quantity">
                                         <svg class="quantity-icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>

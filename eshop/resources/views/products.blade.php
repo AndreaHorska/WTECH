@@ -141,7 +141,8 @@
                     <div class="product-rating" aria-label="Rated {{ $product->rating }} out of 5 stars">
                         <div class="stars" aria-hidden="true">
                             <div class="stars-base">★★★★★</div>
-                            <div class="stars-fill" style="width: {{ ($product->rating / 5) * 100 }}%">★★★★★</div>                        </div>
+                            <div class="stars-fill" style="width: {{ ($product->rating / 5) * 100 }}%">★★★★★</div>
+                        </div>
 
                         <p class="rating-text">
                             <span class="rating-number">
