@@ -46,9 +46,9 @@ class ProductImageSeeder extends Seeder
                 'image/mallard2.png',
                 'image/mallard3.png',
             ],
-            'Siluette Duck' => [
-                'image/siluette_duck.png',
-                'image/siluette_duck2.png',
+            'Silhouette Duck' => [
+                'image/silhouette_duck.png',
+                'image/silhouette_duck2.png',
             ],
             'Splashy' => [
                 'image/splashy.png',

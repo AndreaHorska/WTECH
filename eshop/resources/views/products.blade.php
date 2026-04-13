@@ -18,6 +18,7 @@
     <aside class="sidebar">
         <form method="GET" action="{{ route('products.index') }}" id="filterForm">
             {{-- zober aktualne nastavenia z url --}}
+            <input type="hidden" name="main" id="mainCategory" value="{{ request('main', 'funny') }}">
             <input type="hidden" name="sort" value="{{ request('sort', 'recommended') }}">
             <input type="hidden" name="per_page" value="{{ request('per_page', 10) }}">
             <input type="hidden" name="query" value="{{ request('query', '') }}">

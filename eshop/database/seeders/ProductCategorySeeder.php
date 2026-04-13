@@ -32,12 +32,6 @@ class ProductCategorySeeder extends Seeder
                 'view' => ['full'],
                 'lifestyle' => ['chilled'],
             ],
-            'Bubble Duck' => [
-                'main' => ['seasonal'],
-                'gear' => ['other'],
-                'view' => ['full'],
-                'lifestyle' => ['other'],
-            ],
             'Drowning Gluggy' => [
                 'main' => ['funny'],
                 'view' => ['full'],
@@ -54,12 +48,12 @@ class ProductCategorySeeder extends Seeder
                 'view' => ['full'],
                 'lifestyle' => ['chilled'],
             ],
-            'Siluette Duck' => [
+            'Silhouette Duck' => [
                 'main' => ['Seasonal'],
                 'view' => ['full'],
             ],
             'Splashy' => [
-                'main' => ['funny'],
+                'main' => ['luxurious'],
                 'view' => ['full'],
                 'lifestyle' => ['swimming'],
             ],
@@ -72,6 +66,12 @@ class ProductCategorySeeder extends Seeder
                 'main' => ['funny'],
                 'view' => ['full'],
                 'lifestyle' => ['swimming', 'chilled'],
+            ],
+            'Coldy' => [
+                'main' => ['funny', 'seasonal'],
+                'gear' => ['other', 'hat'],
+                'view' => ['full'],
+                'lifestyle' => ['quirky', 'chilled'],
             ],
         ];
 
