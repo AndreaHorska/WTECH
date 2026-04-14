@@ -13,6 +13,21 @@ class ProductController extends Controller {
         $sort = $request->query('sort', 'recommended');
         $perPage = (int) $request->query('per_page', 10);
         $search = $request->query('query', '');
+
+        $baseQuery = Product::where('active', true);
+
+        if ($request->filled('main')) {
+            $main = $request->main;
+
+            $baseQuery->whereHas('categories', function ($q) use ($main) {
+                $q->where('slug', $main);
+            });
+        }
+
+        $dbMinPrice = (int) floor($baseQuery->min('price'));
+        $dbMaxPrice = (int) ceil($baseQuery->max('price'));
+
+
         $minPrice = (int) $request->query('min_price', 0);
         $maxPrice = (int) $request->query('max_price', 999999);
         $rating = (int) $request->query('rating', 0);
@@ -21,8 +36,8 @@ class ProductController extends Controller {
             $perPage = 10;
         }
 
-        if ($minPrice < 0) {
-            $minPrice = 0;
+        if ($minPrice < $dbMinPrice) {
+            $minPrice = $dbMinPrice;
         }
 
         if ($maxPrice < $minPrice) {
@@ -116,6 +131,8 @@ class ProductController extends Controller {
             'perPage' => $perPage,
             'search' => $search,
             'categoryTypes' => $categoryTypes,
+            'dbMinPrice' => $dbMinPrice,
+            'dbMaxPrice' => $dbMaxPrice,
         ]);
     }
 

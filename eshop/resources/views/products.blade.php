@@ -38,9 +38,9 @@
                 </div>
                 <div class="price-inputs">
                     <label for="minInput" class="visually-hidden">Minimum Price</label>
-                    <input type="number" value="{{ request('min_price', 0) }}" min="0" max="200" class="price-input" id="minInput" name="min_price">
+                    <input type="number" value="{{ request('min_price', $dbMinPrice) }}" min="{{ $dbMinPrice }}" max="{{ $dbMaxPrice }}" class="price-input" id="minInput" name="min_price">
                     <label for="maxInput" class="visually-hidden">Maximum Price</label>
-                    <input type="number" value="{{ request('max_price', 200) }}" min="0" max="200" class="price-input" id="maxInput" name="max_price">
+                    <input type="number" value="{{ request('max_price', $dbMaxPrice ) }}" min="{{ $dbMinPrice }}" max="{{ $dbMaxPrice }}" class="price-input" id="maxInput" name="max_price">
                 </div>
             </section>
 
