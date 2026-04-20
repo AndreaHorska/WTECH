@@ -19,6 +19,7 @@ export default defineConfig({
                 'resources/js/cart.js',
                 'resources/js/billing_address.js',
                 'resources/js/filter.js',
+                'resources/js/admin.js',
             ],
             refresh: true,
         }),

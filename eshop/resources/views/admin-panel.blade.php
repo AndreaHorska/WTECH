@@ -41,8 +41,7 @@
             <td>{{ number_format($product->price, 2, ',', ' ') }}€</td>
             <td>{{ $product->categories->pluck('name')->join(', ') }}</td>
             <td>
-              <a class="btn btn-sm btn-warning"
-                  href="{{ route('admin.product.edit', $product->id) }}">Edit</a>
+              <a class="btn btn-sm btn-warning" href="{{ route('admin.product.edit', $product->id) }}">Edit</a>
               <form action="{{ route('admin.product.destroy', $product->id) }}" method="POST" style="display:inline">
                   @csrf
                   @method('DELETE')
