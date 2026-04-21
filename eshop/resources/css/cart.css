@@ -708,6 +708,14 @@ body {
     }
 }
 
+/* chyby */
+.form-error {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: red;
+    font-weight: 500;
+}
+
 @container cart (max-width: 480px) {
     .quantity-picker {
         justify-self: right;

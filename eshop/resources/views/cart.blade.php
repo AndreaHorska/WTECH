@@ -12,22 +12,8 @@
 
 @section('content')
 
-    @php
-        $cartCollection = collect($cartItems ?? []);
-
-        $subtotal = $cartCollection->sum(function ($item) {
-            $price = data_get($item, 'price', data_get($item, 'product.price', 0));
-            $quantity = (int) data_get($item, 'quantity', 0);
-
-            return $price * $quantity;
-        });
-
-        $discount = 0;
-        $total = $subtotal - $discount;
-    @endphp
-
     <main class="cart-page">
-        @if ($cartCollection->isEmpty())
+        @if ($cartItems->isEmpty())
             <div class="cart-empty-page">
                 <div class="cart-empty">
                     <p>Your cart is empty.</p>
@@ -57,7 +43,7 @@
 
                 <section class="cart-main">
                     <ul class="cart-list">
-                        @foreach ($cartCollection as $item)
+                        @foreach ($cartItems as $item)
                             @php
                                 $product = data_get($item, 'product');
                                 $productId = data_get($item, 'product_id', data_get($product, 'id'));

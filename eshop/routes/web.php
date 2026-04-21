@@ -25,6 +25,8 @@ Route::delete('/cart/remove/{productId}', [CartController::class, 'remove'])->na
 Route::get('/cart/count', [CartController::class, 'count'])->name('cart.count');
 
 Route::get('/cart/shipping', [CartController::class, 'shipping'])->name('cart.shipping');
+Route::post('/cart/shipping/save-option', [CartController::class, 'saveShippingOption'])->name('cart.shipping.option');
+Route::post('/cart/shipping', [CartController::class, 'saveShipping'])->name('cart.shipping.save');
 
 /* ADMIN */
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {

@@ -8,9 +8,30 @@ use App\Models\CartItem;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\ShippingMethod;
+use App\Models\PaymentMethod;
 
 class CartController extends Controller
 {
+
+    private function calculateCartSummary($cartItems): array
+    {
+        $cartItems = collect($cartItems);
+
+        $subtotal = $cartItems->sum(function ($item) {
+            $price = data_get($item, 'price', data_get($item, 'product.price', 0));
+            $quantity = (int) data_get($item, 'quantity', 0);
+
+            return $price * $quantity;
+        });
+
+        $discount = 0;
+
+        return [
+            'subtotal' => $subtotal,
+            'discount' => $discount,
+        ];
+    }
 
     public function index()
     {
@@ -32,7 +53,14 @@ class CartController extends Controller
             });
         }
 
-        return view('cart', compact('cartItems'));
+        $summary = $this->calculateCartSummary($cartItems);
+
+        return view('cart', [
+            'cartItems' => $cartItems,
+            'subtotal' => $summary['subtotal'],
+            'discount' => $summary['discount'],
+            'total' => $summary['subtotal'] - $summary['discount'],
+        ]);
     }
 
     public function add(Request $request)
@@ -232,9 +260,48 @@ class CartController extends Controller
             });
         }
 
-        return view('cart-shipping', compact('cartItems'));
+        $shippingMethods = ShippingMethod::all();
+        $paymentMethods = PaymentMethod::all();
+
+        $summary = $this->calculateCartSummary($cartItems);
+
+        return view('cart-shipping', [
+            'cartItems' => $cartItems,
+            'shippingMethods' => $shippingMethods,
+            'paymentMethods' => $paymentMethods,
+            'subtotal' => $summary['subtotal'],
+            'discount' => $summary['discount'],
+        ]);
     }
 
+
+    public function saveShippingOption(Request $request)
+    {
+        if ($request->filled('delivery')) {
+            session(['checkout.shipping_method_id' => $request->delivery]);
+        }
+
+        if ($request->filled('payment')) {
+            session(['checkout.payment_method_id' => $request->payment]);
+        }
+
+        return response()->json(['success' => true]);
+    }
+
+    public function saveShipping(Request $request)
+    {
+        $validated = $request->validate([
+            'delivery' => ['required', 'exists:shipping_methods,id'],
+            'payment' => ['required', 'exists:payment_methods,id'],
+        ]);
+
+        session([
+            'checkout.shipping_method_id' => $validated['delivery'],
+            'checkout.payment_method_id' => $validated['payment'],
+        ]);
+
+        return back();
+    }
 
 
 
