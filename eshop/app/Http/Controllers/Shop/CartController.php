@@ -212,4 +212,30 @@ class CartController extends Controller
         ]);
     }
 
+    public function shipping()
+    {
+        if (Auth::check()) {
+            $cart = Cart::with('cartItems.product.images')
+                ->where('user_id', Auth::id())
+                ->first();
+
+            $cartItems = $cart ? $cart->cartItems : collect();
+        } else {
+            $sessionCart = session()->get('cart', []);
+
+            $productIds = collect($sessionCart)->pluck('product_id')->filter()->all();
+            $products = Product::with('images')->whereIn('id', $productIds)->get()->keyBy('id');
+
+            $cartItems = collect($sessionCart)->map(function ($item) use ($products) {
+                $item['product'] = $products[$item['product_id']] ?? null;
+                return $item;
+            });
+        }
+
+        return view('cart-shipping', compact('cartItems'));
+    }
+
+
+
+
 }

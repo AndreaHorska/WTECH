@@ -24,6 +24,8 @@ Route::delete('/cart/remove/{productId}', [CartController::class, 'remove'])->na
 
 Route::get('/cart/count', [CartController::class, 'count'])->name('cart.count');
 
+Route::get('/cart/shipping', [CartController::class, 'shipping'])->name('cart.shipping');
+
 /* ADMIN */
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [AdminProductController::class, 'index'])->name('panel');

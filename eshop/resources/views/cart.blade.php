@@ -166,7 +166,7 @@
 
                     <div class="order-summary_buttons">
                         <a href="{{ url('/') }}" class="back-button">Back</a>
-                        <a href="{{ url('/') }}" class="continue-button">Continue</a>
+                        <a href="{{ route('cart.shipping') }}" class="continue-button">Continue</a>
                     </div>
                 </aside>
             </section>
