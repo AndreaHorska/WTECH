@@ -4,25 +4,62 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (!thumbnails) return;
 
-    /* Pridanie noveho obrazka */
-    thumbnails.addEventListener('change', function (e) {
-        if (e.target.type !== 'file') return;
-        const file = e.target.files[0];
-        if (!file) return;
+    function setActiveThumb(img) {
+        document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+        img.classList.add('active');
+        if (mainImage) mainImage.src = img.src;
+    }
 
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            const img = document.createElement('img');
-            img.src = e.target.result;
-            img.className = 'thumb active';
-
-            const addButton = thumbnails.querySelector('.add-thumb');
-            thumbnails.insertBefore(img, addButton);
-
-            if (mainImage) mainImage.src = e.target.result;
-            document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
-            img.classList.add('active');
-        };
-        reader.readAsDataURL(file);
+    thumbnails.querySelectorAll('img.thumb').forEach(img => {
+        img.addEventListener('click', function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            setActiveThumb(img);
+        });
     });
+
+    function attachFileInput(input) {
+        input.addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function (ev) {
+                const img = document.createElement('img');
+                img.src = ev.target.result;
+                img.className = 'thumb';
+
+                img.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    setActiveThumb(img);
+                });
+
+                const addButton = thumbnails.querySelector('.add-thumb');
+                thumbnails.insertBefore(img, addButton);
+                setActiveThumb(img);
+
+                // Vytvor nový file input pre ďalší súbor
+                const newInput = document.createElement('input');
+                newInput.type = 'file';
+                newInput.name = 'images[]';
+                newInput.hidden = true;
+                document.querySelector('.product_gallery').appendChild(newInput);
+
+                // Presmeruj add-thumb na nový input
+                document.querySelector('.add-thumb').onclick = function () {
+                    newInput.click();
+                };
+
+                // Pridaj listener na nový input
+                attachFileInput(newInput);
+            };
+            reader.readAsDataURL(file);
+        });
+    }
+
+    const fileInput = document.getElementById('newImageInput');
+    if (fileInput) {
+        attachFileInput(fileInput);
+    }
 });

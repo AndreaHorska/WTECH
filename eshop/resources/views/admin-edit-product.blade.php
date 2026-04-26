@@ -26,11 +26,9 @@
                 @empty
                     <img class="thumb active" src="{{ asset('image/duck.png') }}" alt="thumb1">
                 @endforelse
-                <label class="thumb border border-gray add-thumb">
-                    +
-                    <input type="file" name="images[]" hidden>
-                </label>
+                <div class="thumb border border-gray add-thumb" onclick="document.getElementById('newImageInput').click()">+</div>
             </div>
+            <input type="file" id="newImageInput" name="images[]" hidden>
             <div class="main_product_box">
                 <img id="mainImage" src="{{ asset($product->images->first()?->image_path ?? 'image/duck.png') }}" alt="main image">
             </div>
