@@ -71,7 +71,7 @@
             @endif
         </div>
         <h1>{{ number_format($product->price, 2, ',', ' ') }}€</h1>
-        <button type="submit" class="btn btn-warning w-100" {{ $product->quantity == 0 ? 'disabled' : '' }}>Add to cart</button>
+        <button type="submit" class="btn btn-warning px-5" {{ $product->quantity == 0 ? 'disabled' : '' }}>Add to cart</button>
     </form>
     </div>
 

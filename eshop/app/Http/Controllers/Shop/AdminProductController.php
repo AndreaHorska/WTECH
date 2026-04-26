@@ -73,4 +73,52 @@ class AdminProductController extends Controller
 
         return redirect()->route('admin.panel')->with('success', 'Produkt bol upravený!');
     }
+
+    public function create()    /* For adding product */
+    {
+        $categoryTypes = \App\Models\CategoryType::with('categories')->get();
+        return view('admin-add-product', compact('categoryTypes'));
+    }
+
+    public function store(Request $request) /* Add new product */
+    {
+        $request->validate([
+            'name' => 'required|string|max:80|unique:products',
+            'description' => 'nullable|string',
+            'price' => 'required',
+            'quantity' => 'required|integer|min:0',
+            'images.*' => 'image|mimes:jpg,jpeg,png,webp|max:2048',
+        ]);
+
+        $product = Product::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => (float) str_replace(',', '.', $request->price),
+            'quantity' => $request->quantity,
+            'material' => $request->material,
+            'size' => $request->size,
+            'weight' => $request->weight,
+            'age' => $request->age,
+            'country_of_origin' => $request->country_of_origin,
+            'active' => true,
+        ]);
+
+        if ($request->filled('categories')) {
+            $product->categories()->sync($request->categories);
+        }
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $file) {
+                $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+                $file->storeAs('products', $filename, 'public');
+
+                ProductImage::create([
+                    'product_id' => $product->id,
+                    'image_path' => 'storage/products/' . $filename,
+                ]);
+            }
+        }
+
+        return redirect()->route('admin.panel')->with('success', 'Produkt bol pridaný!');
+    }
 }

@@ -209,13 +209,9 @@ body {
 
 .description {
   width: 100%;
-  background: #f0ede6;
-  border-radius: 12px;
-  padding: 10px;
-  font-size: 0.92rem;
+  padding: 10px 0px;
   line-height: 1.65;
   color: #444;
-  border: 1.5px solid #d8d3c8;
 }
 
 /* SPECIFICATION */

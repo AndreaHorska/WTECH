@@ -32,9 +32,8 @@ Route::post('/cart/shipping', [CartController::class, 'saveShipping'])->name('ca
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [AdminProductController::class, 'index'])->name('panel');
 
-    Route::get('/add-product', function () {
-        return view('admin-add-product');
-    })->name('product.add');
+    Route::get('/add-product', [AdminProductController::class, 'create'])->name('product.add');
+    Route::post('/add-product', [AdminProductController::class, 'store'])->name('product.store');
 
     Route::get('/edit-product/{id}', [AdminProductController::class, 'edit'])->name('product.edit');
     Route::put('/edit-product/{id}', [AdminProductController::class, 'update'])->name('product.update');

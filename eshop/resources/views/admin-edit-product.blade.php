@@ -47,7 +47,7 @@
 
             <div class="quantity_control">
                 <p>Stock:</p>
-                <input type="number" class="form-control" name="quantity" value="{{ $product->quantity }}">
+                <input type="number" class="form-control" name="quantity" style="width: 85px">
             </div>
 
             <label>Price (€)</label>
