@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @push('styles')
     @vite([
-        'resources/css/style.css'
+        'resources/css/style.css',
+        'resources/css/admin_style.css'
     ])
 @endpush
 
@@ -33,20 +34,22 @@
         @foreach ($products as $product)
           @php $image = $product->images->first(); @endphp
           <tr>
-            <td>{{ $product->id }}</td>
-            <td>
+            <td data-label="ID">{{ $product->id }}</td>
+            <td data-label="Image">
               <img src="{{ asset($image?->image_path ?? 'image/duck.png') }}" width="50">
             </td>
-            <td>{{ $product->name }}</td>
-            <td>{{ number_format($product->price, 2, ',', ' ') }}€</td>
-            <td>{{ $product->categories->pluck('name')->join(', ') }}</td>
-            <td>
-              <a class="btn btn-sm btn-warning" href="{{ route('admin.product.edit', $product->id) }}">Edit</a>
-              <form action="{{ route('admin.product.destroy', $product->id) }}" method="POST" style="display:inline">
-                  @csrf
-                  @method('DELETE')
-                  <button class="btn btn-sm btn-danger" onclick="return confirm('Naozaj zmazať?')">Delete</button>
-              </form>
+            <td data-label="Name">{{ $product->name }}</td>
+            <td data-label="Price">{{ number_format($product->price, 2, ',', ' ') }}€</td>
+            <td data-label="Category">{{ $product->categories->pluck('name')->join(', ') }}</td>
+            <td data-label="Action">
+                <div class="admin-buttons">
+                    <a class="btn btn-sm btn-warning" href="{{ route('admin.product.edit', $product->id) }}">Edit</a>
+                    <form action="{{ route('admin.product.destroy', $product->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-sm btn-danger" onclick="return confirm('Really want to delete?')">Delete</button>
+                    </form>
+                </div>
             </td>
           </tr>
         @endforeach

@@ -184,6 +184,12 @@ footer {
     line-height: 1;
 }
 
+.signed {
+  fill: #ffc107;
+  color: #ffc107;
+  font-weight: bold;
+}
+
 /* FOOTER */
 
 .footer {

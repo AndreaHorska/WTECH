@@ -1,0 +1,41 @@
+.admin-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.admin-buttons form {
+    margin: 0;
+}
+
+
+@media (max-width: 540px) {
+    .table thead {
+        display: none;
+    }
+
+    .table tr {
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        padding: 8px;
+    }
+
+    .table td {
+        display: block;
+        text-align: center;
+        padding: 6px 10px;
+        border: none;
+    }
+
+    .table td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+    }
+
+    .admin-buttons {
+        justify-content: center;
+    }
+}
