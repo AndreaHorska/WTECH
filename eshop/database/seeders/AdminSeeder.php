@@ -11,14 +11,13 @@ class AdminSeeder extends Seeder
 {
     public function run(): void
     {
-        $adminRole = Role::firstOrCreate(['name' => 'admin']);
+        $adminRole = Role::firstOrCreate(['name' => 'ADMIN']);
 
-        User::firstOrCreate(
+        $user = User::firstOrCreate(
             ['email' => 'admin@admin.com'],
-            [
-                'password' => Hash::make('password'),
-                'role_id' => $adminRole->id,
-            ]
+            ['password' => Hash::make('password')]
         );
+
+        $user->roles()->syncWithoutDetaching([$adminRole->id]);
     }
 }

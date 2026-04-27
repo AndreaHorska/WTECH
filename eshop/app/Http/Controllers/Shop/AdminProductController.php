@@ -19,7 +19,7 @@ class AdminProductController extends Controller
     {
         $product = Product::findOrFail($id);
         $product->delete();
-        return redirect()->route('admin.panel')->with('success', 'Produkt bol zmazaný!');
+        return redirect()->route('admin.panel')->with('success', 'Product was deleted!');
     }
 
     public function edit(int $id)
@@ -71,7 +71,7 @@ class AdminProductController extends Controller
             }
         }
 
-        return redirect()->route('admin.panel')->with('success', 'Produkt bol upravený!');
+        return redirect()->route('admin.panel')->with('success', 'Product was updated!');
     }
 
     public function create()    /* For adding product */
@@ -119,6 +119,6 @@ class AdminProductController extends Controller
             }
         }
 
-        return redirect()->route('admin.panel')->with('success', 'Produkt bol pridaný!');
+        return redirect()->route('admin.panel')->with('success', 'Product was added!');
     }
 }
