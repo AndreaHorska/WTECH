@@ -33,10 +33,20 @@ class AdminProductController extends Controller
     {
         $product = Product::findOrFail($id);
 
+        if ($request->has('delete_images')) {
+            foreach ($request->delete_images as $imageId) {
+                $image = ProductImage::find($imageId);
+                if ($image) {
+                    \Storage::disk('public')->delete(str_replace('storage/', '', $image->image_path));
+                    $image->delete();
+                }
+            }
+        }
+
         $request->validate([
             'name' => 'required|string|max:80|unique:products,name,' . $id,
             'description' => 'nullable|string',
-            'price' => 'required|numeric|min:0',
+            'price' => 'required|min:0',
             'quantity' => 'required|integer|min:0',
             'images.*' => 'image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);

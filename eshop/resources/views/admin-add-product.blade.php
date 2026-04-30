@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @push('styles')
-    @vite(['resources/css/style.css'])
+    @vite([
+        'resources/css/style.css',
+        'resources/css/admin_style.css'
+    ])
 @endpush
 
 @push('scripts')
@@ -41,7 +44,7 @@
 
             <div class="quantity_control">
                 <p>Stock:</p>
-                <input type="number" class="form-control" name="quantity" style="width: 85px">
+                <input type="number" class="form-control quant-control" name="quantity">
             </div>
 
             <label>Price (€)</label>
@@ -51,17 +54,28 @@
             @foreach ($categoryTypes as $type)
                 <p class="fw-bold mb-1">{{ $type->name }}</p>
                 <div class="d-flex flex-wrap gap-3 mb-2">
-                    @foreach ($type->categories as $category)
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" 
-                                name="categories[]" 
-                                value="{{ $category->id }}"
-                                id="cat_{{ $category->id }}">
-                            <label class="form-check-label" for="cat_{{ $category->id }}">
-                                {{ $category->name }}
-                            </label>
-                        </div>
-                    @endforeach
+                    @if ($type->name == 'View')
+                        <select name="categories[]" class="form-select">
+                            <option value="">-- Select --</option>
+                            @foreach ($type->categories as $category)
+                                <option value="{{ $category->id }}">
+                                    {{ $category->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    @else
+                        @foreach ($type->categories as $category)
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox"
+                                    name="categories[]"
+                                    value="{{ $category->id }}"
+                                    id="cat_{{ $category->id }}">
+                                <label class="form-check-label" for="cat_{{ $category->id }}">
+                                    {{ $category->name }}
+                                </label>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
             @endforeach
         </div>

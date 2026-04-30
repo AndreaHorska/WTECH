@@ -20,6 +20,7 @@ export default defineConfig({
                 'resources/js/billing_address.js',
                 'resources/js/filter.js',
                 'resources/js/admin.js',
+                'resources/css/admin_style.css',
             ],
             refresh: true,
         }),

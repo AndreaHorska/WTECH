@@ -8,6 +8,42 @@
     margin: 0;
 }
 
+.thumb-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+.thumb-wrapper .thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumb-delete {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 20px;
+    height: 20px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    line-height: 1;
+    z-index: 10;
+}
+
+.quant-control {
+  width: 85px !important;
+}
+
 
 @media (max-width: 540px) {
     .table thead {

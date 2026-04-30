@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @push('styles')
-    @vite(['resources/css/style.css'])
+    @vite([
+        'resources/css/style.css',
+        'resources/css/admin_style.css'
+    ])
 @endpush
 
 @push('scripts')
@@ -22,7 +25,13 @@
         <div class="product_gallery">
             <div class="thumbnails">
                 @forelse ($product->images as $image)
-                    <img class="thumb {{ $loop->first ? 'active' : '' }}" src="{{ asset($image->image_path) }}" alt="thumb{{ $loop->iteration }}">
+                    <div class="thumb-wrapper">
+                        <img class="thumb {{ $loop->first ? 'active' : '' }}" src="{{ asset($image->image_path) }}" alt="thumb{{ $loop->iteration }}">
+                        <input type="checkbox" name="delete_images[]" value="{{ $image->id }}" id="del_{{ $image->id }}"style="display:none">
+                        <button type="button" class="thumb-delete" onclick="document.getElementById('del_{{ $image->id }}').checked = true;
+                            this.closest('.thumb-wrapper').style.display = 'none';">
+                            ×</button>
+                    </div>
                 @empty
                     <img class="thumb active" src="{{ asset('image/duck.png') }}" alt="thumb1">
                 @endforelse
@@ -47,7 +56,7 @@
 
             <div class="quantity_control">
                 <p>Stock:</p>
-                <input type="number" class="form-control" name="quantity" style="width: 85px">
+                <input type="number" class="form-control quant-control" name="quantity" value="{{ $product->quantity }}">
             </div>
 
             <label>Price (€)</label>
@@ -57,18 +66,29 @@
             @foreach ($categoryTypes as $type)
                 <p class="fw-bold mb-1">{{ $type->name }}</p>
                 <div class="d-flex flex-wrap gap-3 mb-2">
-                    @foreach ($type->categories as $category)
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" 
-                                name="categories[]" 
-                                value="{{ $category->id }}"
-                                id="cat_{{ $category->id }}"
-                                {{ $product->categories->contains($category->id) ? 'checked' : '' }}>
-                            <label class="form-check-label" for="cat_{{ $category->id }}">
-                                {{ $category->name }}
-                            </label>
-                        </div>
-                    @endforeach
+                    @if ($type->name == 'View')
+                        <select name="categories[]" class="form-select">
+                            <option value="">-- Select --</option>
+                            @foreach ($type->categories as $category)
+                                <option value="{{ $category->id }}" {{ $product->categories->contains($category->id) ? 'selected' : '' }}>
+                                    {{ $category->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    @else
+                        @foreach ($type->categories as $category)
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox"
+                                    name="categories[]"
+                                    value="{{ $category->id }}"
+                                    id="cat_{{ $category->id }}"
+                                    {{ $product->categories->contains($category->id) ? 'checked' : '' }}>
+                                <label class="form-check-label" for="cat_{{ $category->id }}">
+                                    {{ $category->name }}
+                                </label>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
             @endforeach
         </div>
