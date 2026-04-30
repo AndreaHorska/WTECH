@@ -32,25 +32,26 @@
         </div>
 
         <div class="product_info">
-
             <label>Product name</label>
-            <input type="text" class="form-control" name="name" placeholder="Product Name">
+            <input type="text" class="form-control" name="name" placeholder="Product Name" value="{{ old('name') }}">
+            @error('name') <small class="text-danger">{{ $message }}</small> @enderror
 
             <label>Description</label>
-            <textarea class="form-control description" name="description" placeholder="Information about the product"></textarea>
+            <textarea class="form-control description" name="description" placeholder="Information about the product">{{ old('description') }}</textarea>
 
             <label>Pcs in one package</label>
-            <input type="number" class="form-control" name="pcs" placeholder="10">
+            <input type="number" class="form-control" name="pcs" placeholder="10" value="{{ old('pcs') }}">
 
             <div class="quantity_control">
                 <p>Stock:</p>
-                <input type="number" class="form-control quant-control" name="quantity">
+                <input type="number" class="form-control quant-control" name="quantity" value="{{ old('quantity') }}">
             </div>
+            @error('quantity') <small class="text-danger">{{ $message }}</small> @enderror
 
             <label>Price (€)</label>
-            <input type="text" class="form-control" name="price" placeholder="0.00">
+            <input type="text" class="form-control" name="price" placeholder="0.00" value="{{ old('price') }}">
+            @error('price') <small class="text-danger">{{ $message }}</small> @enderror
 
-            <label>Categories</label>
             @foreach ($categoryTypes as $type)
                 <p class="fw-bold mb-1">{{ $type->name }}</p>
                 <div class="d-flex flex-wrap gap-3 mb-2">
@@ -58,7 +59,8 @@
                         <select name="categories[]" class="form-select">
                             <option value="">-- Select --</option>
                             @foreach ($type->categories as $category)
-                                <option value="{{ $category->id }}">
+                                <option value="{{ $category->id }}"
+                                    {{ in_array($category->id, old('categories', [])) ? 'selected' : '' }}>
                                     {{ $category->name }}
                                 </option>
                             @endforeach
@@ -69,7 +71,8 @@
                                 <input class="form-check-input" type="checkbox"
                                     name="categories[]"
                                     value="{{ $category->id }}"
-                                    id="cat_{{ $category->id }}">
+                                    id="cat_{{ $category->id }}"
+                                    {{ in_array($category->id, old('categories', [])) ? 'checked' : '' }}>
                                 <label class="form-check-label" for="cat_{{ $category->id }}">
                                     {{ $category->name }}
                                 </label>
@@ -89,24 +92,29 @@
             <table class="spec-table">
                 <tr>
                     <td><input type="text" class="form-control" value="Material" disabled></td>
-                    <td><input type="text" class="form-control" name="material"></td>
+                    <td><input type="text" class="form-control" name="material" value="{{ old('material') }}"></td>
                 </tr>
+                @error('material') <tr><td colspan="2"><small class="text-danger">{{ $message }}</small></td></tr> @enderror
                 <tr>
                     <td><input type="text" class="form-control" value="Size" disabled></td>
-                    <td><input type="text" class="form-control" name="size"></td>
+                    <td><input type="text" class="form-control" name="size" value="{{ old('size') }}"></td>
                 </tr>
+                @error('size') <tr><td colspan="2"><small class="text-danger">{{ $message }}</small></td></tr> @enderror
                 <tr>
                     <td><input type="text" class="form-control" value="Weight" disabled></td>
-                    <td><input type="text" class="form-control" name="weight"></td>
+                    <td><input type="text" class="form-control" name="weight" value="{{ old('weight') }}"></td>
                 </tr>
+                @error('weight') <tr><td colspan="2"><small class="text-danger">{{ $message }}</small></td></tr> @enderror
                 <tr>
                     <td><input type="text" class="form-control" value="Age" disabled></td>
-                    <td><input type="text" class="form-control" name="age"></td>
+                    <td><input type="text" class="form-control" name="age" value="{{ old('age') }}"></td>
                 </tr>
+                @error('age') <tr><td colspan="2"><small class="text-danger">{{ $message }}</small></td></tr> @enderror
                 <tr>
                     <td><input type="text" class="form-control" value="Country of origin" disabled></td>
-                    <td><input type="text" class="form-control" name="country_of_origin"></td>
+                    <td><input type="text" class="form-control" name="country_of_origin" value="{{ old('country_of_origin') }}"></td>
                 </tr>
+                @error('country_of_origin') <tr><td colspan="2"><small class="text-danger">{{ $message }}</small></td></tr> @enderror
             </table>
         </div>
 

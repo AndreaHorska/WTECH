@@ -98,6 +98,11 @@ class AdminProductController extends Controller
             'price' => 'required',
             'quantity' => 'required|integer|min:0',
             'images.*' => 'image|mimes:jpg,jpeg,png,webp|max:2048',
+            'material' => 'required|string',
+            'size' => 'required|string',
+            'weight' => 'required|string',
+            'age' => 'required|string',
+            'country_of_origin' => 'required|string',
         ]);
 
         $product = Product::create([
