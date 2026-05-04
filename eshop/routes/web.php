@@ -28,6 +28,7 @@ Route::get('/cart/count', [CartController::class, 'count'])->name('cart.count');
 Route::get('/cart/shipping', [CartController::class, 'shipping'])->name('cart.shipping');
 Route::post('/cart/shipping/save-option', [CartController::class, 'saveShippingOption'])->name('cart.shipping.option');
 Route::post('/cart/shipping', [CartController::class, 'saveShipping'])->name('cart.shipping.save');
+Route::get('/cart/customer', [CartController::class, 'customerInfo'])->name('cart.customer');
 
 Route::get('/user-account', [AccountController::class, 'edit'])->middleware('auth')->name('account.edit');
 Route::put('/user-account', [AccountController::class, 'update'])->middleware('auth')->name('account.update');

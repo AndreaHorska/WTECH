@@ -214,6 +214,7 @@ class CartController extends Controller
 
         return back();
     }
+
     private function recalculateCartTotal(Cart $cart): void
     {
         $cart->total_price = $cart->cartItems()
@@ -240,7 +241,8 @@ class CartController extends Controller
         ]);
     }
 
-    public function shipping()
+
+    private function getCartData(): array
     {
         if (Auth::check()) {
             $cart = Cart::with('cartItems.product.images')
@@ -260,18 +262,30 @@ class CartController extends Controller
             });
         }
 
+        $summary = $this->calculateCartSummary($cartItems);
+
+        return [
+            'cartItems' => $cartItems,
+            'subtotal' => $summary['subtotal'],
+            'discount' => $summary['discount'],
+        ];
+    }
+
+
+    public function shipping()
+    {
+        $cartData = $this->getCartData();
         $shippingMethods = ShippingMethod::all();
         $paymentMethods = PaymentMethod::all();
 
-        $summary = $this->calculateCartSummary($cartItems);
+        // ulozit summary do session
+        session(['checkout.subtotal' => $cartData['subtotal']]);
+        session(['checkout.discount' => $cartData['discount']]);
 
-        return view('cart-shipping', [
-            'cartItems' => $cartItems,
+        return view('cart-shipping', array_merge($cartData, [
             'shippingMethods' => $shippingMethods,
             'paymentMethods' => $paymentMethods,
-            'subtotal' => $summary['subtotal'],
-            'discount' => $summary['discount'],
-        ]);
+        ]));
     }
 
 
@@ -300,7 +314,27 @@ class CartController extends Controller
             'checkout.payment_method_id' => $validated['payment'],
         ]);
 
-        return back();
+        return redirect()->route('cart.customer');
+    }
+
+    public function customerInfo()
+    {
+        $cartData = $this->getCartData();
+
+        $userInfo = Auth::user()?->userInfo;
+        $address = $userInfo?->addresses()->first();
+
+        $selectedShipping = ShippingMethod::find(session('checkout.shipping_method_id'));
+        $selectedPayment = PaymentMethod::find(session('checkout.payment_method_id'));
+
+        return view('cart-customer-info', array_merge($cartData, [
+            'userInfo' => $userInfo,
+            'address' => $address,
+            'subtotal' => session('checkout.subtotal'),
+            'discount' => session('checkout.discount'),
+            'selectedShipping' => $selectedShipping,
+            'selectedPayment' => $selectedPayment,
+        ]));
     }
 
 
