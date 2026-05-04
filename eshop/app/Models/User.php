@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+// moj user je user@user user1234
+
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -35,6 +37,6 @@ class User extends Authenticatable
 
     public function userInfo()
     {
-        return $this->belongsTo(UserInfo::class);
+        return $this->belongsTo(UserInfo::class, 'user_info_id');
     }
 }

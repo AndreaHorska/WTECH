@@ -8,23 +8,23 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('email')->unique();
-            $table->string('password');
+        Schema::create('address_user_info', function (Blueprint $table) {
+            $table->foreignId('address_id')
+                ->references('id')
+                ->on('addresses')
+                ->cascadeOnDelete();
 
             $table->foreignId('user_info_id')
-                ->nullable()
                 ->references('id')
                 ->on('user_info')
-                ->restrictOnDelete();
+                ->cascadeOnDelete();
 
-            $table->timestamps();
+            $table->primary(['address_id', 'user_info_id']);
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('address_user_info');
     }
 };

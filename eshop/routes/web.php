@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Shop\ProductController;
 use App\Http\Controllers\Shop\CartController;
 use App\Http\Controllers\Shop\AdminProductController;
+use App\Http\Controllers\AccountController;
 
 Route::get('/', [ProductController::class, 'home']);
 
@@ -28,6 +29,9 @@ Route::get('/cart/shipping', [CartController::class, 'shipping'])->name('cart.sh
 Route::post('/cart/shipping/save-option', [CartController::class, 'saveShippingOption'])->name('cart.shipping.option');
 Route::post('/cart/shipping', [CartController::class, 'saveShipping'])->name('cart.shipping.save');
 
+Route::get('/user-account', [AccountController::class, 'edit'])->middleware('auth')->name('account.edit');
+Route::put('/user-account', [AccountController::class, 'update'])->middleware('auth')->name('account.update');
+
 /* ADMIN */
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [AdminProductController::class, 'index'])->name('panel');
@@ -41,11 +45,5 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::delete('/product/{id}', [AdminProductController::class, 'destroy'])->name('product.destroy');
 });
 
-Route::middleware('auth')->group(function () {
-    Route::get('/user-account', function () {
-        $userInfo = Auth::user()->userInfo;
-        return view('user-account', compact('userInfo'));
-    })->name('user-account');
-});
 
 require __DIR__.'/auth.php';
