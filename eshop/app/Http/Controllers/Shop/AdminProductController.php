@@ -119,7 +119,8 @@ class AdminProductController extends Controller
         ]);
 
         if ($request->filled('categories')) {
-            $product->categories()->sync($request->categories);
+            $categories = array_filter($request->categories, fn($id) => !empty($id));
+            $product->categories()->sync($categories);
         }
 
         if ($request->hasFile('images')) {
