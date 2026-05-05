@@ -3,3 +3,22 @@ php artisan storage:link
         rm public/storage
         php artisan storage:link
 FILESYSTEM_DISK=public
+
+dekomponovat : cart - navbar, summary
+               produkty
+
+vyhladavanie bez duck
+
+uprava modelu - specifikacie produktu
+mail pri user (model)
+
+pridat kacky
+prec weapon, upravit other, radiobutton na hlava/telo
+
+nemozes dat continue, ked je out of stock
+prec discount
+prec new password
+
+shipping - uprava radiobuttonov v session
+
+objednavka - prihlaseny/neprihlaseny
