@@ -33,6 +33,11 @@
                     <h2 class="h4 mb-3">Account details</h2>
 
                     <div class="mb-3">
+                        <label for="email-address" class="form-label">Email</label>
+                        <input type="email" class="form-control bg-light" value="{{ $userInfo->email_address ?? '' }}" disabled>
+                    </div>
+
+                    <div class="mb-3">
                         <label for="first-name" class="form-label">First Name</label>
                         <input id="first-name" name="first_name" type="text" class="form-control"
                             value="{{ old('first_name', $userInfo->first_name ?? '') }}" required>
