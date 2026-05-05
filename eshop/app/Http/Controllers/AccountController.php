@@ -21,57 +21,39 @@ class AccountController extends Controller
     public function update(Request $request)
     {
         $data = $request->validate([
-            'first_name' => ['required', 'string', 'max:50'],
-            'last_name' => ['required', 'string', 'max:50'],
-            'email_address' => ['required', 'email', 'max:255'],
-            'phone_number' => ['required', 'string', 'max:20'],
-            'street' => ['required', 'string', 'max:50'],
-            'house_number' => ['required', 'string', 'max:10'],
-            'city' => ['required', 'string', 'max:40'],
-            'postal_code' => ['required', 'string', 'max:10'],
-            'state' => ['required', 'string', 'max:40'],
+            'first_name' => ['nullable', 'string', 'max:50'],
+            'last_name' => ['nullable', 'string', 'max:50'],
+            'email_address' => ['nullable', 'email', 'max:255'],
+            'phone_number' => ['nullable', 'string', 'max:20'],
+            'street' => ['nullable', 'string', 'max:50'],
+            'house_number' => ['nullable', 'string', 'max:10'],
+            'city' => ['nullable', 'string', 'max:40'],
+            'postal_code' => ['nullable', 'string', 'max:10'],
+            'state' => ['nullable', 'string', 'max:40'],
         ]);
 
         $user = auth()->user();
+        
+        $userInfo = $user->userInfo ?: new UserInfo();
+        $userInfo->fill(collect($data)->only(['first_name', 'last_name', 'phone_number', 'email_address'])->toArray());
+        $userInfo->save();
 
-        $userInfo = $user->userInfo;
-
-        if (!$userInfo) {
-            $userInfo = UserInfo::create([
-                'first_name' => $data['first_name'],
-                'last_name' => $data['last_name'],
-                'phone_number' => $data['phone_number'],
-                'email_address' => $data['email_address'],
-            ]);
-
-            $user->update([
-                'user_info_id' => $userInfo->id,
-            ]);
-        } else {
-            $userInfo->update([
-                'first_name' => $data['first_name'],
-                'last_name' => $data['last_name'],
-                'phone_number' => $data['phone_number'],
-                'email_address' => $data['email_address'],
-            ]);
+        if (!$user->user_info_id) {
+            $user->update(['user_info_id' => $userInfo->id]);
         }
 
-        $addressData = [
-            'street' => $data['street'],
-            'house_number' => $data['house_number'],
-            'city' => $data['city'],
-            'postal_code' => $data['postal_code'],
-            'state' => $data['state'],
-        ];
+        $addressFields = ['street', 'house_number', 'city', 'postal_code', 'state'];
+        $addressData = collect($data)->only($addressFields)->toArray();
 
-        $address = $userInfo->addresses()->first();
+        if (!empty($addressData)) {
+            $address = $userInfo->addresses()->first();
 
-        if ($address) {
-            $address->update($addressData);
-        } else {
-            $address = Address::create($addressData);
-
-            $userInfo->addresses()->attach($address->id);
+            if ($address) {
+                $address->update($addressData);
+            } else {
+                $newAddress = Address::create($addressData);
+                $userInfo->addresses()->attach($newAddress->id);
+            }
         }
 
         return back()->with('success', 'Changes saved.');
