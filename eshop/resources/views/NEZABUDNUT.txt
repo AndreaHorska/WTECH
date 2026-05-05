@@ -1,0 +1,5 @@
+php artisan storage:link
+    pripadne:
+        rm public/storage
+        php artisan storage:link
+FILESYSTEM_DISK=public
