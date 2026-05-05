@@ -7,8 +7,6 @@ FILESYSTEM_DISK=public
 dekomponovat : cart - navbar, summary
                produkty
 
-vyhladavanie bez duck
-
 uprava modelu - specifikacie produktu
 mail pri user (model)
 
@@ -16,7 +14,6 @@ pridat kacky
 prec weapon, upravit other, radiobutton na hlava/telo
 
 nemozes dat continue, ked je out of stock
-prec discount
 prec new password
 
 shipping - uprava radiobuttonov v session
@@ -24,7 +21,15 @@ shipping - uprava radiobuttonov v session
 objednavka - prihlaseny/neprihlaseny
 
 varifikacia mailu, cisla
+mail validacia - a@a. / a@.a / a@.
 Nepsravny format mailu pri registracii -> znova pisat heslo?
 Nespravne pridanie prduktu -> znova obrazok?
 
 stat
+
+Prazdna abstraktna trieda controller?
+
+---------------------------------------
+HOTOVO, JEEEEEEJ:
+vyhladavanie bez duck
+prec discount

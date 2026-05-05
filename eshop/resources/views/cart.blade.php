@@ -121,33 +121,30 @@
                 <aside class="order-summary" aria-labelledby="summary-heading">
                     <h2 id="summary-heading" class="order-summary-title">Order summary</h2>
 
-                    <form class="discount-form">
-                        <label class="discount-checkbox-wrapper">
-                            <input type="checkbox" class="discount-input-real">
-                            <span class="discount-label-text">Apply discount code</span>
-                        </label>
+                    <div class="duck-note">
+                        <span class="duck-note-icon">
+                            <svg viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg">
+                                <ellipse cx="330" cy="300" rx="110" ry="80" fill="currentColor"/>
+                                <ellipse cx="220" cy="280" rx="40" ry="30" fill="currentColor"/>
+                                <circle cx="400" cy="195" r="55" fill="currentColor"/>
+                                <rect x="448" y="188" width="45" height="20" rx="10" fill="currentColor"/>
+                                <circle cx="418" cy="183" r="10" fill="white"/>
+                                <path d="M235 310 Q310 270 400 305" fill="none" stroke="white" stroke-width="10" stroke-linecap="round"/>
+                                <rect x="360" y="235" width="55" height="40" fill="currentColor"/>
+                            </svg>
+                        </span>
 
-                        <input
-                            type="text"
-                            name="discount-code"
-                            class="discount-form-input"
-                            placeholder="Enter discount code"
-                        >
-                    </form>
-
-                    <dl class="summary-prices">
-                        <dt>Subtotal</dt>
-                        <dd>{{ number_format($subtotal, 2, ',', ' ') }} €</dd>
-
-                        <dt>Discount</dt>
-                        <dd>- {{ number_format($discount, 2, ',', ' ') }} €</dd>
-                    </dl>
+                        <div>
+                            <div class="duck-note-title">Your ducks are almost home</div>
+                            <div class="duck-note-text">Just one more step</div>
+                        </div>
+                    </div>
 
                     <hr class="summary-divider">
 
                     <dl class="summary-totals">
                         <dt>Total</dt>
-                        <dd>{{ number_format($total, 2, ',', ' ') }} €</dd>
+                        <dd>{{ number_format($subtotal, 2, ',', ' ') }} €</dd>
                     </dl>
 
                     <div class="order-summary_buttons">

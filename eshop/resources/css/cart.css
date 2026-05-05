@@ -335,41 +335,34 @@ body {
     font-size: 1.25rem;
 }
 
-.discount-form {
+.duck-note {
     display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 1.25rem;
-    font-family: var(--font-inter);
+    gap: 6px;
+    align-items: flex-start;
+    padding: 7px 0;
 }
 
-.discount-checkbox-wrapper {
+.duck-note-icon {
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    cursor: pointer;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.duck-note-title {
     font-size: 16px;
-    user-select: none;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 4px;
 }
 
-.discount-input-real {
-    width: 1.2em;
-    height: 1.2em;
-    accent-color: var(--dark-blue);
-    cursor: pointer;
-    margin: 0;
+.duck-note-text {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
 }
-
-.discount-form-input {
-    width: 100%;
-    min-height: 44px;
-    padding: 0.75rem 0.875rem;
-    border: 1px solid #000;
-    border-radius: var(--radius-sm);
-    background: #fff;
-    box-sizing: border-box;
-}
-
 
 .summary-totals {
     display: flex;

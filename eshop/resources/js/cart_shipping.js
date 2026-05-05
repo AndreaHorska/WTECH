@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const token = document.querySelector('meta[name="csrf-token"]')?.content;
 
     const subtotal = Number(layout.dataset.subtotal || 0);
-    const discount = Number(layout.dataset.discount || 0);
 
     const deliveryPriceEl = document.getElementById('deliveryPrice');
     const paymentPriceEl = document.getElementById('paymentPrice');
@@ -30,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const deliveryFee = getSelectedFee(deliveryInputs);
         const paymentFee = getSelectedFee(paymentInputs);
 
-        const total = subtotal - discount + deliveryFee + paymentFee;
+        const total = subtotal + deliveryFee + paymentFee;
 
         if (deliveryPriceEl) {
             deliveryPriceEl.textContent = formatPrice(deliveryFee);

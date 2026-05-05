@@ -51,11 +51,17 @@ class ProductController extends Controller {
         $query = Product::with('images', 'categories')->where('active', true);
 
         if ($search !== '') {
-            /* trim($search) odstrani medzery na zaciatku a na konci, mb_strtolower male pismena (aj s diakritikou), \s+ jeden alebo viac bielych znakov */
+            // trim($search) odstrani medzery na zaciatku a na konci, mb_strtolower male pismena (aj s diakritikou), \s+ jeden alebo viac bielych znakov
             $terms = preg_split('/\s+/', mb_strtolower(trim($search)));
+
+            // odstranenie duck
+            $terms = array_filter($terms, fn($term) => $term !== 'duck');
+            // reset indexov
+            $terms = array_values($terms);
 
             $query->where(function ($q) use ($terms) {
                 foreach ($terms as $index => $term) {
+
                     $method = $index === 0 ? 'where' : 'orWhere';
 
                     $q->$method(function ($subQ) use ($term) {

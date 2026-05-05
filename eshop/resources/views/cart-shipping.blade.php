@@ -25,7 +25,7 @@
         $shippingFee = $selectedShipping?->fee ?? 0;
         $paymentFee = $selectedPayment?->fee ?? 0;
 
-        $total = $subtotal - $discount + $shippingFee + $paymentFee
+        $total = $subtotal + $shippingFee + $paymentFee
     @endphp
 
     <main class="cart-page">
@@ -47,7 +47,7 @@
         </nav>
 
         <section class="cart-shipping-layout" aria-labelledby="cart-heading"
-                 data-subtotal="{{ $subtotal }}" data-discount="{{ $discount }}">
+                 data-subtotal="{{ $subtotal }}">
 
             <div class="checkout-options">
                 <form method="POST" action="{{ route('cart.shipping.save') }}">
@@ -137,9 +137,6 @@
                 <dl class="summary-prices">
                     <dt>Subtotal</dt>
                     <dd id="subtotalPrice">{{ number_format($subtotal, 2, ',', ' ') }} €</dd>
-
-                    <dt>Discount</dt>
-                    <dd id="discountPrice">- {{ number_format($discount, 2, ',', ' ') }} €</dd>
 
                     <dt>Delivery</dt>
                     <dd id="deliveryPrice">{{ number_format($shippingFee, 2, ',', ' ') }} €</dd>

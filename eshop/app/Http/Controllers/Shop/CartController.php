@@ -25,11 +25,8 @@ class CartController extends Controller
             return $price * $quantity;
         });
 
-        $discount = 0;
-
         return [
             'subtotal' => $subtotal,
-            'discount' => $discount,
         ];
     }
 
@@ -58,8 +55,6 @@ class CartController extends Controller
         return view('cart', [
             'cartItems' => $cartItems,
             'subtotal' => $summary['subtotal'],
-            'discount' => $summary['discount'],
-            'total' => $summary['subtotal'] - $summary['discount'],
         ]);
     }
 
@@ -267,7 +262,6 @@ class CartController extends Controller
         return [
             'cartItems' => $cartItems,
             'subtotal' => $summary['subtotal'],
-            'discount' => $summary['discount'],
         ];
     }
 
@@ -280,7 +274,6 @@ class CartController extends Controller
 
         // ulozit summary do session
         session(['checkout.subtotal' => $cartData['subtotal']]);
-        session(['checkout.discount' => $cartData['discount']]);
 
         return view('cart-shipping', array_merge($cartData, [
             'shippingMethods' => $shippingMethods,
@@ -331,7 +324,6 @@ class CartController extends Controller
             'userInfo' => $userInfo,
             'address' => $address,
             'subtotal' => session('checkout.subtotal'),
-            'discount' => session('checkout.discount'),
             'selectedShipping' => $selectedShipping,
             'selectedPayment' => $selectedPayment,
         ]));
