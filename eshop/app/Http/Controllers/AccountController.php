@@ -23,6 +23,7 @@ class AccountController extends Controller
         $data = $request->validate([
             'first_name' => ['required', 'string', 'max:50'],
             'last_name' => ['required', 'string', 'max:50'],
+            'phone_number' => ['required', 'string', 'max:20'],
             'street' => ['required', 'string', 'max:50'],
             'house_number' => ['required', 'string', 'max:10'],
             'city' => ['required', 'string', 'max:40'],
@@ -38,6 +39,7 @@ class AccountController extends Controller
             $userInfo = UserInfo::create([
                 'first_name' => $data['first_name'],
                 'last_name' => $data['last_name'],
+                'phone_number' => $data['phone_number'],
                 'email_address' => $user->email,
             ]);
 
@@ -48,6 +50,7 @@ class AccountController extends Controller
             $userInfo->update([
                 'first_name' => $data['first_name'],
                 'last_name' => $data['last_name'],
+                'phone_number' => $data['phone_number'],
             ]);
         }
 

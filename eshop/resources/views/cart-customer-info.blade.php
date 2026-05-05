@@ -70,7 +70,7 @@
                         <div class="form-group full-width">
                             <label for="phone">Phone Number</label>
                             <input type="tel" id="phone" name="phone" placeholder="+421 012 345 698"
-                                   value="{{ $userInfo->phone ?? '' }}">
+                                   value="{{ $userInfo->phone_number ?? '' }}">
                         </div>
                     </div>
                 </section>

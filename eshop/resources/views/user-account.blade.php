@@ -51,6 +51,15 @@
                     </div>
 
                     <div class="mb-3">
+                        <label for="phone-number" class="form-label">Phone Number</label>
+                        <input id="phone-number" name="phone_number" type="text" class="form-control"
+                            value="{{ old('phone_number', $userInfo->phone_number ?? '') }}" required>
+                        @error('phone_number')
+                        <div class="text-danger small">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="mb-3">
                         <label for="country" class="form-label">Country</label>
                         <select id="country" name="state" class="form-select" required>
                             <option value="" disabled {{ old('state', $address->state ?? '') === '' ? 'selected' : '' }}>
