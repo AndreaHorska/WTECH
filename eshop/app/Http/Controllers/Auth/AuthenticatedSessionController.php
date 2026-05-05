@@ -64,7 +64,7 @@ class AuthenticatedSessionController extends Controller
         if (Auth::user()->roles->contains('name', 'ADMIN')) {
             return redirect()->intended(route('admin.panel'));
         }
-        return redirect()->intended(route('user-account'));
+        return redirect()->intended(route('account.edit'));
     }
 
     /**
