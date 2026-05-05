@@ -22,3 +22,9 @@ prec new password
 shipping - uprava radiobuttonov v session
 
 objednavka - prihlaseny/neprihlaseny
+
+varifikacia mailu, cisla
+Nepsravny format mailu pri registracii -> znova pisat heslo?
+Nespravne pridanie prduktu -> znova obrazok?
+
+stat
