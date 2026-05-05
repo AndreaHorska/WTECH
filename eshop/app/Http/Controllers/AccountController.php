@@ -23,7 +23,7 @@ class AccountController extends Controller
         $data = $request->validate([
             'first_name' => ['required', 'string', 'max:50'],
             'last_name' => ['required', 'string', 'max:50'],
-            'email_address' => ['required', 'email', 'max:255'],
+            'email_address' => ['required', 'email:rfc', 'regex:/^[^\s@]+@[^\s@]+\.[^\s@]+$/', 'max:255'],
             'phone_number' => ['required', 'string', 'max:20'],
             'street' => ['required', 'string', 'max:50'],
             'house_number' => ['required', 'string', 'max:10'],
