@@ -324,8 +324,8 @@ class CartController extends Controller
             'userInfo' => $userInfo,
             'address' => $address,
             'subtotal' => session('checkout.subtotal'),
-            'selectedShipping' => $selectedShipping,
-            'selectedPayment' => $selectedPayment,
+            'selectedShippingMethod' => $selectedShipping,
+            'selectedPaymentMethod' => $selectedPayment,
         ]));
     }
 

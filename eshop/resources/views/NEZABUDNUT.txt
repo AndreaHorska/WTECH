@@ -4,8 +4,7 @@ php artisan storage:link
         php artisan storage:link
 FILESYSTEM_DISK=public
 
-dekomponovat : cart - summary
-               produkty
+dekomponovat : produkty
 
 uprava modelu - specifikacie produktu (vsetko VARCHAR: material 100, size 50, weight 30, age 30, country_of_origin 60)
 recenzie
@@ -51,4 +50,4 @@ prec weapon, pridat bubbles
 
 stat
 
-dekomponovat : cart - navbar
+dekomponovat : cart - navbar, summary
