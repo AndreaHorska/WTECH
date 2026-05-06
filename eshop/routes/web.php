@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Shop\ProductController;
 use App\Http\Controllers\Shop\CartController;
 use App\Http\Controllers\Shop\AdminProductController;
-use App\Http\Controllers\AccountController;
+use App\Http\Controllers\Shop\AccountController;
 
 Route::get('/', [ProductController::class, 'home']);
 

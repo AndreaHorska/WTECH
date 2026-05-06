@@ -34,7 +34,7 @@ class AccountController extends Controller
         ]);
 
         $user = auth()->user();
-        
+
         $userInfo = $user->userInfo ?: new UserInfo();
         $userInfo->fill(collect($data)->only(['first_name', 'last_name', 'phone_number', 'email_address'])->toArray());
         $userInfo->save();
