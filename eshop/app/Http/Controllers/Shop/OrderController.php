@@ -38,29 +38,25 @@ class OrderController extends Controller
             $userInfo = $user->userInfo;
             $address = $userInfo->addresses()->first();
         } else {
-            $userInfo = UserInfo::create([
-                'first_name'    => $request->input('first-name'),
-                'last_name'     => $request->input('last-name'),
-                'email_address' => $request->input('email'),
-                'phone_number'  => $request->input('phone'),
-            ]);
+        $userInfo = UserInfo::firstOrCreate(
+            ['email_address' => $request->input('email')],
+            [
+                'first_name' => $request->input('first-name'),
+                'last_name' => $request->input('last-name'),
+                'phone_number' => $request->input('phone'),
+            ]
+        );
 
-            $countryMap = [
-                'sk' => 'Slovakia',
-                'cz' => 'Czech Republic',
-                'de' => 'Germany',
-            ];
+        $address = Address::create([
+            'street' => $request->input('street'),
+            'house_number' => $request->input('house-number'),
+            'city' => $request->input('city'),
+            'postal_code' => $request->input('zip'),
+            'state' => $request->input('country'),
+        ]);
 
-            $address = Address::create([
-                'street' => $request->input('street'),
-                'house_number' => $request->input('house-number'),
-                'city' => $request->input('city'),
-                'postal_code' => $request->input('zip'),
-                'state' => $countryMap[$request->input('country')] ?? 'Slovakia',
-            ]);
-
-            $userInfo->addresses()->attach($address->id);
-        }
+        $userInfo->addresses()->attach($address->id);
+    }
 
         foreach ($cartItems as $item) {
             $productId = $item->product_id ?? $item['product_id'];

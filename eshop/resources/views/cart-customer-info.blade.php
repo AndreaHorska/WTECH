@@ -71,7 +71,7 @@
                         <div class="form-group full-width">
                             <label for="phone">Phone Number</label>
                             <input type="tel" id="phone" name="phone" placeholder="+421 012 345 698"
-                                   value="{{ $userInfo->phone_number ?? '' }}">
+                                   value="{{ $userInfo->phone_number ?? '' }}" required>
                         </div>
                     </div>
                 </section>
@@ -82,12 +82,12 @@
                         <div class="form-group half-width">
                             <label for="street">Street</label>
                             <input type="text" id="street" name="street" placeholder="Main Street"
-                                   value="{{ $address->street ?? '' }}">
+                                   value="{{ $address->street ?? '' }}" required>
                         </div>
                         <div class="form-group half-width">
                             <label for="house-number">House Number</label>
                             <input type="text" id="house-number" name="house-number" placeholder="123"
-                                   value="{{ $address->house_number ?? '' }}">
+                                   value="{{ $address->house_number ?? '' }}" required>
                         </div>
                         <div class="form-group half-width">
                             <label for="city">City</label>
@@ -101,11 +101,8 @@
                         </div>
                         <div class="form-group full-width">
                             <label for="country">Country</label>
-                            <select id="country" name="country">
-                                <option value="sk" {{ ($address->state ?? '') === 'Slovakia' ? 'selected' : '' }}>Slovakia</option>
-                                <option value="cz" {{ ($address->state ?? '') === 'Czech Republic' ? 'selected' : '' }}>Czech Republic</option>
-                                <option value="de" {{ ($address->state ?? '') === 'Germany' ? 'selected' : '' }}>Germany</option>
-                            </select>
+                            <input type="text" id="country" name="country" placeholder="Slovakia"
+                                   value="{{ $address->state ?? '' }}" required>
                         </div>
                     </div>
                 </section>
