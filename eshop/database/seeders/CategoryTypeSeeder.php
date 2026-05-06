@@ -23,12 +23,12 @@ class CategoryTypeSeeder extends Seeder
                 'slug' => 'gear',
             ],
             [
-                'name' => 'View',
-                'slug' => 'view',
-            ],
-            [
                 'name' => 'Lifestyle',
                 'slug' => 'lifestyle',
+            ],
+            [
+                'name' => 'View',
+                'slug' => 'view',
             ],
         ];
 

@@ -160,3 +160,21 @@ if (!isNaN(initialRating) && initialRating > 0) {
 }
 
 window.addEventListener("resize", updateUI);
+
+
+// Moznost vybrat iba jeden z checkboxov
+document.querySelectorAll('.single-select').forEach((group) => {
+    const checkboxes = group.querySelectorAll('input[type="checkbox"]');
+
+    checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                checkboxes.forEach((other) => {
+                    if (other !== checkbox) {
+                        other.checked = false;
+                    }
+                });
+            }
+        });
+    });
+});

@@ -70,11 +70,11 @@
                     <div class="accessories-filter">
                         <h4 class="filter-subheading">{{ $type->name }}</h4>
 
-                        <div class="checkbox-group">
+                        <div class="checkbox-group {{ $type->slug === 'view' ? 'single-select' : '' }}">
                             @foreach($type->categories as $category)
                                 <label class="checkbox-label">
-                                    <input type="checkbox" name="categories[]" value="{{ $category->slug }}"
-                                        @checked(in_array($category->slug, request('categories', [])))>
+                                    <input type="checkbox" name="categories[]" value="{{ $category->id }}"
+                                        @checked(in_array($category->id, array_map('intval', request('categories', []))))>
                                     <span>{{ $category->name }}</span>
                                 </label>
                             @endforeach

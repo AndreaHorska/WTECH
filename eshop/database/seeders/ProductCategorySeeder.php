@@ -22,14 +22,14 @@ class ProductCategorySeeder extends Seeder
             ],
             'Bubble Duck' => [
                 'main' => ['funny', 'seasonal'],
-                'gear' => ['other'],
+                'gear' => ['bubbles'],
                 'view' => ['full'],
                 'lifestyle' => ['quirky'],
             ],
             'Chilled Duck' => [
                 'main' => ['funny'],
-                'gear' => ['glasses', 'other'],
-                'view' => ['full'],
+                'gear' => ['glasses', 'bubbles'],
+                'view' => ['other'],
                 'lifestyle' => ['chilled'],
             ],
             'Drowning Gluggy' => [
@@ -75,7 +75,7 @@ class ProductCategorySeeder extends Seeder
             ],
             'Summer Chiller' => [
                 'main' => ['funny', 'seasonal'],
-                'gear' => ['other', 'hat','glasses'],
+                'gear' => ['other', 'hat', 'glasses'],
                 'view' => ['full'],
                 'lifestyle' => ['chilled'],
             ],

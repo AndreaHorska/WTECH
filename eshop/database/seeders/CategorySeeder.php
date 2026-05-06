@@ -38,22 +38,12 @@ class CategorySeeder extends Seeder
                     'slug' => 'hat',
                 ],
                 [
+                    'name' => 'Bubbles',
+                    'slug' => 'bubbles',
+                ],
+                [
                     'name' => 'Other',
                     'slug' => 'other',
-                ],
-            ],
-            'view' => [
-                [
-                    'name' => 'Full',
-                    'slug' => 'full',
-                ],
-                [
-                    'name' => 'Head',
-                    'slug' => 'head',
-                ],
-                [
-                    'name' => 'Abstract',
-                    'slug' => 'abstract',
                 ],
             ],
             'lifestyle' => [
@@ -68,6 +58,16 @@ class CategorySeeder extends Seeder
                 [
                     'name' => 'Quirky',
                     'slug' => 'quirky',
+                ],
+            ],
+            'view' => [
+                [
+                    'name' => 'Full',
+                    'slug' => 'full',
+                ],
+                [
+                    'name' => 'Head',
+                    'slug' => 'head',
                 ],
             ],
         ];

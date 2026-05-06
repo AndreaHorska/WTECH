@@ -83,11 +83,11 @@ class ProductController extends Controller {
         }
 
         if ($request->filled('categories')) {
-            $categories = $request->categories;
+            $categories = array_map('intval', $request->categories);
 
-            foreach ($categories as $slug) {
-                $query->whereHas('categories', function ($q) use ($slug) {
-                    $q->where('slug', $slug);
+            foreach ($categories as $categoryId) {
+                $query->whereHas('categories', function ($q) use ($categoryId) {
+                    $q->where('categories.id', $categoryId);
                 });
             }
         }
