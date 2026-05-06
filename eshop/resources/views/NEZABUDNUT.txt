@@ -4,10 +4,11 @@ php artisan storage:link
         php artisan storage:link
 FILESYSTEM_DISK=public
 
-dekomponovat : cart - navbar, summary
+dekomponovat : cart - summary
                produkty
 
 uprava modelu - specifikacie produktu (vsetko VARCHAR: material 100, size 50, weight 30, age 30, country_of_origin 60)
+recenzie
 pocet nalepiek v baliku
 mail pri user (model)
 
@@ -26,10 +27,17 @@ Kategoria atribut description? Asi netreba
 
 Nevadi, ze filtre nie su podla nicoho usporiadane, cize sa vypisuju abecedne?
 
-stat
-
 Prazdna abstraktna trieda controller?
 
+Co ak admin prida viac obrazkov?
+
+Validacia udajov aj pri cart
+
+Kliknutie na vsetky produkty
+
+Pridat recenzie
+
+U admina nie hodnotenie
 ---------------------------------------
 HOTOVO, JEEEEEEJ:
 vyhladavanie bez duck
@@ -40,3 +48,7 @@ nemozes dat continue, ked je out of stock
 
 upravit other, filter max 1 na hlava/telo
 prec weapon, pridat bubbles
+
+stat
+
+dekomponovat : cart - navbar

@@ -29,22 +29,7 @@
     @endphp
 
     <main class="cart-page">
-        <nav class="checkout-steps" aria-label="Checkout steps">
-            <ol class="checkout-steps-list">
-                <li class="checkout-step">
-                    <span class="checkout-step-circle">1</span>
-                    <span class="checkout-step-label">Cart</span>
-                </li>
-                <li class="checkout-step active">
-                    <span class="checkout-step-circle">2</span>
-                    <span class="checkout-step-label">Shipping &amp; Payment</span>
-                </li>
-                <li class="checkout-step">
-                    <span class="checkout-step-circle">3</span>
-                    <span class="checkout-step-label">Customer Info</span>
-                </li>
-            </ol>
-        </nav>
+        <x-checkout-steps :active="3" />
 
         <section class="cart-shipping-layout" aria-labelledby="cart-heading">
 
