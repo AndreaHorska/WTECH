@@ -6,6 +6,7 @@ use App\Http\Controllers\Shop\ProductController;
 use App\Http\Controllers\Shop\CartController;
 use App\Http\Controllers\Shop\AdminProductController;
 use App\Http\Controllers\Shop\AccountController;
+use App\Http\Controllers\Shop\OrderController;
 
 Route::get('/', [ProductController::class, 'home']);
 
@@ -29,6 +30,7 @@ Route::get('/cart/shipping', [CartController::class, 'shipping'])->name('cart.sh
 Route::post('/cart/shipping/save-option', [CartController::class, 'saveShippingOption'])->name('cart.shipping.option');
 Route::post('/cart/shipping', [CartController::class, 'saveShipping'])->name('cart.shipping.save');
 Route::get('/cart/customer', [CartController::class, 'customerInfo'])->name('cart.customer');
+Route::post('/cart/order', [OrderController::class, 'placeOrder'])->name('cart.placeOrder');
 
 Route::get('/user-account', [AccountController::class, 'edit'])->middleware('auth')->name('account.edit');
 Route::put('/user-account', [AccountController::class, 'update'])->middleware('auth')->name('account.update');

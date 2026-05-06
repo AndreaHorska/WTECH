@@ -48,7 +48,8 @@
 
         <section class="cart-shipping-layout" aria-labelledby="cart-heading">
 
-            <form class="customer-info-form">
+            <form class="customer-info-form" action="{{ route('cart.placeOrder') }}" method="POST">
+                @csrf
                 <section class="form-section">
                     <h2 class="form-section-title">Personal Information</h2>
                     <div class="form-grid">
@@ -153,7 +154,9 @@
 
                 <div class="form-buttons">
                     <a href="{{ route('cart.shipping') }}" class="back-button">Back</a>
-                    <a href="{{ route('cart.shipping') }}" class="continue-button">Confirm Order</a>
+                    <button type="submit" class="continue-button">
+                        Confirm Order
+                    </button>
                 </div>
             </form>
 

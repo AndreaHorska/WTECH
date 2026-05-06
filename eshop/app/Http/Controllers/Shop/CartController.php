@@ -237,7 +237,7 @@ class CartController extends Controller
     }
 
 
-    private function getCartData(): array
+    public function getCartData(): array
     {
         if (Auth::check()) {
             $cart = Cart::with('cartItems.product.images')

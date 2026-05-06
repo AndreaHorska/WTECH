@@ -10,9 +10,13 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->restrictOnDelete();
+
+            $table->foreignId('user_info_id')->constrained('user_info')->restrictOnDelete();
+            $table->foreignId('shipping_address_id')->constrained('addresses')->restrictOnDelete();
+            $table->foreignId('billing_address_id')->constrained('addresses')->restrictOnDelete();
+            $table->foreignId('shipping_method_id')->constrained()->restrictOnDelete();
             $table->timestamp('date')->useCurrent();
-            $table->string('state', 15)->default('Created');
+            $table->string('state')->default('Created');
             $table->decimal('total_price', 10, 2)->default(0);
             $table->timestamps();
         });
