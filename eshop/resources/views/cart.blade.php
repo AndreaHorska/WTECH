@@ -118,6 +118,14 @@
 
                 </section>
 
+                @php
+                    $hasOutOfStock = $cartItems->contains(function ($item) {
+                        $product = data_get($item, 'product');
+                        $quantity = (int) data_get($item, 'quantity', 1);
+                        return (int) data_get($product, 'quantity', 0) < $quantity;
+                    });
+                @endphp
+
                 <aside class="order-summary" aria-labelledby="summary-heading">
                     <h2 id="summary-heading" class="order-summary-title">Order summary</h2>
 
@@ -149,7 +157,11 @@
 
                     <div class="order-summary_buttons">
                         <a href="{{ url('/') }}" class="back-button">Back</a>
-                        <a href="{{ route('cart.shipping') }}" class="continue-button">Continue</a>
+                        @if ($hasOutOfStock)
+                            <span class="continue-button disabled" style="opacity:0.5; cursor:not-allowed;" title="Remove out of stock items to continue">Continue</span>
+                        @else
+                            <a href="{{ route('cart.shipping') }}" class="continue-button">Continue</a>
+                        @endif
                     </div>
                 </aside>
             </section>

@@ -13,8 +13,6 @@ mail pri user (model)
 pridat kacky
 upravit other, radiobutton na hlava/telo
 
-nemozes dat continue, ked je out of stock
-
 shipping - uprava radiobuttonov v session
 
 objednavka - prihlaseny/neprihlaseny
@@ -32,5 +30,7 @@ Prazdna abstraktna trieda controller?
 HOTOVO, JEEEEEEJ:
 vyhladavanie bez duck
 prec discount
+
 prec new password
 prec weapon
+nemozes dat continue, ked je out of stock
