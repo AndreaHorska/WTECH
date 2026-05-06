@@ -48,6 +48,8 @@
         <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by vectorsmarket15 - Flaticon</a>
         <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by Nsit - Flaticon</a>
         <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by Nsit - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by dian-ratri - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by dian-ratri - Flaticon</a>
 
     </div>
 </footer>

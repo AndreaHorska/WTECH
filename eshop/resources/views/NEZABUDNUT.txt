@@ -11,10 +11,9 @@ uprava modelu - specifikacie produktu (vsetko VARCHAR: material 100, size 50, we
 mail pri user (model)
 
 pridat kacky
-prec weapon, upravit other, radiobutton na hlava/telo
+upravit other, radiobutton na hlava/telo
 
 nemozes dat continue, ked je out of stock
-prec new password
 
 shipping - uprava radiobuttonov v session
 
@@ -33,3 +32,5 @@ Prazdna abstraktna trieda controller?
 HOTOVO, JEEEEEEJ:
 vyhladavanie bez duck
 prec discount
+prec new password
+prec weapon

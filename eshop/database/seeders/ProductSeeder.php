@@ -170,6 +170,20 @@ class ProductSeeder extends Seeder
             'age' => '3+',
             'country_of_origin' => 'Austria',
         ],
+        [
+            'active' => true,
+            'name' => 'Summer Chiller',
+            'description' => 'Just chillin on the beach',
+            'quantity' => 150,
+            'price' => 3.99,
+            'rating' => 4.4,
+            'review_count' => 18,
+            'material' => 'Plastic',
+            'size' => '10 cm',
+            'weight' => '40 g',
+            'age' => '3+',
+            'country_of_origin' => 'Spain',
+        ],
     ];
 
         foreach ($products as $product) {

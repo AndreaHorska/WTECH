@@ -73,6 +73,12 @@ class ProductCategorySeeder extends Seeder
                 'view' => ['full'],
                 'lifestyle' => ['quirky', 'chilled'],
             ],
+            'Summer Chiller' => [
+                'main' => ['funny', 'seasonal'],
+                'gear' => ['other', 'hat','glasses'],
+                'view' => ['full'],
+                'lifestyle' => ['chilled'],
+            ],
         ];
 
         foreach ($productCategories as $productName => $groups) {

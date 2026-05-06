@@ -74,20 +74,8 @@
 
                     <div class="mb-3">
                         <label for="country" class="form-label">Country</label>
-                        <select id="country" name="state" class="form-select">
-                            <option value="" disabled {{ old('state', $address->state ?? '') === '' ? 'selected' : '' }}>
-                                Choose your country...
-                            </option>
-                            <option value="Slovakia" {{ old('state', $address->state ?? '') === 'Slovakia' ? 'selected' : '' }}>
-                                Slovakia
-                            </option>
-                            <option value="Czech Republic" {{ old('state', $address->state ?? '') === 'Czech Republic' ? 'selected' : '' }}>
-                                Czech Republic
-                            </option>
-                            <option value="Germany" {{ old('state', $address->state ?? '') === 'Germany' ? 'selected' : '' }}>
-                                Germany
-                            </option>
-                        </select>
+                        <input id="country" name="state" type="text" class="form-control"
+                            value="{{ old('street', $address->state ?? '') }}" maxlength="40">
                         @error('state')
                         <div class="text-danger small">{{ $message }}</div>
                         @enderror

@@ -38,10 +38,6 @@ class CategorySeeder extends Seeder
                     'slug' => 'hat',
                 ],
                 [
-                    'name' => 'Weapon',
-                    'slug' => 'weapon',
-                ],
-                [
                     'name' => 'Other',
                     'slug' => 'other',
                 ],

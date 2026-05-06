@@ -49,7 +49,7 @@
             @error('name') <small class="text-danger">{{ $message }}</small> @enderror
 
             <label>Description</label>
-            <textarea class="form-control description" name="description">{{ old('description', $product->description) }}</textarea>
+            <textarea class="form-control description" name="description" maxlength="1000">{{ old('description', $product->description) }}</textarea>
 
             <div class="quantity_control">
                 <p>Stock:</p>
