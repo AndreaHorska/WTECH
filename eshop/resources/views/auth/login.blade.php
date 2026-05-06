@@ -26,7 +26,7 @@
 
             <div class="mb-3">
                 <label for="email" class="form-label">E-mail</label>
-                <input name="email" type="email" class="form-control" placeholder="example@email.com" value="{{ old('email') }}" required autofocus>
+                <input name="email" type="email" class="form-control" placeholder="example@email.com" value="{{ old('email') }}" maxlength="255" required autofocus>
             </div>
 
             <div class="mb-3">

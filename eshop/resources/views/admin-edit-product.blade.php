@@ -45,14 +45,11 @@
         <div class="product_info">
 
             <label>Product name</label>
-            <input type="text" class="form-control" name="name" value="{{ old('name', $product->name) }}">
+            <input type="text" class="form-control" name="name" value="{{ old('name', $product->name) }}" maxlength="80">
             @error('name') <small class="text-danger">{{ $message }}</small> @enderror
 
             <label>Description</label>
             <textarea class="form-control description" name="description">{{ old('description', $product->description) }}</textarea>
-
-            <label>Pcs in one package</label>
-            <input type="number" class="form-control" name="pcs" value="10">
 
             <div class="quantity_control">
                 <p>Stock:</p>
@@ -61,7 +58,7 @@
             @error('quantity') <small class="text-danger">{{ $message }}</small> @enderror
 
             <label>Price (€)</label>
-            <input type="text" class="form-control" name="price" value="{{ old('price', $product->price) }}">
+            <input type="text" class="form-control" name="price" value="{{ old('price', $product->price) }}" maxlength="9">
             @error('price') <small class="text-danger">{{ $message }}</small> @enderror
 
             <label>Categories</label>
@@ -105,27 +102,27 @@
             <table class="spec-table">
                 <tr>
                     <td><input type="text" class="form-control" value="Material" disabled></td>
-                    <td><input type="text" class="form-control" name="material" value="{{ old('material', $product->material) }}"></td>
+                    <td><input type="text" class="form-control" name="material" value="{{ old('material', $product->material) }}" maxlength="100"></td>
                 </tr>
                 @error('material') <tr><td colspan="2"><small class="text-danger">{{ $message }}</small></td></tr> @enderror
                 <tr>
                     <td><input type="text" class="form-control" value="Size" disabled></td>
-                    <td><input type="text" class="form-control" name="size" value="{{ old('size', $product->size) }}"></td>
+                    <td><input type="text" class="form-control" name="size" value="{{ old('size', $product->size) }}" maxlength="50"></td>
                 </tr>
                 @error('size') <tr><td colspan="2"><small class="text-danger">{{ $message }}</small></td></tr> @enderror
                 <tr>
                     <td><input type="text" class="form-control" value="Weight" disabled></td>
-                    <td><input type="text" class="form-control" name="weight" value="{{ old('weight', $product->weight) }}"></td>
+                    <td><input type="text" class="form-control" name="weight" value="{{ old('weight', $product->weight) }}" maxlength="30"></td>
                 </tr>
                 @error('weight') <tr><td colspan="2"><small class="text-danger">{{ $message }}</small></td></tr> @enderror
                 <tr>
                     <td><input type="text" class="form-control" value="Age" disabled></td>
-                    <td><input type="text" class="form-control" name="age" value="{{ old('age', $product->age) }}"></td>
+                    <td><input type="text" class="form-control" name="age" value="{{ old('age', $product->age) }}" maxlength="30"></td>
                 </tr>
                 @error('age') <tr><td colspan="2"><small class="text-danger">{{ $message }}</small></td></tr> @enderror
                 <tr>
                     <td><input type="text" class="form-control" value="Country of origin" disabled></td>
-                    <td><input type="text" class="form-control" name="country_of_origin" value="{{ old('country_of_origin', $product->country_of_origin) }}"></td>
+                    <td><input type="text" class="form-control" name="country_of_origin" value="{{ old('country_of_origin', $product->country_of_origin) }}" maxlength="60"></td>
                 </tr>
                 @error('country_of_origin') <tr><td colspan="2"><small class="text-danger">{{ $message }}</small></td></tr> @enderror
             </table>

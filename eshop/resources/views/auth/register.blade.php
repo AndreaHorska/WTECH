@@ -16,7 +16,7 @@
 
             <div class="mb-3">
                 <label class="form-label">First Name</label>
-                <input name="first_name" type="text" class="form-control" value="{{ old('first_name') }}" required>
+                <input name="first_name" type="text" class="form-control" value="{{ old('first_name') }}" maxlength="50" required>
                 @error('first_name')
                     <div class="text-danger small">{{ $message }}</div>
                 @enderror
@@ -24,7 +24,7 @@
 
             <div class="mb-3">
                 <label class="form-label">Last Name</label>
-                <input name="last_name" type="text" class="form-control" value="{{ old('last_name') }}" required>
+                <input name="last_name" type="text" class="form-control" value="{{ old('last_name') }}" maxlength="50" required>
                 @error('last_name')
                     <div class="text-danger small">{{ $message }}</div>
                 @enderror
@@ -32,7 +32,7 @@
 
             <div class="mb-3">
                 <label for="email" class="form-label">E-mail</label>
-                <input name="email" type="email" class="form-control" value="{{ old('email') }}" placeholder="example@email.com" required>
+                <input name="email" type="email" class="form-control" value="{{ old('email') }}" placeholder="example@email.com" maxlength="255" required>
                 @error('email')
                     <div class="text-danger small">{{ $message }}</div>
                 @enderror

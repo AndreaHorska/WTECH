@@ -7,7 +7,7 @@ FILESYSTEM_DISK=public
 dekomponovat : cart - navbar, summary
                produkty
 
-uprava modelu - specifikacie produktu
+uprava modelu - specifikacie produktu (vsetko VARCHAR: material 100, size 50, weight 30, age 30, country_of_origin 60)
 mail pri user (model)
 
 pridat kacky

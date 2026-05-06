@@ -22,9 +22,9 @@ class AccountController extends Controller
     public function update(Request $request)
     {
         $data = $request->validate([
-            'first_name' => ['nullable', 'string', 'max:50'],
-            'last_name' => ['nullable', 'string', 'max:50'],
-            'email_address' => ['nullable', 'email:rfc', 'regex:/^[^\s@]+@[^\s@]+\.[^\s@]+$/', 'max:255'],
+            'first_name' => ['required', 'string', 'max:50'],
+            'last_name' => ['required', 'string', 'max:50'],
+            'email_address' => ['required', 'email:rfc', 'regex:/^[^\s@]+@[^\s@]+\.[^\s@]+$/', 'max:255'],
             'phone_number' => ['nullable', 'string', 'max:20'],
             'street' => ['nullable', 'string', 'max:50'],
             'house_number' => ['nullable', 'string', 'max:10'],

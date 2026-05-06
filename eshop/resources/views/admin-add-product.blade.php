@@ -33,14 +33,11 @@
 
         <div class="product_info">
             <label>Product name</label>
-            <input type="text" class="form-control" name="name" placeholder="Product Name" value="{{ old('name') }}">
+            <input type="text" class="form-control" name="name" placeholder="Product Name" value="{{ old('name') }}" maxlength="80">
             @error('name') <small class="text-danger">{{ $message }}</small> @enderror
 
             <label>Description</label>
             <textarea class="form-control description" name="description" placeholder="Information about the product">{{ old('description') }}</textarea>
-
-            <label>Pcs in one package</label>
-            <input type="number" class="form-control" name="pcs" placeholder="10" value="{{ old('pcs') }}">
 
             <div class="quantity_control">
                 <p>Stock:</p>
@@ -49,7 +46,7 @@
             @error('quantity') <small class="text-danger">{{ $message }}</small> @enderror
 
             <label>Price (€)</label>
-            <input type="text" class="form-control" name="price" placeholder="0.00" value="{{ old('price') }}">
+            <input type="text" class="form-control" name="price" placeholder="0.00" value="{{ old('price') }}" maxlength="9">
             @error('price') <small class="text-danger">{{ $message }}</small> @enderror
 
             @foreach ($categoryTypes as $type)
@@ -92,27 +89,27 @@
             <table class="spec-table">
                 <tr>
                     <td><input type="text" class="form-control" value="Material" disabled></td>
-                    <td><input type="text" class="form-control" name="material" value="{{ old('material') }}"></td>
+                    <td><input type="text" class="form-control" name="material" value="{{ old('material') }}" maxlength="100"></td>
                 </tr>
                 @error('material') <tr><td colspan="2"><small class="text-danger">{{ $message }}</small></td></tr> @enderror
                 <tr>
                     <td><input type="text" class="form-control" value="Size" disabled></td>
-                    <td><input type="text" class="form-control" name="size" value="{{ old('size') }}"></td>
+                    <td><input type="text" class="form-control" name="size" value="{{ old('size') }}" maxlength="50"></td>
                 </tr>
                 @error('size') <tr><td colspan="2"><small class="text-danger">{{ $message }}</small></td></tr> @enderror
                 <tr>
                     <td><input type="text" class="form-control" value="Weight" disabled></td>
-                    <td><input type="text" class="form-control" name="weight" value="{{ old('weight') }}"></td>
+                    <td><input type="text" class="form-control" name="weight" value="{{ old('weight') }}" maxlength="30"></td>
                 </tr>
                 @error('weight') <tr><td colspan="2"><small class="text-danger">{{ $message }}</small></td></tr> @enderror
                 <tr>
                     <td><input type="text" class="form-control" value="Age" disabled></td>
-                    <td><input type="text" class="form-control" name="age" value="{{ old('age') }}"></td>
+                    <td><input type="text" class="form-control" name="age" value="{{ old('age') }}" maxlength="30"></td>
                 </tr>
                 @error('age') <tr><td colspan="2"><small class="text-danger">{{ $message }}</small></td></tr> @enderror
                 <tr>
                     <td><input type="text" class="form-control" value="Country of origin" disabled></td>
-                    <td><input type="text" class="form-control" name="country_of_origin" value="{{ old('country_of_origin') }}"></td>
+                    <td><input type="text" class="form-control" name="country_of_origin" value="{{ old('country_of_origin') }}" maxlength="60"></td>
                 </tr>
                 @error('country_of_origin') <tr><td colspan="2"><small class="text-danger">{{ $message }}</small></td></tr> @enderror
             </table>
