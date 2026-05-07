@@ -104,36 +104,20 @@
                 <div class="left_spec">
                     <h2>Specification</h2>
                     <table class="spec-table">
-                        <tr>
-                            <td><input type="text" class="form-control" value="Material" disabled></td>
-                            <td><input type="text" class="form-control" name="material"
-                                       value="{{ old('material', $product->material ?? '') }}" maxlength="100" required></td>
-                        </tr>
-                        @error('material') <tr><td colspan="2"><small class="text-danger">{{ $message }}</small></td></tr> @enderror
-                        <tr>
-                            <td><input type="text" class="form-control" value="Size" disabled></td>
-                            <td><input type="text" class="form-control" name="size"
-                                       value="{{ old('size', $product->size ?? '') }}" maxlength="50" required></td>
-                        </tr>
-                        @error('size') <tr><td colspan="2"><small class="text-danger">{{ $message }}</small></td></tr> @enderror
-                        <tr>
-                            <td><input type="text" class="form-control" value="Weight" disabled></td>
-                            <td><input type="text" class="form-control" name="weight"
-                                       value="{{ old('weight', $product->weight ?? '') }}" maxlength="30" required></td>
-                        </tr>
-                        @error('weight') <tr><td colspan="2"><small class="text-danger">{{ $message }}</small></td></tr> @enderror
-                        <tr>
-                            <td><input type="text" class="form-control" value="Age" disabled></td>
-                            <td><input type="text" class="form-control" name="age"
-                                       value="{{ old('age', $product->age ?? '') }}" maxlength="30" required></td>
-                        </tr>
-                        @error('age') <tr><td colspan="2"><small class="text-danger">{{ $message }}</small></td></tr> @enderror
-                        <tr>
-                            <td><input type="text" class="form-control" value="Country of origin" disabled></td>
-                            <td><input type="text" class="form-control" name="country_of_origin"
-                                       value="{{ old('country_of_origin', $product->country_of_origin ?? '') }}" maxlength="60" required></td>
-                        </tr>
-                        @error('country_of_origin') <tr><td colspan="2"><small class="text-danger">{{ $message }}</small></td></tr> @enderror
+                        @foreach (\App\Models\Product::$specs as $name => $spec)
+                            <tr>
+                                <td><input type="text" class="form-control" value="{{ $spec['label'] }}" disabled></td>
+                                <td><input type="{{ $spec['type'] ?? 'text' }}" class="form-control" name="{{ $name }}"
+                                           value="{{ old($name, $product->{$name} ?? '') }}"
+                                           @isset($spec['maxlength']) maxlength="{{ $spec['maxlength'] }}" @endisset
+                                           @isset($spec['max'])min="{{ $spec['min'] }}" @endisset
+                                           @isset($spec['max'])max="{{ $spec['max'] }}" @endisset
+                                           required></td>
+                            </tr>
+                            @error($name)
+                            <tr><td colspan="2"><small class="text-danger">{{ $message }}</small></td></tr>
+                            @enderror
+                        @endforeach
                     </table>
                 </div>
 

@@ -49,6 +49,13 @@ class AdminProductController extends Controller
             'price' => 'required|min:0',
             'quantity' => 'required|integer|min:0',
             'images.*' => 'image|mimes:jpg,jpeg,png,webp|max:2048',
+
+            'pcs' => 'required|integer|min:1|max:99999',
+            'material' => 'required|string|max:100',
+            'size' => 'required|string|max:50',
+            'weight' => 'required|string|max:30',
+            'age' => 'required|string|max:30',
+            'country_of_origin' => 'required|string|max:60',
         ]);
 
         $product->update([
@@ -56,6 +63,7 @@ class AdminProductController extends Controller
             'description' => $request->description,
             'price' => str_replace(',', '.', $request->price),
             'quantity' => $request->quantity,
+            'pcs' => $request->pcs,
             'material' => $request->material,
             'size' => $request->size,
             'weight' => $request->weight,
@@ -99,6 +107,8 @@ class AdminProductController extends Controller
             'price' => 'required',
             'quantity' => 'required|integer|min:0',
             'images.*' => 'image|mimes:jpg,jpeg,png,webp|max:2048',
+
+            'pcs' => 'required|integer|min:1|max:99999',
             'material' => 'required|string|max:100',
             'size' => 'required|string|max:50',
             'weight' => 'required|string|max:30',
@@ -111,6 +121,8 @@ class AdminProductController extends Controller
             'description' => $request->description,
             'price' => (float) str_replace(',', '.', $request->price),
             'quantity' => $request->quantity,
+
+            'pcs' => $request->pcs,
             'material' => $request->material,
             'size' => $request->size,
             'weight' => $request->weight,

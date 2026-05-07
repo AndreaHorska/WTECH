@@ -17,11 +17,21 @@ class Product extends Model
         'price',
         'rating',
         'review_count',
+        'pcs',
         'material',
         'size',
         'weight',
         'age',
         'country_of_origin'
+    ];
+
+    public static array $specs = [
+        'pcs' => ['label' => 'Pcs per package', 'type' => 'number', 'min' => 1, 'max' => 99999,],
+        'material' => ['label' => 'Material', 'maxlength' => 50],
+        'size' => ['label' => 'Size', 'maxlength' => 50],
+        'weight' => ['label' => 'Weight', 'maxlength' => 30],
+        'age' => ['label' => 'Age', 'maxlength' => 20],
+        'country_of_origin'=> ['label' => 'Country of origin', 'maxlength' => 60],
     ];
 
     public function orderItems()

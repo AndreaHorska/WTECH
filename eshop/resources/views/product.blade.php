@@ -83,28 +83,14 @@
 
   <div class="left_spec">
     <h2>Specification</h2>
-    <table class="spec-table">
-      <tr>
-        <td>Material</td>
-        <td>{{ $product->material }}</td>
-      </tr>
-      <tr>
-        <td>Size</td>
-        <td>{{ $product->size }}</td>
-      </tr>
-      <tr>
-        <td>Weight</td>
-        <td>{{ $product->weight }}</td>
-      </tr>
-      <tr>
-        <td>Age</td>
-        <td>{{ $product->age }}</td>
-      </tr>
-      <tr>
-        <td>Country of origin</td>
-        <td>{{ $product->country_of_origin  }}</td>
-      </tr>
-    </table>
+      <table class="spec-table">
+          @foreach (\App\Models\Product::$specs as $name => $spec)
+              <tr>
+                  <td>{{ $spec['label'] }}</td>
+                  <td>{{ $product->{$name} }}</td>
+              </tr>
+          @endforeach
+      </table>
   </div>
 
   <div class="right_spec">

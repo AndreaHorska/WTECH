@@ -12,11 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('products', function (Blueprint $table) {
+            $table->integer('pcs')->default(100);
             $table->string('material', 50)->default('Vinyl');
             $table->string('size', 50)->default('5 cm');
-            $table->string('weight', 50)->default('20 g');
+            $table->string('weight', 30)->default('20 g');
             $table->string('age', 20)->default('3+');
-            $table->string('country_of_origin', 50)->default('Slovakia');
+            $table->string('country_of_origin', 60)->default('Slovakia');
         });
     }
 
@@ -26,7 +27,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn(['material', 'size', 'weight', 'color', 'age', 'country_of_origin']);
+            $table->dropColumn(['pcs', 'material', 'size', 'weight', 'color', 'age', 'country_of_origin']);
         });
     }
 };
