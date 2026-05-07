@@ -26,7 +26,7 @@ class AdminProductController extends Controller
     {
         $product = Product::with(['images', 'categories'])->findOrFail($id);
         $categoryTypes = \App\Models\CategoryType::with('categories')->get();
-        return view('admin-edit-product', compact('product', 'categoryTypes'));
+        return view('admin-product', compact('product', 'categoryTypes'));
     }
 
     public function update(Request $request, int $id)
@@ -64,7 +64,8 @@ class AdminProductController extends Controller
         ]);
 
         if ($request->filled('categories')) {
-            $product->categories()->sync($request->categories);
+            $categories = array_filter($request->categories, fn($id) => !empty($id));
+            $product->categories()->sync($categories);
         } else {
             $product->categories()->detach();
         }
@@ -87,7 +88,7 @@ class AdminProductController extends Controller
     public function create()    /* For adding product */
     {
         $categoryTypes = \App\Models\CategoryType::with('categories')->get();
-        return view('admin-add-product', compact('categoryTypes'));
+        return view('admin-product', ['categoryTypes' => $categoryTypes, 'product' => null]);
     }
 
     public function store(Request $request) /* Add new product */

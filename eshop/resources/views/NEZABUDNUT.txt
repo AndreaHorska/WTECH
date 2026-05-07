@@ -33,6 +33,9 @@ Validacia udajov aj pri cart
 Kliknutie na vsetky produkty
 
 U admina nie hodnotenie
+Admin asi povinnu aj hlavnu kategoriu
+a mozno dopisat euro
+
 ---------------------------------------
 HOTOVO, JEEEEEEJ:
 vyhladavanie bez duck
@@ -51,3 +54,6 @@ dekomponovat : cart - navbar, summary
 Nespravny format mailu pri registracii -> znova pisat heslo?
 Nespravne pridanie prduktu -> znova obrazok?
 Pridat recenzie
+
+Admin jeden blade
+
