@@ -32,8 +32,6 @@ Validacia udajov aj pri cart
 
 Kliknutie na vsetky produkty
 
-Pridat recenzie
-
 U admina nie hodnotenie
 ---------------------------------------
 HOTOVO, JEEEEEEJ:
@@ -52,3 +50,4 @@ dekomponovat : cart - navbar, summary
 
 Nespravny format mailu pri registracii -> znova pisat heslo?
 Nespravne pridanie prduktu -> znova obrazok?
+Pridat recenzie

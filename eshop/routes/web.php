@@ -7,6 +7,7 @@ use App\Http\Controllers\Shop\CartController;
 use App\Http\Controllers\Shop\AdminProductController;
 use App\Http\Controllers\Shop\AccountController;
 use App\Http\Controllers\Shop\OrderController;
+use App\Http\Controllers\Shop\ReviewController;
 
 Route::get('/', [ProductController::class, 'home']);
 
@@ -15,6 +16,7 @@ Route::get('/products', [ProductController::class, 'index'])->name('products.ind
 Route::get('/search', [ProductController::class, 'index']);
 
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+Route::post('/product/{id}', [ReviewController::class, 'addReview'])->name('product.review');
 
 Route::post('/cart/add', [\App\Http\Controllers\Shop\CartController::class, 'add'])->name('cart.add');
 

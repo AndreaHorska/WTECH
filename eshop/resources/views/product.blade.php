@@ -111,7 +111,8 @@
     <h2>Customer Review</h2>
     <p class="text-muted small">How would you rate this product?</p>
 
-    <form action="#" method="POST" class="review-form">
+    <form action="{{ route('product.review', $product->id) }}" method="POST" class="review-form">
+        @csrf
         <div class="star-rating-input mb-3">
             <input type="radio" id="star5" name="rating" value="5" required>
             <label for="star5" title="5 stars">★</label>
@@ -129,7 +130,7 @@
             <label for="star1" title="1 star">★</label>
         </div>
 
-        <button type="button" class="btn btn-dark w-100 fw-bold">Add review</button>
+        <button type="submit" class="btn btn-dark w-100 fw-bold">Add review</button>
     </form>
 
   </div>
