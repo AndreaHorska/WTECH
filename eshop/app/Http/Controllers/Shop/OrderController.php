@@ -87,9 +87,9 @@ class OrderController extends Controller
                 $quantity = (int) data_get($item, 'quantity', 1);
 
                 OrderItem::create([
-                    'order_id'   => $order->id,
+                    'order_id' => $order->id,
                     'product_id' => $productId,
-                    'quantity'   => $quantity,
+                    'quantity' => $quantity,
                     'item_price' => $price,
                 ]);
 

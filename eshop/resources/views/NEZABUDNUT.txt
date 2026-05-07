@@ -19,8 +19,6 @@ objednavka - prihlaseny/neprihlaseny
 
 verifikacia mailu, cisla
 mail validacia - a@a. / a@.a / a@.
-Nespravny format mailu pri registracii -> znova pisat heslo?
-Nespravne pridanie prduktu -> znova obrazok?
 
 Kategoria atribut description? Asi netreba
 
@@ -51,3 +49,6 @@ prec weapon, pridat bubbles
 stat
 
 dekomponovat : cart - navbar, summary
+
+Nespravny format mailu pri registracii -> znova pisat heslo?
+Nespravne pridanie prduktu -> znova obrazok?
