@@ -4,28 +4,43 @@ namespace App\Http\Controllers\Shop;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Review;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
     public function addReview(Request $request, $id)
     {
+        if (!auth()->check()) {
+            return back()->with('error', 'You must be logged in to add a review.');
+        }
+
         $request->validate([
             'rating' => 'required|integer|min:1|max:5',
         ]);
 
-        $newRating = $request->input('rating');
-
         $product = Product::findOrFail($id);
+
+        $alreadyReviewed = Review::where('user_id', auth()->id())
+            ->where('product_id', $id)
+            ->exists();
+
+        if ($alreadyReviewed) {     // Da sa lahko odstranit a zakaznik bude vediet pridat viac recenzii
+            return back()->with('warning', 'You have already reviewed this product.');
+        }
+
+        Review::create([
+            'user_id' => auth()->id(),
+            'product_id' => $id,
+            'rating' => $request->rating,
+        ]);
 
         $stars = $product->review_count * $product->rating;
         $product->increment('review_count');
 
-        $new_stars = round(($stars + $newRating) / $product->review_count, 1);
-        $product->update([
-            'rating' => $new_stars
-        ]);
+        $new_stars = round(($stars + $request->rating) / $product->review_count, 1);
+        $product->update(['rating' => $new_stars]);
 
-        return back()->with('success', 'New review was added!');
+        return back()->with('success', 'Review added!');
     }
 }
