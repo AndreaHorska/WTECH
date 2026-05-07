@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Shop;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AdminProductController extends Controller
 {
@@ -43,12 +45,14 @@ class AdminProductController extends Controller
             }
         }
 
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:80|unique:products,name,' . $id,
             'description' => 'nullable|string',
             'price' => 'required|min:0',
             'quantity' => 'required|integer|min:0',
             'images.*' => 'image|mimes:jpg,jpeg,png,webp|max:2048',
+            'categories' => 'array',
+            'categories.*' => 'exists:categories,id',
 
             'pcs' => 'required|integer|min:1|max:99999',
             'material' => 'required|string|max:100',
@@ -57,6 +61,17 @@ class AdminProductController extends Controller
             'age' => 'required|string|max:30',
             'country_of_origin' => 'required|string|max:60',
         ]);
+
+        $validator->after(function ($validator) use ($request) {
+
+            if (! $this->hasMainCategory(
+                $request->input('categories', [])
+            )) {
+                $validator->errors()->add('categories', 'Select at least one main category.');
+            }
+        });
+
+        $validator->validate();
 
         $product->update([
             'name' => $request->name,
@@ -93,21 +108,22 @@ class AdminProductController extends Controller
         return redirect()->route('admin.panel')->with('success', 'Product was updated!');
     }
 
-    public function create()    /* For adding product */
+    public function create()  /* For adding product */
     {
         $categoryTypes = \App\Models\CategoryType::with('categories')->get();
         return view('admin-product', ['categoryTypes' => $categoryTypes, 'product' => null]);
     }
 
-    public function store(Request $request) /* Add new product */
+    public function store(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:80|unique:products',
             'description' => 'nullable|string',
             'price' => 'required',
             'quantity' => 'required|integer|min:0',
             'images.*' => 'image|mimes:jpg,jpeg,png,webp|max:2048',
-
+            'categories' => 'array',
+            'categories.*' => 'exists:categories,id',
             'pcs' => 'required|integer|min:1|max:99999',
             'material' => 'required|string|max:100',
             'size' => 'required|string|max:50',
@@ -115,6 +131,17 @@ class AdminProductController extends Controller
             'age' => 'required|string|max:30',
             'country_of_origin' => 'required|string|max:60',
         ]);
+
+        $validator->after(function ($validator) use ($request) {
+
+            if (! $this->hasMainCategory(
+                $request->input('categories', [])
+            )) {
+                $validator->errors()->add('categories', 'Select at least one main category.');
+            }
+        });
+
+        $validator->validate();
 
         $product = Product::create([
             'name' => $request->name,
@@ -149,5 +176,14 @@ class AdminProductController extends Controller
         }
 
         return redirect()->route('admin.panel')->with('success', 'Product was added!');
+    }
+
+    private function hasMainCategory(array $categories): bool
+    {
+        return Category::whereIn('id', array_filter($categories))
+            ->whereHas('categoryType', function ($q) {
+                $q->where('name', 'Main');
+            })
+            ->exists();
     }
 }

@@ -96,6 +96,13 @@
                                 @endforeach
                             @endif
                         </div>
+                        @if ($type->name == 'Main')
+                            @error('categories')
+                            <small class="text-danger d-block mt-1">
+                                {{ $message }}
+                            </small>
+                            @enderror
+                        @endif
                     @endforeach
                 </div>
             </section>

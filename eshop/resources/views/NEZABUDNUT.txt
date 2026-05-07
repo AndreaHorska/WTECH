@@ -30,11 +30,9 @@ Validacia udajov aj pri cart
 Kliknutie na vsetky produkty
 
 U admina nie hodnotenie
-Admin asi povinnu aj hlavnu kategoriu
 
 Responzivita na specifikacie
 Search pri obrazovke 300
-
 
 
 
@@ -63,3 +61,6 @@ pocet nalepiek v baliku
 
 Co ak admin prida viac obrazkov?
 Nie stale henta jedna kacka, aj ked tam nie je obrazok
+Admin asi povinnu aj hlavnu kategoriu
+Responzivita produkt - ked su tie obrazky pod hlavnym obrazkom, tak mensie
+

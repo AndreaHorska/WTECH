@@ -359,7 +359,8 @@ body {
   }
 
   .thumb {
-    min-width: 40px;
+    min-width: 50px;
+    max-width: 200px;
     aspect-ratio: 1 / 1;
   }
 }
