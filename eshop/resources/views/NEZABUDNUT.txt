@@ -4,8 +4,6 @@ php artisan storage:link
         php artisan storage:link
 FILESYSTEM_DISK=public
 
-dekomponovat : produkty
-
 uprava modelu - specifikacie produktu (vsetko VARCHAR: material 50, size 50, weight 30, age 20, country_of_origin 60), pcs int
 recenzie
 mail pri user (model)
@@ -50,6 +48,7 @@ prec weapon, pridat bubbles
 stat
 
 dekomponovat : cart - navbar, summary
+               produkty
 
 Nespravny format mailu pri registracii -> znova pisat heslo?
 Nespravne pridanie prduktu -> znova obrazok?
