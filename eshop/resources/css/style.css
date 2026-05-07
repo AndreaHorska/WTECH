@@ -331,6 +331,11 @@ body {
     color: #F5C518;
 }
 
+.thumbnails {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
 
 @media (max-width:768px) {
   .product_gallery, .product_info {

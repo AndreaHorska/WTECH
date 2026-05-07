@@ -29,20 +29,20 @@
                         @if ($product)
                             @forelse ($product->images as $image)
                                 <div class="thumb-wrapper">
-                                    <img class="thumb {{ $loop->first ? 'active' : '' }}" src="{{ asset($image->image_path) }}" alt="thumb{{ $loop->iteration }}">
+                                    <img class="thumb {{ $loop->first ? 'active' : '' }}" src="{{ asset($image->image_path) }}" alt="Product image {{ $loop->iteration }}">
                                     <input type="checkbox" name="delete_images[]" value="{{ $image->id }}" id="del_{{ $image->id }}" style="display:none">
                                     <button type="button" class="thumb-delete" onclick="document.getElementById('del_{{ $image->id }}').checked = true;
                                 this.closest('.thumb-wrapper').style.display = 'none';">×</button>
                                 </div>
                             @empty
-                                <img class="thumb active" src="{{ asset('image/duck.png') }}" alt="thumb1">
+                                <img class="thumb active" src="{{ asset('image/upload-placeholder.png') }}" alt="thumb1">
                             @endforelse
                         @endif
                         <div class="thumb border border-gray add-thumb" onclick="document.getElementById('newImageInput').click()">+</div>
                     </div>
                     <input type="file" id="newImageInput" name="images[]" hidden>
                     <div class="main_product_box">
-                        <img id="mainImage" src="{{ asset($product?->images->first()?->image_path ?? 'image/duck.png') }}" alt="main image">
+                        <img id="mainImage" src="{{ asset($product?->images->first()?->image_path ?? 'image/upload-placeholder.png') }}" alt="main image">
                     </div>
                 </div>
 

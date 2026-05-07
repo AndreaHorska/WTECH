@@ -44,7 +44,6 @@
   width: 85px !important;
 }
 
-
 @media (max-width: 540px) {
     .table thead {
         display: none;
