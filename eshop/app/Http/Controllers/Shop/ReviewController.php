@@ -23,10 +23,18 @@ class ReviewController extends Controller
 
         $alreadyReviewed = Review::where('user_id', auth()->id())
             ->where('product_id', $id)
-            ->exists();
+            ->first();
+
+        $stars = $product->review_count * $product->rating;
 
         if ($alreadyReviewed) {     // Da sa lahko odstranit a zakaznik bude vediet pridat viac recenzii
-            return back()->with('warning', 'You have already reviewed this product.');
+            $stars = $stars - $alreadyReviewed->rating + $request->rating;
+
+            $new_stars = round($stars / $product->review_count, 1);
+            $product->update(['rating' => $new_stars]);
+
+            $alreadyReviewed->update(['rating' => $request->rating]);
+            return back()->with('warning', 'Your last review updated!');
         }
 
         Review::create([
@@ -35,9 +43,7 @@ class ReviewController extends Controller
             'rating' => $request->rating,
         ]);
 
-        $stars = $product->review_count * $product->rating;
         $product->increment('review_count');
-
         $new_stars = round(($stars + $request->rating) / $product->review_count, 1);
         $product->update(['rating' => $new_stars]);
 

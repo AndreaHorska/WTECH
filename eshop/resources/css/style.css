@@ -230,7 +230,7 @@ body {
   flex: 1;
   display: flex;
   max-width: 600px;
-  min-width: 200px;
+  min-width: 300px;
   flex-direction: column;
   padding: 30px;
   gap: 0px;
@@ -374,6 +374,9 @@ body {
   .about_us,
   .sales {
     min-width: 220px;
+  }
+  .left_spec, .right_spec {
+    min-width: 230px;
   }
 }
 

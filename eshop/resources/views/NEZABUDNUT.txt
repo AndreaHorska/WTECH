@@ -30,8 +30,6 @@ Kliknutie na vsetky produkty
 
 U admina nie hodnotenie
 
-Responzivita na specifikacie
-
 Ked sa prekroci hranica inputu, tak len neumoznime pisat dalej? Nie upozornenie?
 A ten input box sa moze scrollovat?
 
@@ -71,4 +69,6 @@ Search pri obrazovke 300
 shipping - uprava radiobuttonov v session
 
 objednavka - prihlaseny/neprihlaseny
+
+Responzivita na specifikacie
 
