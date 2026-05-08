@@ -69,6 +69,7 @@ body {
 .order-number {
     font-weight: 700;
     color: var(--color-text);
+    overflow-wrap: anywhere;
 }
 
 .success-buttons {

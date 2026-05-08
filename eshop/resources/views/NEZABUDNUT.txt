@@ -14,7 +14,7 @@ Kategoria atribut description? Asi netreba
 pridat kacky
 
 Objednavka - billing address
-OK objednavka
+Odstranit vazobnu tabulku na adresy
 
 verifikacia mailu, cisla
 mail validacia - a@a. / a@.a / a@.
@@ -68,3 +68,5 @@ objednavka - prihlaseny/neprihlaseny
 Responzivita na specifikacie
 Nieco ine ako -50% sale
 Nevadi, ze filtre nie su podla nicoho usporiadane, cize sa vypisuju abecedne? Nie nevadi
+
+OK objednavka
