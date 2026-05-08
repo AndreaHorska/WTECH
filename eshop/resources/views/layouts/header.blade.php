@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header {{ Auth::user()->roles->contains('name', 'ADMIN') ? 'admin-header' : '' }}">
     <a href="{{ url('/') }}" class="logo">Lucky<span>Quacky</span></a>
     <div class="search-frame">
         <form action="/search" method="GET" class="search">

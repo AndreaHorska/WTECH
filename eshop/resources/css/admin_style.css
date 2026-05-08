@@ -75,3 +75,9 @@
         justify-content: center;
     }
 }
+
+@media (max-width: 406px) {
+    .header {
+        flex-direction: column;
+    }
+}

@@ -30,7 +30,6 @@ Kliknutie na vsetky produkty
 U admina nie hodnotenie
 
 Responzivita na specifikacie
-Search pri obrazovke 300
 
 
 
@@ -62,4 +61,6 @@ Co ak admin prida viac obrazkov?
 Nie stale henta jedna kacka, aj ked tam nie je obrazok
 Admin asi povinnu aj hlavnu kategoriu
 Responzivita produkt - ked su tie obrazky pod hlavnym obrazkom, tak mensie
+
+Search pri obrazovke 300
 
