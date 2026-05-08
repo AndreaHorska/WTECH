@@ -117,6 +117,10 @@ class OrderController extends Controller
             } else {
                 session()->forget('cart');
             }
+
+            // Vymazat sposob platby a dorucenia
+            session()->forget('checkout');
+
         });
 
         return redirect()->route('cart.index')->with('success', 'Order created!');
