@@ -7,12 +7,13 @@ FILESYSTEM_DISK=public
 uprava modelu - specifikacie produktu (vsetko VARCHAR: material 50, size 50, weight 30, age 20, country_of_origin 60), pcs int
 recenzie
 mail pri user (model)
+a potom mail na user info nie unique
+Spojit orders a user (nullable)
 
 pridat kacky
 
-shipping - uprava radiobuttonov v session
-
-objednavka - prihlaseny/neprihlaseny
+Objednavka - billing address
+OK objednavka
 
 verifikacia mailu, cisla
 mail validacia - a@a. / a@.a / a@.
@@ -66,4 +67,8 @@ Admin asi povinnu aj hlavnu kategoriu
 Responzivita produkt - ked su tie obrazky pod hlavnym obrazkom, tak mensie
 
 Search pri obrazovke 300
+
+shipping - uprava radiobuttonov v session
+
+objednavka - prihlaseny/neprihlaseny
 

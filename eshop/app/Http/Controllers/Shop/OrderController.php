@@ -34,15 +34,10 @@ class OrderController extends Controller
             return redirect()->route('cart.shipping')->with('error', 'Missing shipping/payment');
         }
 
-        if ($user && $user->userInfo) {
-            $userInfo = $user->userInfo;
-            $address = $userInfo->addresses()->first();
-        } else {
-        $userInfo = UserInfo::firstOrCreate(
-            ['email_address' => $request->input('email')],
-            [
+        $userInfo =  UserInfo::create([
                 'first_name' => $request->input('first-name'),
                 'last_name' => $request->input('last-name'),
+                'email_address' => $request->input('email'),
                 'phone_number' => $request->input('phone'),
             ]
         );
@@ -56,7 +51,6 @@ class OrderController extends Controller
         ]);
 
         $userInfo->addresses()->attach($address->id);
-    }
 
         foreach ($cartItems as $item) {
             $productId = $item->product_id ?? $item['product_id'];

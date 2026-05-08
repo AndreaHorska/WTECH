@@ -71,7 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
         await saveOption(data);
     }
 
-    // odkliknutie, NA TEST !!!!!
     function enableUncheckRadios(inputs, saveFn) {
         inputs.forEach((radio) => {
             radio.addEventListener('click', async function () {
@@ -95,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // odkliknutie, NA TEST !!!!!
     enableUncheckRadios(deliveryInputs, saveDelivery);
     enableUncheckRadios(paymentInputs, savePayment);
 

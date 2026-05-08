@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('first_name', 50);
             $table->string('last_name', 50);
-            $table->string('email_address', 255)->unique();
+            $table->string('email_address', 255);
             $table->string('phone_number', 20)->nullable();
             $table->timestamps();
         });
