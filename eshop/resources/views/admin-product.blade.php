@@ -113,7 +113,7 @@
                     <table class="spec-table">
                         @foreach (\App\Models\Product::$specs as $name => $spec)
                             <tr>
-                                <td><input type="text" class="form-control" value="{{ $spec['label'] }}" disabled></td>
+                                <td class="spec-label-cell">{{ $spec['label'] }}</td>
                                 <td><input type="{{ $spec['type'] ?? 'text' }}" class="form-control" name="{{ $name }}"
                                            value="{{ old($name, $product->{$name} ?? '') }}"
                                            @isset($spec['maxlength']) maxlength="{{ $spec['maxlength'] }}" @endisset

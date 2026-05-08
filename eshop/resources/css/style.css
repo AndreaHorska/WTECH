@@ -246,11 +246,20 @@ body {
 .spec-table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 .spec-table td {
-  padding: 10px 2px;
+  padding: 10px 5px;
   border-bottom: 1px solid #ccc;
+  vertical-align: middle;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.spec-table td:first-child {
+  width: 40%;
+  font-weight: 600;
 }
 
 /* RELATED PRODUCTS */
@@ -382,6 +391,17 @@ body {
   .left_spec, .right_spec {
     min-width: 230px;
   }
+
+  .spec-table tr {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+
+  .spec-table td {
+    width: 100%;
+    border-bottom: none;
+    padding: 5px 0;
+  }
 }
-
-
