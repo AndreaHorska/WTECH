@@ -21,10 +21,10 @@
         </p>
         <p class="all_categories">See every single one of our wonderful ducks</p>
     </a>
-    <div class="sales">
-        <span class="sale-big">-50%</span>
-        <span class="sale-text">SALE</span>
-    </div>
+    <a class="sales" href="{{ route('products.index') }}">
+        <span class="sale-big">WORLDWIDE SHIPPING</span>
+        <span class="sale-text">Your duck stickers can fly anywhere</span>
+    </a>
 </section>
 
 <section class="category-box">
