@@ -1,4 +1,4 @@
-<header class="header {{ Auth::user()->roles->contains('name', 'ADMIN') ? 'admin-header' : '' }}">
+<header class="header @auth {{ auth()->user()->roles->contains('name', 'ADMIN') ? 'admin-header' : '' }} @endauth">
     <a href="{{ url('/') }}" class="logo">Lucky<span>Quacky</span></a>
     <div class="search-frame">
         <form action="/search" method="GET" class="search">

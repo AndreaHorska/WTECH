@@ -31,7 +31,10 @@ U admina nie hodnotenie
 
 Responzivita na specifikacie
 
+Ked sa prekroci hranica inputu, tak len neumoznime pisat dalej? Nie upozornenie?
+A ten input box sa moze scrollovat?
 
+Nieco ine ako -50% sale
 
 ---------------------------------------
 HOTOVO, JEEEEEEJ:
