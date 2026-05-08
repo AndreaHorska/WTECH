@@ -63,9 +63,10 @@ class OrderController extends Controller
             }
         }
 
-        DB::transaction(function () use ($user, $cartItems, $shippingMethodId, $paymentMethodId, $address, $userInfo) {
+        $order = DB::transaction(function () use ($user, $cartItems, $shippingMethodId, $paymentMethodId, $address, $userInfo) {
 
             $order = Order::create([
+                'user_id' => $user?->id,
                 'user_info_id' => $userInfo->id,
                 'shipping_address_id' => $address->id,
                 'billing_address_id' => $address->id,
@@ -115,8 +116,14 @@ class OrderController extends Controller
             // Vymazat sposob platby a dorucenia
             session()->forget('checkout');
 
+            return $order;
         });
 
-        return redirect()->route('cart.index')->with('success', 'Order created!');
+        return redirect()->route('order.ok', $order->id);
+    }
+
+    public function ok(Order $order)
+    {
+        return view('ok', compact('order'));
     }
 }

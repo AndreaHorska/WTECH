@@ -22,7 +22,7 @@
         <p class="all_categories">See every single one of our wonderful ducks</p>
     </a>
     <a class="sales" href="{{ route('products.index') }}">
-        <span class="sale-big">WORLDWIDE SHIPPING</span>
+        <span class="sale-big">WORLDWIDE<br>SHIPPING</span>
         <span class="sale-text">Your duck stickers can fly anywhere</span>
     </a>
 </section>

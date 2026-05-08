@@ -82,7 +82,7 @@ body {
   text-align: center;
 }
 .sale-big {
-  font-size: clamp(24px, 4.5vw, 48px); 
+  font-size: 2.3rem;
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 5px;
@@ -90,7 +90,7 @@ body {
 }
 
 .sale-text {
-  font-size: clamp(14px, 1.5vw, 20px);
+  font-size: 1.2rem;
   font-weight: 500;
   letter-spacing: 1px;
   opacity: 0.9;
@@ -403,5 +403,9 @@ body {
     width: 100%;
     border-bottom: none;
     padding: 5px 0;
+  }
+
+  .spec-table td:first-child {
+    width: 100%;
   }
 }

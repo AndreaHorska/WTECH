@@ -34,6 +34,8 @@ Route::post('/cart/shipping', [CartController::class, 'saveShipping'])->name('ca
 Route::get('/cart/customer', [CartController::class, 'customerInfo'])->name('cart.customer');
 Route::post('/cart/order', [OrderController::class, 'placeOrder'])->name('cart.placeOrder');
 
+Route::get('/order/{order}/ok', [OrderController::class, 'ok'])->name('order.ok');
+
 Route::get('/user-account', [AccountController::class, 'edit'])->middleware('auth')->name('account.edit');
 Route::put('/user-account', [AccountController::class, 'update'])->middleware('auth')->name('account.update');
 

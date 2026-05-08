@@ -9,6 +9,7 @@ recenzie
 mail pri user (model)
 a potom mail na user info nie unique
 Spojit orders a user (nullable)
+Kategoria atribut description? Asi netreba
 
 pridat kacky
 
@@ -17,8 +18,6 @@ OK objednavka
 
 verifikacia mailu, cisla
 mail validacia - a@a. / a@.a / a@.
-
-Kategoria atribut description? Asi netreba
 
 Prazdna abstraktna trieda controller?
 
