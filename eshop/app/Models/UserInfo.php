@@ -20,13 +20,8 @@ class UserInfo extends Model
         return $this->hasOne(User::class, 'user_info_id');
     }
 
-    public function addresses()
+    public function address()
     {
-        return $this->belongsToMany(
-            Address::class,
-            'address_user_info',
-            'user_info_id',
-            'address_id'
-        );
+        return $this->hasOne(Address::class);
     }
 }

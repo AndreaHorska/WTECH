@@ -113,7 +113,7 @@ class ProductController extends Controller {
                 break;
 
             case 'popular':
-                $query->where('review_count', '>=', 5)
+                $query->orderByRaw('review_count >= 5 DESC')
                     ->orderBy('rating', 'desc')
                     ->orderBy('review_count', 'desc');
                 break;

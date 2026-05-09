@@ -54,15 +54,16 @@ class OrderController extends Controller
             ]
         );
 
-        $address = Address::create([
-            'street' => $request->input('street'),
-            'house_number' => $request->input('house-number'),
-            'city' => $request->input('city'),
-            'postal_code' => $request->input('zip'),
-            'state' => $request->input('country'),
-        ]);
-
-        $userInfo->addresses()->attach($address->id);
+        $address = Address::updateOrCreate(
+            ['user_info_id' => $userInfo->id],
+            [
+                'street' => $request->input('street'),
+                'house_number' => $request->input('house-number'),
+                'city' => $request->input('city'),
+                'postal_code' => $request->input('zip'),
+                'state' => $request->input('country'),
+            ]
+        );
 
         foreach ($cartItems as $item) {
             $productId = $item->product_id ?? $item['product_id'];

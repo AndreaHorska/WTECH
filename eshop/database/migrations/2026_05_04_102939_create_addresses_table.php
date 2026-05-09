@@ -10,6 +10,7 @@ return new class extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_info_id')->nullable()->constrained('user_info')->nullOnDelete();
             $table->string('street', 50)->nullable();
             $table->string('house_number', 10)->nullable();
             $table->string('postal_code', 10)->nullable();

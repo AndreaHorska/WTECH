@@ -9,6 +9,7 @@ class Address extends Model
     protected $table = 'addresses';
 
     protected $fillable = [
+        'user_info_id',
         'street',
         'house_number',
         'postal_code',
@@ -18,13 +19,9 @@ class Address extends Model
         'company_name',
     ];
 
-    public function userInfos()
+    public function userInfo()
     {
-        return $this->belongsToMany(
-            UserInfo::class,
-            'address_user_info',
-            'address_id',
-            'user_info_id'
-        );
+        return $this->belongsTo(UserInfo::class);
     }
+
 }

@@ -14,7 +14,7 @@ class AccountController extends Controller
         $user = auth()->user();
 
         $userInfo = $user->userInfo;
-        $address = $userInfo?->addresses()->first();
+        $address = $userInfo?->address;
 
         return view('user-account', compact('userInfo', 'address'));
     }
@@ -47,14 +47,10 @@ class AccountController extends Controller
         $addressData = collect($data)->only($addressFields)->toArray();
 
         if (!empty($addressData)) {
-            $address = $userInfo->addresses()->first();
-
-            if ($address) {
-                $address->update($addressData);
-            } else {
-                $newAddress = Address::create($addressData);
-                $userInfo->addresses()->attach($newAddress->id);
-            }
+            Address::updateOrCreate(
+                ['user_info_id' => $userInfo->id],
+                $addressData
+            );
         }
 
         return back()->with('success', 'Changes saved.');

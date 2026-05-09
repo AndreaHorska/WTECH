@@ -315,7 +315,7 @@ class CartController extends Controller
         $cartData = $this->getCartData();
 
         $userInfo = Auth::user()?->userInfo;
-        $address = $userInfo?->addresses()->first();
+        $address = $userInfo?->address;
 
         $selectedShipping = ShippingMethod::find(session('checkout.shipping_method_id'));
         $selectedPayment = PaymentMethod::find(session('checkout.payment_method_id'));
