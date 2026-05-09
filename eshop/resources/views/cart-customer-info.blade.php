@@ -33,22 +33,34 @@
                         <div class="form-group">
                             <label for="first-name">First Name</label>
                             <input type="text" id="first-name" name="first-name" placeholder="Jozef"
-                                   value="{{ $userInfo->first_name ?? '' }}" required>
+                                   value="{{ $userInfo->first_name ?? '' }}">
+                            @error('first-name')
+                                <div class="text-danger small">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="last-name">Last Name</label>
                             <input type="text" id="last-name" name="last-name" placeholder="Mrkvicka"
-                                   value="{{ $userInfo->last_name ?? '' }}" required>
+                                   value="{{ $userInfo->last_name ?? '' }}">
+                            @error('last-name')
+                                <div class="text-danger small">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group full-width">
                             <label for="email">Email Address</label>
                             <input type="email" id="email" name="email" placeholder="jozko.mrkvicka@stuba.sk"
-                                   value="{{ auth()->user()?->email ?? '' }}" required>
+                                   value="{{ auth()->user()?->email ?? '' }}">
+                            @error('email')
+                                <div class="text-danger small">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group full-width">
                             <label for="phone">Phone Number</label>
                             <input type="tel" id="phone" name="phone" placeholder="+421 012 345 698"
-                                   value="{{ $userInfo->phone_number ?? '' }}" required>
+                                   value="{{ $userInfo->phone_number ?? '' }}">
+                            @error('phone')
+                                <div class="text-danger small">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                 </section>
@@ -59,27 +71,42 @@
                         <div class="form-group half-width">
                             <label for="street">Street</label>
                             <input type="text" id="street" name="street" placeholder="Main Street"
-                                   value="{{ $address->street ?? '' }}" required>
+                                   value="{{ $address->street ?? '' }}">
+                            @error('street')
+                                <div class="text-danger small">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group half-width">
                             <label for="house-number">House Number</label>
                             <input type="text" id="house-number" name="house-number" placeholder="123"
-                                   value="{{ $address->house_number ?? '' }}" required>
+                                   value="{{ $address->house_number ?? '' }}">
+                            @error('house-number')
+                                <div class="text-danger small">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group half-width">
                             <label for="city">City</label>
                             <input type="text" id="city" name="city" placeholder="Bratislava"
-                                   value="{{ $address->city ?? '' }}" required>
+                                   value="{{ $address->city ?? '' }}">
+                            @error('city')
+                                <div class="text-danger small">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group half-width">
                             <label for="zip">ZIP Code</label>
                             <input type="text" id="zip" name="zip" placeholder="841 05"
-                                   value="{{ $address->postal_code ?? '' }}" required>
+                                   value="{{ $address->postal_code ?? '' }}">
+                            @error('zip')
+                                <div class="text-danger small">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group full-width">
                             <label for="country">Country</label>
                             <input type="text" id="country" name="country" placeholder="Slovakia"
-                                   value="{{ $address->state ?? '' }}" required>
+                                   value="{{ $address->state ?? '' }}">
+                            @error('country')
+                                <div class="text-danger small">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                 </section>

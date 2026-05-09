@@ -18,6 +18,18 @@ class OrderController extends Controller
 {
     public function placeOrder(Request $request)
     {
+        $data = $request->validate([
+            'first-name' => ['required', 'string', 'max:50'],
+            'last-name' => ['required', 'string', 'max:50'],
+            'email' => ['required', 'email:rfc', 'regex:/^[^\s@]+@[^\s@]+\.[^\s@]+$/', 'max:255'],
+            'phone' => ['required', 'string', 'max:20'],
+            'street' => ['required', 'string', 'max:50'],
+            'house-number' => ['required', 'string', 'max:10'],
+            'city' => ['required', 'string', 'max:40'],
+            'zip' => ['required', 'string', 'max:10'],
+            'country' => ['required', 'string', 'max:40'],
+        ]);
+
         $user = Auth::user();
 
         $cartData = app(CartController::class)->getCartData();

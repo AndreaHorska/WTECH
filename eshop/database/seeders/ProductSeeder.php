@@ -199,9 +199,7 @@ class ProductSeeder extends Seeder
         [
             'active' => true,
             'name' => 'Sir Quackalot',
-            'description' => 'Meet Sir Quackalot, the noble guardian and visionary mascot of the Lucky Quacky 
-            brand. With his steady gaze and impeccable poise, this distinguished drake brings a touch of 
-            aristocratic elegance and calm leadership to any sticker collection.',
+            'description' => 'Meet Sir Quackalot, the noble guardian and visionary mascot of the Lucky Quacky brand. With his steady gaze and impeccable poise, this distinguished drake brings a touch of aristocratic elegance and calm leadership to any sticker collection.',
             'quantity' => 200,
             'price' => 19.99,
             'rating' => 4.6,
@@ -216,10 +214,7 @@ class ProductSeeder extends Seeder
         [
             'active' => true,
             'name' => 'Old Classic',
-            'description' => 'This iconic rubber duck, proudly named Old Classic, has returned to its roots 
-            by stripping away all color to let its timeless form shine through clean black and white lines. 
-            It serves as a visual tribute to the golden era of bath-time design, ready to bring a touch of 
-            nostalgia and elegance to any modern collection.',
+            'description' => 'This iconic rubber duck, proudly named Old Classic, has returned to its roots by stripping away all color to let its timeless form shine through clean black and white lines. It serves as a visual tribute to the golden era of bath-time design, ready to bring a touch of nostalgia and elegance to any modern collection.',
             'quantity' => 200,
             'price' => 39.99,
             'rating' => 4.9,
