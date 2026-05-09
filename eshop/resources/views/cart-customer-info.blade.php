@@ -25,7 +25,7 @@
 
         <section class="cart-shipping-layout" aria-labelledby="cart-heading">
 
-            <form class="customer-info-form" action="{{ route('cart.placeOrder') }}" method="POST">
+            <form class="customer-info-form" action="{{ route('cart.placeOrder') }}" method="POST" novalidate>
                 @csrf
                 <section class="form-section">
                     <h2 class="form-section-title">Personal Information</h2>
@@ -33,7 +33,7 @@
                         <div class="form-group">
                             <label for="first-name">First Name</label>
                             <input type="text" id="first-name" name="first-name" placeholder="Jozef"
-                                   value="{{ $userInfo->first_name ?? '' }}" required>
+                                   value="{{ old('first-name', $userInfo->first_name ?? '') }}" required>
                             @error('first-name')
                                 <div class="text-danger small">{{ $message }}</div>
                             @enderror
@@ -41,7 +41,7 @@
                         <div class="form-group">
                             <label for="last-name">Last Name</label>
                             <input type="text" id="last-name" name="last-name" placeholder="Mrkvicka"
-                                   value="{{ $userInfo->last_name ?? '' }}" required>
+                                   value="{{ old('last-name', $userInfo->last_name ?? '') }}" required>
                             @error('last-name')
                                 <div class="text-danger small">{{ $message }}</div>
                             @enderror
@@ -49,7 +49,7 @@
                         <div class="form-group full-width">
                             <label for="email">Email Address</label>
                             <input type="email" id="email" name="email" placeholder="jozko.mrkvicka@stuba.sk"
-                                   value="{{ auth()->user()?->email ?? '' }}" required>
+                                   value="{{ old('email', auth()->user()?->email ?? '') }}" required>
                             @error('email')
                                 <div class="text-danger small">{{ $message }}</div>
                             @enderror
@@ -57,7 +57,7 @@
                         <div class="form-group full-width">
                             <label for="phone">Phone Number</label>
                             <input type="tel" id="phone" name="phone" placeholder="+421 012 345 698"
-                                   value="{{ $userInfo->phone_number ?? '' }}" required>
+                                   value="{{ old('phone', $userInfo->phone_number ?? '') }}" required>
                             @error('phone')
                                 <div class="text-danger small">{{ $message }}</div>
                             @enderror
@@ -71,7 +71,7 @@
                         <div class="form-group half-width">
                             <label for="street">Street</label>
                             <input type="text" id="street" name="street" placeholder="Main Street"
-                                   value="{{ $address->street ?? '' }}" required>
+                                   value="{{ old('street', $address->street ?? '') }}" required>
                             @error('street')
                                 <div class="text-danger small">{{ $message }}</div>
                             @enderror
@@ -79,7 +79,7 @@
                         <div class="form-group half-width">
                             <label for="house-number">House Number</label>
                             <input type="text" id="house-number" name="house-number" placeholder="123"
-                                   value="{{ $address->house_number ?? '' }}" required>
+                                   value="{{ old('house-number', $address->house_number ?? '') }}" required>
                             @error('house-number')
                                 <div class="text-danger small">{{ $message }}</div>
                             @enderror
@@ -87,7 +87,7 @@
                         <div class="form-group half-width">
                             <label for="city">City</label>
                             <input type="text" id="city" name="city" placeholder="Bratislava"
-                                   value="{{ $address->city ?? '' }}" required>
+                                   value="{{ old('city', $address->city ?? '') }}" required>
                             @error('city')
                                 <div class="text-danger small">{{ $message }}</div>
                             @enderror
@@ -95,7 +95,7 @@
                         <div class="form-group half-width">
                             <label for="zip">ZIP Code</label>
                             <input type="text" id="zip" name="zip" placeholder="841 05"
-                                   value="{{ $address->postal_code ?? '' }}" required>
+                                   value="{{ old('zip', $address->postal_code ?? '') }}" required>
                             @error('zip')
                                 <div class="text-danger small">{{ $message }}</div>
                             @enderror
@@ -103,7 +103,7 @@
                         <div class="form-group full-width">
                             <label for="country">Country</label>
                             <input type="text" id="country" name="country" placeholder="Slovakia"
-                                   value="{{ $address->state ?? '' }}" required>
+                                   value="{{ old('country', $address->state ?? '') }}" required>
                             @error('country')
                                 <div class="text-danger small">{{ $message }}</div>
                             @enderror
@@ -113,42 +113,60 @@
 
                 <div class="different-billing-address">
                     <label class="billing-checkbox-container">
-                        <input type="checkbox" id="toggle-billing" name="different-billing" class="checkbox">
+                        <input type="checkbox" id="toggle-billing" name="different-billing" class="checkbox"
+                            {{ old('different-billing') === 'on' ? 'checked' : '' }}>
                         <span class="checkmark"></span>
                         Billing address is different from shipping
                     </label>
                 </div>
 
-                <section id="billing-section" class="form-section hidden">
+                <section id="billing-section" class="form-section {{ old('different-billing') === 'on' ? '' : 'hidden' }}">
                     <h2 class="form-section-title">Billing Address</h2>
                     <div class="form-grid">
                         <div class="form-group full-width">
                             <label for="billing-company">Company Name (Optional)</label>
-                            <input type="text" id="billing-company" name="billing-company" placeholder="Firma s.r.o.">
+                            <input type="text" id="billing-company" name="billing-company"
+                                   placeholder="Firma s.r.o." value="{{ old('billing-company') }}">
                         </div>
                         <div class="form-group half-width">
                             <label for="billing-street">Street</label>
-                            <input type="text" id="billing-street" name="billing-street" placeholder="Billing Street">
+                            <input type="text" id="billing-street" name="billing-street"
+                                   placeholder="Billing Street" value="{{ old('billing-street') }}">
+                            @error('billing-street')
+                            <div class="text-danger small">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group half-width">
-                            <label for="billing-house-number">Street and House Number</label>
-                            <input type="text" id="billing-house-number" name="billing-house-number" placeholder="456">
+                            <label for="billing-house-number">House Number</label>
+                            <input type="text" id="billing-house-number" name="billing-house-number"
+                                   placeholder="456" value="{{ old('billing-house-number') }}">
+                            @error('billing-house-number')
+                            <div class="text-danger small">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group half-width">
                             <label for="billing-city">City</label>
-                            <input type="text" id="billing-city" name="billing-city" placeholder="Bratislava">
+                            <input type="text" id="billing-city" name="billing-city"
+                                   placeholder="Bratislava" value="{{ old('billing-city') }}">
+                            @error('billing-city')
+                            <div class="text-danger small">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group half-width">
                             <label for="billing-zip">ZIP Code</label>
-                            <input type="text" id="billing-zip" name="billing-zip" placeholder="841 05">
+                            <input type="text" id="billing-zip" name="billing-zip"
+                                   placeholder="841 05" value="{{ old('billing-zip') }}">
+                            @error('billing-zip')
+                            <div class="text-danger small">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group full-width">
                             <label for="billing-country">Country</label>
-                            <select id="billing-country" name="billing-country">
-                                <option value="sk">Slovakia</option>
-                                <option value="cz">Czech Republic</option>
-                                <option value="de">Germany</option>
-                            </select>
+                            <input type="text" id="billing-country" name="billing-country"
+                                   placeholder="Slovakia" value="{{ old('billing-country') }}">
+                            @error('billing-country')
+                            <div class="text-danger small">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                 </section>
