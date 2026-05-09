@@ -16,9 +16,7 @@
 <section class="top-news">
     <a class="about_us" href="{{ route('products.index') }}" >
         <h2 class="about-title">Lucky Quacky</h2>
-        <p class="about-text">
-            Fun, stylish and unique duck stickers for everyone
-        </p>
+        <p class="about-text">Fun, stylish and unique duck stickers for everyone</p>
         <p class="all_categories">See every single one of our wonderful ducks</p>
     </a>
     <a class="sales" href="{{ route('products.index') }}">

@@ -44,34 +44,42 @@ body {
 
 /* ABOUT US BOX */
 .about_us {
-  flex-direction: column;
-  background: linear-gradient(135deg, #003e7c, #002d5c);
-  color: var(--white);
-  text-align: center;
-  padding: 20px;
+    flex-direction: column;
+    background: linear-gradient(135deg, #003e7c, #002d5c);
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about_us:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
 .about-title {
   font-size: clamp(20px, 3vw, 32px);
   font-family: var(--font-playfair);
   margin: 0;
-  text-decoration: none;
 }
+
 .about-text {
   font-size: clamp(12px, 2vw, 16px);
   margin: 5px 0 0 0;
   color: #dcdcdc;
-  text-decoration: none;
 }
 
 .all_categories {
     color: #dcdcdc;
     font-weight: bolder;
-    text-decoration: underline;
+    transition: border-color 0.2s ease;
 }
 
-.all_categories:hover {
-    color: #c4c2c2;
+.about_us:hover .all_categories {
+    color: #dbeafe;
+    border-bottom: 1px solid currentColor;
 }
 
 /* SALE BOX */
