@@ -12,6 +12,7 @@ class AdminSeeder extends Seeder
     public function run(): void
     {
         $adminRole = Role::firstOrCreate(['name' => 'ADMIN']);
+        $customerRole = Role::firstOrCreate(['name' => 'CUSTOMER']);
 
         $userInfo = \App\Models\UserInfo::firstOrCreate(
             ['email_address' => 'admin@admin.com'],
@@ -34,5 +35,6 @@ class AdminSeeder extends Seeder
         }
 
         $user->roles()->syncWithoutDetaching([$adminRole->id]);
+        $user->roles()->syncWithoutDetaching([$customerRole->id]);
     }
 }

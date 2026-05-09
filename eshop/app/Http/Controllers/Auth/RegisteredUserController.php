@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -40,6 +41,10 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
             'user_info_id' => $userInfo->id,
         ]);
+
+        $customerRole = Role::where('name', 'CUSTOMER')->first();
+
+        $user->roles()->syncWithoutDetaching([$customerRole->id]);
 
         event(new Registered($user));
         Auth::login($user);
