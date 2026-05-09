@@ -28,8 +28,6 @@ mail validacia - a@a. / a@.a / a@.
 
 Kliknutie na vsetky produkty
 
-U admina nie hodnotenie
-
 ---------------------------------------
 HOTOVO, JEEEEEEJ:
 vyhladavanie bez duck
@@ -75,4 +73,6 @@ OK objednavka
 Odstranit vazobnu tabulku na adresy
 
 Objednavka - billing address
+
+U admina nie hodnotenie
 

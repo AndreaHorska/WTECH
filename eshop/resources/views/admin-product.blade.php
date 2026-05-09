@@ -125,16 +125,34 @@
                     </table>
                 </div>
 
-                <div class="right_spec">
-                    {{-- Tu mozes pridat co chces --}}
+                <div class="right_spec admin">
+                    <div>
+                        <h2>Make it legendary</h2>
+                        <div class="duck-note">
+                            <span class="duck-note-icon">
+                                <svg viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg">
+                                    <ellipse cx="330" cy="300" rx="110" ry="80" fill="currentColor"/>
+                                    <ellipse cx="220" cy="280" rx="40" ry="30" fill="currentColor"/>
+                                    <circle cx="400" cy="195" r="55" fill="currentColor"/>
+                                    <rect x="448" y="188" width="45" height="20" rx="10" fill="currentColor"/>
+                                    <circle cx="418" cy="183" r="10" fill="white"/>
+                                    <path d="M235 310 Q310 270 400 305" fill="none" stroke="white" stroke-width="10" stroke-linecap="round"/>
+                                    <rect x="360" y="235" width="55" height="40" fill="currentColor"/>
+                                </svg>
+                            </span>
+
+                            <div>
+                                <div class="duck-note-title">Every great duck starts here!</div>
+                                <div class="duck-note-text">So chop-chop, make those sales pop,<br>legends aren’t made by accident.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-success">
+                        {{ $product ? 'Save changes' : 'Add product' }}
+                    </button>
                 </div>
             </section>
-
-            <div class="d-flex justify-content-center">
-                <button class="btn btn-success w-50 mt-2 mb-3">
-                    {{ $product ? 'Save changes' : 'Add product' }}
-                </button>
-            </div>
 
         </form>
     </main>
