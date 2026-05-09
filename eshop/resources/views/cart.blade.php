@@ -39,7 +39,7 @@
 
                                 $image = $product->images->first();
 
-                                $inStock = (int) data_get($product, 'quantity', 0) >= $quantity;
+                                $inStock = $product->active && (int) data_get($product, 'quantity', 0) >= $quantity;
                             @endphp
 
                             <li class="cart-item">
@@ -55,7 +55,12 @@
                                 </div>
 
                                 <p class="stock-status {{ $inStock ? 'in-stock' : 'out-of-stock' }}">
-                                    @if ($inStock)
+                                    @if (! $item->product->active)
+                                        <svg class="stock-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path d="M18 6L6 18M6 6l12 12"/>
+                                        </svg>
+                                        <span>Unavailable</span>
+                                    @elseif ($inStock)
                                         <svg class="stock-icon" viewBox="0 0 24 24" aria-hidden="true">
                                             <path d="M20 6L9 17L4 12"/>
                                         </svg>
@@ -104,10 +109,10 @@
                 </section>
 
                 @php
-                    $hasOutOfStock = $cartItems->contains(function ($item) {
+                    $hasUnavailable = $cartItems->contains(function ($item) {
                         $product = data_get($item, 'product');
                         $quantity = (int) data_get($item, 'quantity', 1);
-                        return (int) data_get($product, 'quantity', 0) < $quantity;
+                        return ! $product->active || (int) data_get($product, 'quantity', 0) < $quantity;
                     });
                 @endphp
 
@@ -142,8 +147,8 @@
 
                     <div class="order-summary_buttons">
                         <a href="{{ url('/') }}" class="back-button">Back</a>
-                        @if ($hasOutOfStock)
-                            <span class="continue-button disabled" style="opacity:0.5; cursor:not-allowed;" title="Remove out of stock items to continue">Continue</span>
+                        @if ($hasUnavailable)
+                            <span class="continue-button disabled" style="opacity:0.5; cursor:not-allowed;" title="Remove unavailable/out of stock items to continue">Continue</span>
                         @else
                             <a href="{{ route('cart.shipping') }}" class="continue-button">Continue</a>
                         @endif

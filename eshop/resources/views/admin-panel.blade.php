@@ -31,7 +31,7 @@
       </thead>
 
       <tbody>
-        @foreach ($products->reverse() as $product)
+        @foreach ($products as $product)
           @php $image = $product->images->first(); @endphp
           <tr>
             <td data-label="ID">{{ $product->id }}</td>

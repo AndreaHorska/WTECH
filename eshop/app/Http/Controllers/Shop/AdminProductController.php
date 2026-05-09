@@ -13,14 +13,16 @@ class AdminProductController extends Controller
 {
     public function index()
     {
-        $products = Product::with(['images', 'categories'])->orderBy('id', 'ASC')->get();
+        $products = Product::with(['images', 'categories'])->where('active', true)->orderBy('id', 'DESC')->get();
         return view('admin-panel', compact('products'));
     }
 
     public function destroy(int $id)
     {
         $product = Product::findOrFail($id);
-        $product->delete();
+        $product->update([
+            'active' => false,
+        ]);
         return redirect()->route('admin.panel')->with('success', 'Product was deleted!');
     }
 

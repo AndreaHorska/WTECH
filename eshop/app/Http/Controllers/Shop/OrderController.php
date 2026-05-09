@@ -69,7 +69,10 @@ class OrderController extends Controller
             $quantity = (int) data_get($item, 'quantity', 1);
             $product = Product::find($productId);
 
-            if (!$product || $product->quantity < $quantity) {
+            if (!$product || ! $product->active ) {
+                return redirect()->route('cart.index')
+                    ->with('error', "Product is no longer available.");
+            } else if ($product->quantity < $quantity) {
                 return redirect()->route('cart.index')
                     ->with('error', "Product \"{$product->name}\" is out of stock.");
             }
