@@ -60,7 +60,7 @@ class ProductImageSeeder extends Seeder
             ],
             'Wave Rider' => [
                 'image/wave_rider.png',
-                'image/wave_rider.png',
+                'image/wave_rider2.png',
             ],
             'Summer Chiller' => [
                 'image/summer_chiller1.png',
@@ -73,6 +73,10 @@ class ProductImageSeeder extends Seeder
             'Old Classic' => [
                 'image/old_classic1.png',
                 'image/old_classic2.png',
+            ],
+            'Eaten' => [
+                'image/eaten.png',
+                'image/eaten2.png',
             ],
         ];
 
