@@ -23,11 +23,22 @@ class OrderController extends Controller
             'last-name' => ['required', 'string', 'max:50'],
             'email' => ['required', 'email:rfc', 'regex:/^[^\s@]+@[^\s@]+\.[^\s@]+$/', 'max:255'],
             'phone' => ['required', 'string', 'max:20'],
+
             'street' => ['required', 'string', 'max:50'],
             'house-number' => ['required', 'string', 'max:10'],
             'city' => ['required', 'string', 'max:40'],
             'zip' => ['required', 'string', 'max:10'],
             'country' => ['required', 'string', 'max:40'],
+
+            'billing-street' => ['required_if:different-billing,on', 'string', 'max:50'],
+            'billing-house-number' => ['required_if:different-billing,on', 'string', 'max:10'],
+            'billing-city' => ['required_if:different-billing,on', 'string', 'max:40'],
+            'billing-zip' => ['required_if:different-billing,on', 'string', 'max:10'],
+            'billing-country' => ['required_if:different-billing,on', 'string', 'max:40'],
+            'billing-company' => ['nullable', 'string', 'max:50'],
+        ],[
+            '*.required' => 'This field is required.',
+            '*.required_if' => 'This field is required.',
         ]);
 
         $user = Auth::user();
@@ -54,16 +65,29 @@ class OrderController extends Controller
             ]
         );
 
-        $address = Address::updateOrCreate(
-            ['user_info_id' => $userInfo->id],
-            [
-                'street' => $request->input('street'),
-                'house_number' => $request->input('house-number'),
-                'city' => $request->input('city'),
-                'postal_code' => $request->input('zip'),
-                'state' => $request->input('country'),
-            ]
-        );
+        $shipping_address = Address::create([
+            'street' => $request->input('street'),
+            'house_number' => $request->input('house-number'),
+            'city' => $request->input('city'),
+            'postal_code' => $request->input('zip'),
+            'state' => $request->input('country'),
+        ]);
+
+        $hasDifferentBilling = $request->input('different-billing') === 'on';
+
+        if ($hasDifferentBilling) {
+            $billing_address = Address::create([
+                'is_company' => $request->filled('billing-company'),
+                'company_name' => $request->input('billing-company'),
+                'street' => $request->input('billing-street'),
+                'house_number' => $request->input('billing-house-number'),
+                'city' => $request->input('billing-city'),
+                'postal_code' => $request->input('billing-zip'),
+                'state' => $request->input('billing-country'),
+            ]);
+        } else {
+            $billing_address = $shipping_address;
+        }
 
         foreach ($cartItems as $item) {
             $productId = $item->product_id ?? $item['product_id'];
@@ -79,13 +103,13 @@ class OrderController extends Controller
             }
         }
 
-        $order = DB::transaction(function () use ($user, $cartItems, $shippingMethodId, $paymentMethodId, $address, $userInfo) {
+        $order = DB::transaction(function () use ($user, $cartItems, $shippingMethodId, $paymentMethodId, $shipping_address, $billing_address, $userInfo) {
 
             $order = Order::create([
                 'user_id' => $user?->id,
                 'user_info_id' => $userInfo->id,
-                'shipping_address_id' => $address->id,
-                'billing_address_id' => $address->id,
+                'shipping_address_id' => $shipping_address->id,
+                'billing_address_id' => $billing_address->id,
                 'shipping_method_id' => $shippingMethodId,
                 'state' => 'Created',
             ]);

@@ -23,15 +23,10 @@ Kategoria atribut description? Asi netreba
 
 pridat kacky
 
-Objednavka - billing address
-Odstranit vazobnu tabulku na adresy
-
 verifikacia mailu, cisla
 mail validacia - a@a. / a@.a / a@.
 
 Kliknutie na vsetky produkty
-
-V Cart Info usera neviem co sa robi s billing address
 
 U admina nie hodnotenie
 
@@ -76,3 +71,8 @@ Nevadi, ze filtre nie su podla nicoho usporiadane, cize sa vypisuju abecedne? Ni
 Validacia udajov aj pri cart
 
 OK objednavka
+
+Odstranit vazobnu tabulku na adresy
+
+Objednavka - billing address
+
