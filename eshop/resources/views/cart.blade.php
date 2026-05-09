@@ -39,7 +39,7 @@
 
                                 $image = $product->images->first();
 
-                                $inStock = $product->active && (int) data_get($product, 'quantity', 0) >= $quantity;
+                                $inStock = data_get($product, 'active') && (int) data_get($product, 'quantity', 0) >= $quantity;
                             @endphp
 
                             <li class="cart-item">
@@ -55,7 +55,7 @@
                                 </div>
 
                                 <p class="stock-status {{ $inStock ? 'in-stock' : 'out-of-stock' }}">
-                                    @if (! $item->product->active)
+                                    @if (! data_get($product, 'active'))
                                         <svg class="stock-icon" viewBox="0 0 24 24" aria-hidden="true">
                                             <path d="M18 6L6 18M6 6l12 12"/>
                                         </svg>
