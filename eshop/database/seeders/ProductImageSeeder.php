@@ -107,6 +107,29 @@ class ProductImageSeeder extends Seeder
                 'image/detective.png',
                 'image/detective2.png',
             ],
+            'Ducks on the Shelf' => [
+                'image/ducks_shelf.png',
+                'image/ducks_shelf2.png',
+                'image/ducks_shelf3.png',
+            ],
+            'Pondie' => [
+                'image/pondie.png',
+                'image/pondie2.png',
+            ],
+            'Dark Knight' => [
+                'image/dark_knight.png',
+                'image/dark_knight2.png',
+                'image/dark_knight3.png',
+            ],
+            'Mama & Mini' => [
+                'image/mama_mini.png',
+                'image/mama_mini2.png',
+                'image/mama_mini3.png',
+            ],
+            'Santa Quack' => [
+                'image/santa_quack.png',
+                'image/santa_quack2.png',
+            ],
         ];
 
         foreach ($images as $productName => $paths) {

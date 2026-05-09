@@ -138,6 +138,34 @@ class ProductCategorySeeder extends Seeder
                 'view' => ['full'],
                 'lifestyle' => ['quirky']
             ],
+            'Ducks on the Shelf' => [
+                'main' => ['luxurious'],
+                'view' => ['full'],
+                'lifestyle' => ['chilled']
+            ],
+            'Pondie' => [
+                'main' => ['luxurious'],
+                'gear' => ['other'],
+                'view' => ['full'],
+                'lifestyle' => ['quirky']
+            ],
+            'Dark Knight' => [
+                'main' => ['luxurious'],
+                'gear' => ['other'],
+                'view' => ['full'],
+                'lifestyle' => ['quirky']
+            ],
+            'Mama & Mini' => [
+                'main' => ['luxurious'],
+                'view' => ['full'],
+                'lifestyle' => ['chilled']
+            ],
+            'Santa Quack' => [
+                'main' => ['seasonable'],
+                'gear' => ['hat'],
+                'view' => ['head'],
+                'lifestyle' => ['chilled']
+            ],
         ];
 
         foreach ($productCategories as $productName => $groups) {
