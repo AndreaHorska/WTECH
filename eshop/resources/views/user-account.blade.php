@@ -40,7 +40,7 @@
                     <div class="mb-3">
                         <label for="first-name" class="form-label">First Name</label>
                         <input id="first-name" name="first_name" type="text" class="form-control"
-                            value="{{ old('first_name', $userInfo->first_name ?? '') }}" maxlength="50">
+                            value="{{ old('first_name', $userInfo->first_name ?? '') }}">
                         @error('first_name')
                         <div class="text-danger small">{{ $message }}</div>
                         @enderror
@@ -49,7 +49,7 @@
                     <div class="mb-3">
                         <label for="last-name" class="form-label">Last Name</label>
                         <input id="last-name" name="last_name" type="text" class="form-control"
-                            value="{{ old('last_name', $userInfo->last_name ?? '') }}" maxlength="50">
+                            value="{{ old('last_name', $userInfo->last_name ?? '') }}">
                         @error('last_name')
                         <div class="text-danger small">{{ $message }}</div>
                         @enderror
@@ -58,7 +58,7 @@
                     <div class="mb-3">
                         <label for="phone-number" class="form-label">Phone Number</label>
                         <input id="phone-number" name="phone_number" type="text" class="form-control"
-                            value="{{ old('phone_number', $userInfo->phone_number ?? '') }}" maxlength="20">
+                            value="{{ old('phone_number', $userInfo->phone_number ?? '') }}">
                         @error('phone_number')
                         <div class="text-danger small">{{ $message }}</div>
                         @enderror
@@ -75,7 +75,7 @@
                     <div class="mb-3">
                         <label for="country" class="form-label">Country</label>
                         <input id="country" name="state" type="text" class="form-control"
-                            value="{{ old('street', $address->state ?? '') }}" maxlength="40">
+                            value="{{ old('street', $address->state ?? '') }}">
                         @error('state')
                         <div class="text-danger small">{{ $message }}</div>
                         @enderror
@@ -84,7 +84,7 @@
                     <div class="mb-3">
                         <label for="street-address" class="form-label">Street Address</label>
                         <input id="street-address" name="street" type="text" class="form-control"
-                            value="{{ old('street', $address->street ?? '') }}" maxlength="50">
+                            value="{{ old('street', $address->street ?? '') }}">
                         @error('street')
                         <div class="text-danger small">{{ $message }}</div>
                         @enderror
@@ -93,7 +93,7 @@
                     <div class="mb-3">
                         <label for="street-number" class="form-label">Street Number</label>
                         <input id="street-number" name="house_number" type="text" class="form-control"
-                            value="{{ old('house_number', $address->house_number ?? '') }}" maxlength="10">
+                            value="{{ old('house_number', $address->house_number ?? '') }}">
                         @error('house_number')
                         <div class="text-danger small">{{ $message }}</div>
                         @enderror
@@ -102,7 +102,7 @@
                     <div class="mb-3">
                         <label for="city" class="form-label">City</label>
                         <input id="city" name="city" type="text" class="form-control"
-                            value="{{ old('city', $address->city ?? '') }}" maxlength="40">
+                            value="{{ old('city', $address->city ?? '') }}">
                         @error('city')
                         <div class="text-danger small">{{ $message }}</div>
                         @enderror
@@ -111,7 +111,7 @@
                     <div class="mb-3">
                         <label for="postal-code" class="form-label">Postal Code</label>
                         <input id="postal-code" name="postal_code" type="text" class="form-control"
-                            value="{{ old('postal_code', $address->postal_code ?? '') }}" maxlength="10">
+                            value="{{ old('postal_code', $address->postal_code ?? '') }}">
                         @error('postal_code')
                         <div class="text-danger small">{{ $message }}</div>
                         @enderror

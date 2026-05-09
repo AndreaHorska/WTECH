@@ -39,6 +39,8 @@ Route::get('/order/{order}/ok', [OrderController::class, 'ok'])->name('order.ok'
 Route::get('/user-account', [AccountController::class, 'edit'])->middleware('auth')->name('account.edit');
 Route::put('/user-account', [AccountController::class, 'update'])->middleware('auth')->name('account.update');
 
+Route::view('/credentials', 'credentials')->name('credentials');
+
 /* ADMIN */
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [AdminProductController::class, 'index'])->name('panel');

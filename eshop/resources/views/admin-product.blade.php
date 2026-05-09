@@ -129,13 +129,7 @@
                 </div>
 
                 <div class="right_spec">
-                    <h2>Customer Review</h2>
-                    <p class="text-muted small">How would you rate this product?</p>
-                    <section class="review-form">
-                        <div class="star-rating-admin mb-3">
-                            <label for="stars">★★★★★</label>
-                        </div>
-                    </section>
+                    {{-- Tu mozes pridat co chces --}}
                 </div>
             </section>
 

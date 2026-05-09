@@ -17,39 +17,11 @@
         </div>
     </div>
 
+    <div class="footer-bottom-links">
+    <a href="{{ route('credentials') }}" class="text-white-50 small text-decoration-none hover-white">
+        Credits & Attributions
+    </a>
+
     <p class="copyright">© Lucky Quacky 2026</p>
-
-    <div class="image-credits">
-        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by vectorsmarket15 - Flaticon</a> |
-        <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber-duck icons">Rubber-duck icons created by Freepik - Flaticon</a> |
-        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by June Design - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber duck icons">Rubber duck icons created by kerismaker - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by Freepik - Flaticon</a>
-
-        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by Nsit - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by Nsit - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by Nsit - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by pongsakornRed - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by vectorsmarket15 - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by vectorsmarket15 - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber duck icons">Rubber duck icons created by vectorsmarket15 - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber duck icons">Rubber duck icons created by vectorsmarket15 - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by vectorsmarket15 - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by jessicurr11 - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber duck icons">Rubber duck icons created by smashingstocks - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber duck icons">Rubber duck icons created by Rakib Hassan Rahim - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by IconBaandar - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by Freepik - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber duck icons">Rubber duck icons created by kerismaker - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/seasons" title="seasons icons">Seasons icons created by Rabbixcons - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/bird" title="bird icons">Bird icons created by Freepik - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by Leremy - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by vectorsmarket15 - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by vectorsmarket15 - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by Nsit - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by Nsit - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by dian-ratri - Flaticon</a>
-        <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by dian-ratri - Flaticon</a>
-
-    </div>
+</div>
 </footer>

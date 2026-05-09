@@ -19,16 +19,11 @@ Odstranit vazobnu tabulku na adresy
 verifikacia mailu, cisla
 mail validacia - a@a. / a@.a / a@.
 
-Prazdna abstraktna trieda controller?
-
-Validacia udajov aj pri cart
-
 Kliknutie na vsetky produkty
 
-U admina nie hodnotenie
+V Cart Info usera neviem co sa robi s billing address
 
-Ked sa prekroci hranica inputu, tak len neumoznime pisat dalej? Nie upozornenie?
-A ten input box sa moze scrollovat?
+U admina nie hodnotenie
 
 ---------------------------------------
 HOTOVO, JEEEEEEJ:
@@ -68,5 +63,6 @@ objednavka - prihlaseny/neprihlaseny
 Responzivita na specifikacie
 Nieco ine ako -50% sale
 Nevadi, ze filtre nie su podla nicoho usporiadane, cize sa vypisuju abecedne? Nie nevadi
+Validacia udajov aj pri cart
 
 OK objednavka
