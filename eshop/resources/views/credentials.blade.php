@@ -28,7 +28,8 @@
 
                 <a href="https://www.flaticon.com/free-icons/seasons" title="seasons icons">Seasons icons created by Rabbixcons - Flaticon</a>
                 <a href="https://www.flaticon.com/free-icons/bird" title="bird icons">Bird icons created by Freepik - Flaticon</a>
-
+                <a href="https://www.flaticon.com/free-icons/feather" title="feather icons">Feather icons created by Icongeek26 - Flaticon</a>
+                
             </div>
         </div>
     </main>

@@ -82,6 +82,23 @@ class ProductImageSeeder extends Seeder
                 'image/sea_bundle.png',
                 'image/sea_bundle2.png',
             ],
+            'Rainy Saddie' => [
+                'image/rainy_saddie.png',
+                'image/rainy_saddie2.png',
+            ],
+            'Chef Berry' => [
+                'image/chef_berry.png',
+                'image/chef_berry2.png',
+            ],
+            'Chill Guy' => [
+                'image/chill_guy.png',
+                'image/chill_guy2.png',
+            ],
+            'Feather' => [
+                'image/feather.png',
+                'image/feather2.png',
+                'image/feather3.png',
+            ],
         ];
 
         foreach ($images as $productName => $paths) {
