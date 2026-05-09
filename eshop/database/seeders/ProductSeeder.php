@@ -13,7 +13,7 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {   // falosne produkty
-        \App\Models\Product::factory(100)->create();
+        // \App\Models\Product::factory(100)->create();
 
         $products = [
         [

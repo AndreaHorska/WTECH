@@ -67,19 +67,22 @@
                 <h3 class="filter-section-title">Accessories</h3>
 
                 @foreach($categoryTypes as $type)
-                    <div class="accessories-filter">
-                        <h4 class="filter-subheading">{{ $type->name }}</h4>
 
-                        <div class="checkbox-group {{ $type->slug === 'view' ? 'single-select' : '' }}">
-                            @foreach($type->categories as $category)
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="categories[]" value="{{ $category->id }}"
-                                        @checked(in_array($category->id, array_map('intval', request('categories', []))))>
-                                    <span>{{ $category->name }}</span>
-                                </label>
-                            @endforeach
+                    @if($type->categories->isNotEmpty())
+                        <div class="accessories-filter">
+                            <h4 class="filter-subheading">{{ $type->name }}</h4>
+
+                            <div class="checkbox-group {{ $type->slug === 'view' ? 'single-select' : '' }}">
+                                @foreach($type->categories as $category)
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="categories[]" value="{{ $category->id }}"
+                                            @checked(in_array($category->id, array_map('intval', request('categories', []))))>
+                                        <span>{{ $category->name }}</span>
+                                    </label>
+                                @endforeach
+                            </div>
                         </div>
-                    </div>
+                    @endif
                 @endforeach
             </section>
 

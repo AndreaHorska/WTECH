@@ -127,9 +127,34 @@ class ProductController extends Controller {
 
         $products = $query->paginate($perPage)->withQueryString();
 
-        $categoryTypes = CategoryType::with('categories')
-            ->where('slug', '!=', 'main')
-            ->get();
+        $selectedMain = $request->main;
+
+        if ($selectedMain) {
+
+            $availableCategoryIds = Product::where('active', true)
+
+                ->whereHas('categories', function ($q) use ($selectedMain) {
+                    $q->where('slug', $selectedMain);
+                })
+
+                ->with('categories')->get()
+
+                ->pluck('categories')->flatten()
+
+                ->pluck('id')->unique();
+
+            $categoryTypes = CategoryType::with([
+                'categories' => function ($q) use ($availableCategoryIds) {
+                    $q->whereIn('id', $availableCategoryIds);
+                }
+            ])
+                ->where('slug', '!=', 'main')->get();
+
+        } else {
+            $categoryTypes = CategoryType::with('categories')
+                ->where('slug', '!=', 'main')
+                ->get();
+        }
 
         return view('products', [
             'products' => $products,

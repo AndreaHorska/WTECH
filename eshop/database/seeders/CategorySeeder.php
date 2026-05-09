@@ -69,6 +69,10 @@ class CategorySeeder extends Seeder
                     'name' => 'Head',
                     'slug' => 'head',
                 ],
+                [
+                    'name' => 'Other',
+                    'slug' => 'other',
+                ],
             ],
         ];
 
