@@ -49,7 +49,7 @@
                 <div class="product_info">
                     <label>Product name</label>
                     <input type="text" class="form-control" name="name" placeholder="Product Name"
-                           value="{{ old('name', $product->name ?? '') }}" maxlength="80" required>
+                           value="{{ old('name', $product->name ?? '') }}" required>
                     @error('name') <small class="text-danger">{{ $message }}</small> @enderror
 
                     <label>Description</label>
@@ -65,7 +65,7 @@
 
                     <label>Price (€)</label>
                     <input type="text" class="form-control" name="price" placeholder="0.00"
-                           value="{{ old('price', $product->price ?? '') }}" maxlength="9" required>
+                           value="{{ old('price', $product->price ?? '') }}" required>
                     @error('price') <small class="text-danger">{{ $message }}</small> @enderror
 
                     @foreach ($categoryTypes as $type)
@@ -116,9 +116,6 @@
                                 <td class="spec-label-cell">{{ $spec['label'] }}</td>
                                 <td><input type="{{ $spec['type'] ?? 'text' }}" class="form-control" name="{{ $name }}"
                                            value="{{ old($name, $product->{$name} ?? '') }}"
-                                           @isset($spec['maxlength']) maxlength="{{ $spec['maxlength'] }}" @endisset
-                                           @isset($spec['max'])min="{{ $spec['min'] }}" @endisset
-                                           @isset($spec['max'])max="{{ $spec['max'] }}" @endisset
                                            required></td>
                             </tr>
                             @error($name)

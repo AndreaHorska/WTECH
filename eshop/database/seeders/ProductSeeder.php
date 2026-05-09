@@ -239,7 +239,22 @@ class ProductSeeder extends Seeder
             'size' => '10 cm',
             'weight' => '40 g',
             'age' => '3+',
-            'country_of_origin' => 'Spain',
+            'country_of_origin' => 'Slovakia',
+        ],
+        [
+            'active' => true,
+            'name' => 'Sea Bundle',
+            'description' => 'The ultimate Sea Bundle: because life is just better when you’re "quacking" up under the sun. From deep-sea diving to catching the perfect wave, these guys are proof that you don’t need to be a swan to make a splash!',
+            'quantity' => 150,
+            'price' => 10.49,
+            'rating' => 4.1,
+            'review_count' => 208,
+            'pcs' => 10,
+            'material' => 'Vinyl',
+            'size' => '40 cm',
+            'weight' => '200 g',
+            'age' => '3+',
+            'country_of_origin' => 'Slovakia',
         ],
     ];
 

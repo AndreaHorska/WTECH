@@ -33,7 +33,7 @@
                         <div class="form-group">
                             <label for="first-name">First Name</label>
                             <input type="text" id="first-name" name="first-name" placeholder="Jozef"
-                                   value="{{ $userInfo->first_name ?? '' }}">
+                                   value="{{ $userInfo->first_name ?? '' }}" required>
                             @error('first-name')
                                 <div class="text-danger small">{{ $message }}</div>
                             @enderror
@@ -41,7 +41,7 @@
                         <div class="form-group">
                             <label for="last-name">Last Name</label>
                             <input type="text" id="last-name" name="last-name" placeholder="Mrkvicka"
-                                   value="{{ $userInfo->last_name ?? '' }}">
+                                   value="{{ $userInfo->last_name ?? '' }}" required>
                             @error('last-name')
                                 <div class="text-danger small">{{ $message }}</div>
                             @enderror
@@ -49,7 +49,7 @@
                         <div class="form-group full-width">
                             <label for="email">Email Address</label>
                             <input type="email" id="email" name="email" placeholder="jozko.mrkvicka@stuba.sk"
-                                   value="{{ auth()->user()?->email ?? '' }}">
+                                   value="{{ auth()->user()?->email ?? '' }}" required>
                             @error('email')
                                 <div class="text-danger small">{{ $message }}</div>
                             @enderror
@@ -57,7 +57,7 @@
                         <div class="form-group full-width">
                             <label for="phone">Phone Number</label>
                             <input type="tel" id="phone" name="phone" placeholder="+421 012 345 698"
-                                   value="{{ $userInfo->phone_number ?? '' }}">
+                                   value="{{ $userInfo->phone_number ?? '' }}" required>
                             @error('phone')
                                 <div class="text-danger small">{{ $message }}</div>
                             @enderror
@@ -71,7 +71,7 @@
                         <div class="form-group half-width">
                             <label for="street">Street</label>
                             <input type="text" id="street" name="street" placeholder="Main Street"
-                                   value="{{ $address->street ?? '' }}">
+                                   value="{{ $address->street ?? '' }}" required>
                             @error('street')
                                 <div class="text-danger small">{{ $message }}</div>
                             @enderror
@@ -79,7 +79,7 @@
                         <div class="form-group half-width">
                             <label for="house-number">House Number</label>
                             <input type="text" id="house-number" name="house-number" placeholder="123"
-                                   value="{{ $address->house_number ?? '' }}">
+                                   value="{{ $address->house_number ?? '' }}" required>
                             @error('house-number')
                                 <div class="text-danger small">{{ $message }}</div>
                             @enderror
@@ -87,7 +87,7 @@
                         <div class="form-group half-width">
                             <label for="city">City</label>
                             <input type="text" id="city" name="city" placeholder="Bratislava"
-                                   value="{{ $address->city ?? '' }}">
+                                   value="{{ $address->city ?? '' }}" required>
                             @error('city')
                                 <div class="text-danger small">{{ $message }}</div>
                             @enderror
@@ -95,7 +95,7 @@
                         <div class="form-group half-width">
                             <label for="zip">ZIP Code</label>
                             <input type="text" id="zip" name="zip" placeholder="841 05"
-                                   value="{{ $address->postal_code ?? '' }}">
+                                   value="{{ $address->postal_code ?? '' }}" required>
                             @error('zip')
                                 <div class="text-danger small">{{ $message }}</div>
                             @enderror
@@ -103,7 +103,7 @@
                         <div class="form-group full-width">
                             <label for="country">Country</label>
                             <input type="text" id="country" name="country" placeholder="Slovakia"
-                                   value="{{ $address->state ?? '' }}">
+                                   value="{{ $address->state ?? '' }}" required>
                             @error('country')
                                 <div class="text-danger small">{{ $message }}</div>
                             @enderror
