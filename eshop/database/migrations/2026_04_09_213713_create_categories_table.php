@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('name', 50);
             $table->string('slug');
             $table->unique(['category_type_id', 'slug']);
-            $table->text('description')->nullable();
 
             $table->unique(['category_type_id', 'name']);
             $table->timestamps();
