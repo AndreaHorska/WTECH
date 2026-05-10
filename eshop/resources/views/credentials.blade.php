@@ -26,18 +26,23 @@
                 <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by amoghdesign - Flaticon</a>
                 <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by SBTS2018 - Flaticon</a>
                 <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by BZZRINCANTATION - Flaticon</a>
+                <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by SetitikPixelStudio - Flaticon</a>
 
                 <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber-duck icons">Rubber-duck icons created by Freepik - Flaticon</a>
                 <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber duck icons">Rubber duck icons created by vectorsmarket15 - Flaticon</a>
                 <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber duck icons">Rubber duck icons created by smashingstocks - Flaticon</a>
                 <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber duck icons">Rubber duck icons created by Rakib Hassan Rahim - Flaticon</a>
                 <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber duck icons">Rubber duck icons created by kerismaker - Flaticon</a>
+                <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber duck icons">Rubber duck icons created by inipagistudio - Flaticon</a>
+                <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber-duck icons">Rubber-duck icons created by Upnow Graphic - Flaticon</a>
 
                 <a href="https://www.flaticon.com/free-icons/seasons" title="seasons icons">Seasons icons created by Rabbixcons - Flaticon</a>
                 <a href="https://www.flaticon.com/free-icons/bird" title="bird icons">Bird icons created by Freepik - Flaticon</a>
                 <a href="https://www.flaticon.com/free-icons/feather" title="feather icons">Feather icons created by Icongeek26 - Flaticon</a>
                 <a href="https://www.flaticon.com/free-icons/footprint" title="footprint icons">Footprint icons created by surang - Flaticon</a>
                 <a href="https://www.flaticon.com/free-icons/kid" title="kid icons">Kid icons created by photo3idea_studio - Flaticon</a>
+
+                <a href="https://gemini.google.com" title="AI tool">Code assistance provided by Google Gemini - Google</a>
                 
             </div>
         </div>

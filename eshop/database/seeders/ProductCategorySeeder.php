@@ -234,7 +234,30 @@ class ProductCategorySeeder extends Seeder
                 'view' => ['full'],
                 'lifestyle' => ['chilled'],
             ],
-
+            'Bobik' => [
+                'main' => ['seasonal','funny'],
+                'gear' => ['hat'],
+                'view' => ['full'],
+                'lifestyle' => ['chilled','quirky'],
+            ],
+            'Magician' => [
+                'main' => ['funny'],
+                'gear' => ['hat','bubbles'],
+                'view' => ['full'],
+                'lifestyle' => ['chilled','quirky','swimming'],
+            ],
+            'Bubble Queen' => [
+                'main' => ['funny'],
+                'gear' => ['bubbles'],
+                'view' => ['full'],
+                'lifestyle' => ['chilled','swimming'],
+            ],
+            'Frayer' => [
+                'main' => ['funny','luxurious','seasonal'],
+                'gear' => ['bubbles','hat','glasses'],
+                'view' => ['full'],
+                'lifestyle' => ['quirky','swimming'],
+            ],
         ];
 
         foreach ($productCategories as $productName => $groups) {
