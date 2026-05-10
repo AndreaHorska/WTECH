@@ -186,7 +186,9 @@ class ProductController extends Controller {
     {
         $product = Product::with(['images', 'categories'])->findOrFail($id);
 
-        $categoryIds = $product->categories->pluck('id');
+        $categoryIds = $product->categories
+            ->reject(fn($c) => $c->slug === 'other' && $c->categoryType->slug !== 'view')
+            ->pluck('id');
 
         $similar = Product::with('images')
             ->where('active', true)
