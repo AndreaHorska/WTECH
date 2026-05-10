@@ -19,10 +19,10 @@ class OrderController extends Controller
     public function placeOrder(Request $request)
     {
         $data = $request->validate([
-            'first-name' => ['required', 'string', 'max:50'],
-            'last-name' => ['required', 'string', 'max:50'],
+            'first-name' => ['required', 'string', 'max:50', 'regex:/^[\pL\s\-\']+$/u'],
+            'last-name' => ['required', 'string', 'max:50', 'regex:/^[\pL\s\-\']+$/u'],
             'email' => ['required', 'email:rfc', 'regex:/^[^\s@]+@[^\s@]+\.[^\s@]+$/', 'max:255'],
-            'phone' => ['required', 'string', 'max:20'],
+            'phone' => ['required', 'string', 'max:20', 'regex:/^\+?[\d\s\-]{6,20}$/'],
 
             'street' => ['required', 'string', 'max:50'],
             'house-number' => ['required', 'string', 'max:10'],
@@ -30,15 +30,16 @@ class OrderController extends Controller
             'zip' => ['required', 'string', 'max:10'],
             'country' => ['required', 'string', 'max:40'],
 
-            'billing-street' => ['required_if:different-billing,on', 'string', 'max:50'],
-            'billing-house-number' => ['required_if:different-billing,on', 'string', 'max:10'],
-            'billing-city' => ['required_if:different-billing,on', 'string', 'max:40'],
-            'billing-zip' => ['required_if:different-billing,on', 'string', 'max:10'],
-            'billing-country' => ['required_if:different-billing,on', 'string', 'max:40'],
+            'billing-street' => ['nullable', 'required_if:different-billing,on', 'string', 'max:50'],
+            'billing-house-number' => ['nullable', 'required_if:different-billing,on', 'string', 'max:10'],
+            'billing-city' => ['nullable', 'required_if:different-billing,on', 'string', 'max:40'],
+            'billing-zip' => ['nullable', 'required_if:different-billing,on', 'string', 'max:10'],
+            'billing-country' => ['nullable', 'required_if:different-billing,on', 'string', 'max:40'],
             'billing-company' => ['nullable', 'string', 'max:50'],
         ],[
             '*.required' => 'This field is required.',
             '*.required_if' => 'This field is required.',
+            '*.regex' => 'Invalid format.',
         ]);
 
         $user = Auth::user();

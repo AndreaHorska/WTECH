@@ -9,7 +9,7 @@
             <a href="{{ url('/') }}" class="logo-account">Lucky<span>Quacky</span></a>
         </section>
 
-        <form action="{{ route('register') }}" method="POST" class="p-4 bg-light border rounded form-box">
+        <form action="{{ route('register') }}" method="POST" class="p-4 bg-light border rounded form-box" novalidate>
             @csrf
 
             <h1 class="mb-3 h3">Registration</h1>

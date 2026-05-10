@@ -709,6 +709,11 @@ body {
     font-weight: 500;
 }
 
+.continue-button.disabled {
+    opacity:0.5 !important;
+    cursor:not-allowed !important;
+}
+
 @container cart (max-width: 480px) {
     .quantity-picker {
         justify-self: right;

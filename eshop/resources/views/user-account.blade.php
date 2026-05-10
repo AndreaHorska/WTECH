@@ -34,7 +34,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">Email</label>
-                        <input type="email" class="form-control bg-light" value="{{ $userInfo->email_address ?? '' }}" disabled>
+                        <input type="email" class="form-control bg-light locked-input" value="{{ $userInfo->email_address ?? '' }}" disabled>
                     </div>
 
                     <div class="mb-3">

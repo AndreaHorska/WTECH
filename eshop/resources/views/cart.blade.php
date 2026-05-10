@@ -148,7 +148,7 @@
                     <div class="order-summary_buttons">
                         <a href="{{ url('/') }}" class="back-button">Back</a>
                         @if ($hasUnavailable)
-                            <span class="continue-button disabled" style="opacity:0.5; cursor:not-allowed;" title="Remove unavailable/out of stock items to continue">Continue</span>
+                            <span class="continue-button disabled" title="Remove unavailable/out of stock items to continue">Continue</span>
                         @else
                             <a href="{{ route('cart.shipping') }}" class="continue-button">Continue</a>
                         @endif

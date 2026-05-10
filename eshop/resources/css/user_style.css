@@ -40,6 +40,12 @@
   color: black;
 }
 
+.form-control:disabled {
+    cursor: not-allowed !important;
+    background-color: #dedede !important;
+}
+
+
 /* FORM BOX */
 .form-box {
     width: 100%;

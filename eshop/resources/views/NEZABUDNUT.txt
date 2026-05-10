@@ -23,9 +23,6 @@ Kategoria atribut description? Asi netreba
 
 pridat kacky
 
-verifikacia mailu, cisla
-mail validacia - a@a. / a@.a / a@.
-
 Max inputy
 
 Na formular pri cart mozno foreach, kategorie atd.
@@ -79,4 +76,7 @@ Objednavka - billing address
 U admina nie hodnotenie
 
 Kliknutie na vsetky produkty
+
+verifikacia mailu, cisla
+mail validacia - a@a. / a@.a / a@.
 
