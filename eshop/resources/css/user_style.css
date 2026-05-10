@@ -51,6 +51,12 @@
     border-color: #ced4da;
 }
 
+.action-container {
+    width: 100%;
+    max-width: 600px !important;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /* FORM BOX */
 .form-box {

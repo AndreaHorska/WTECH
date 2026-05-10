@@ -64,6 +64,7 @@
                         @enderror
                     </div>
 
+
                 </div>
             </div>
 
@@ -75,7 +76,7 @@
                     <div class="mb-3">
                         <label for="country" class="form-label">Country</label>
                         <input id="country" name="state" type="text" class="form-control"
-                            value="{{ old('street', $address->state ?? '') }}">
+                            value="{{ old('state', $address->state ?? '') }}">
                         @error('state')
                         <div class="text-danger small">{{ $message }}</div>
                         @enderror
@@ -117,20 +118,22 @@
                         @enderror
                     </div>
 
-                    <button type="submit" class="btn btn-warning w-100 mt-auto">
-                        Save changes
-                    </button>
-
                 </div>
+            </div>
+
+            <div class="col-12 col-lg-8 mt-3 action-container">
+                <button type="submit" class="btn btn-warning w-100 py-2">
+                    Save changes
+                </button>
             </div>
 
         </form>
 
         <div class="row justify-content-center g-3 mt-1">
-            <div class="col-12 col-md-6 col-lg-4 offset-lg-4">
+            <div class="col-12 col-lg-8 action-container">
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button type="submit" class="btn btn-dark w-100">
+                    <button type="submit" class="btn btn-dark w-100 py-2">
                         Logout
                     </button>
                 </form>

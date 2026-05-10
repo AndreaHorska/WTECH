@@ -23,8 +23,6 @@ Kategoria atribut description? Asi netreba
 
 pridat kacky
 
-Na formular pri cart mozno foreach, kategorie atd.
-
 recenzie
 
 
@@ -88,4 +86,6 @@ kategorie u admina
 na mail nemozes ani kliknut?
 
 Max inputy
+
+foreach kategorie atd.
 

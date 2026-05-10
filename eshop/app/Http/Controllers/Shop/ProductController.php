@@ -175,7 +175,11 @@ class ProductController extends Controller {
             ->take(10)
             ->get();
 
-        return view('index', compact('products'));
+        $mainCategories = CategoryType::where('name', 'Main')
+            ->first()
+            ->categories;
+
+        return view('index', compact('products', 'mainCategories'));
     }
 
     public function show(int $id): View

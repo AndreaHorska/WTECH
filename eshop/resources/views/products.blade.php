@@ -94,38 +94,31 @@
 
         <div class="sort-header">
             <div class="tabs">
-                <a href="{{ route('products.index', array_merge(request()->query(), ['sort' => 'recommended', 'per_page' => $perPage])) }}"
-                    @class(['tab', 'active' => $sort === 'recommended'])>
-                    Recommended
-                </a>
+                @php
+                    $tabs = [
+                        'recommended' => 'Recommended',
+                        'popular' => 'Most Popular',
+                        'price_asc' => 'Price: Low to High',
+                        'price_desc' => 'Price: High to Low',
+                    ];
+                @endphp
 
-                <a href="{{ route('products.index', array_merge(request()->query(), ['sort' => 'popular', 'per_page' => $perPage])) }}"
-                    @class(['tab', 'active' => $sort === 'popular'])>
-                    Most Popular
-                </a>
-
-                <a href="{{ route('products.index', array_merge(request()->query(), ['sort' => 'price_asc', 'per_page' => $perPage])) }}"
-                    @class(['tab', 'active' => $sort === 'price_asc'])>
-                    Price: Low to High
-                </a>
-
-                <a href="{{ route('products.index', array_merge(request()->query(), ['sort' => 'price_desc', 'per_page' => $perPage])) }}"
-                    @class(['tab', 'active' => $sort === 'price_desc'])>
-                    Price: High to Low
-                </a>
+                @foreach ($tabs as $value => $label)
+                    <a href="{{ route('products.index', array_merge(request()->query(), ['sort' => $value, 'per_page' => $perPage])) }}"
+                        @class(['tab', 'active' => $sort === $value])>
+                        {{ $label }}
+                    </a>
+                @endforeach
             </div>
 
             <div class="items-per-page">
                 <div class="items-label">Items per page</div>
                 <div class="items-options">
-                    <a href="{{ route('products.index', array_merge(request()->query(), ['sort' => $sort, 'per_page' => 10])) }}"
-                        @class(['active' => $perPage === 10])>10</a> /
-                    <a href="{{ route('products.index', array_merge(request()->query(), ['sort' => $sort, 'per_page' => 25])) }}"
-                        @class(['active' => $perPage === 25])>25</a> /
-                    <a href="{{ route('products.index', array_merge(request()->query(), ['sort' => $sort, 'per_page' => 50])) }}"
-                        @class(['active' => $perPage === 50])>50</a> /
-                    <a href="{{ route('products.index', array_merge(request()->query(), ['sort' => $sort, 'per_page' => 100])) }}"
-                        @class(['active' => $perPage === 100])>100</a>
+                    @foreach ([10, 25, 50] as $option)
+                        <a href="{{ route('products.index', array_merge(request()->query(), ['sort' => $sort, 'per_page' => $option])) }}"
+                            @class(['active' => $perPage === $option])>{{ $option }}</a>
+                        @if (!$loop->last) / @endif
+                    @endforeach
                 </div>
             </div>
         </div>
