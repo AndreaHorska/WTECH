@@ -49,6 +49,9 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
         Auth::login($user);
 
+        // Prenesenie session kosika
+        (new \App\Http\Controllers\Auth\AuthenticatedSessionController())->transferSessionCart();
+
         return redirect(route('account.edit'));
     }
 }

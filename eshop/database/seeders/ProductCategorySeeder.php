@@ -166,6 +166,20 @@ class ProductCategorySeeder extends Seeder
                 'view' => ['head'],
                 'lifestyle' => ['chilled']
             ],
+            'Mr. Pipi' => [
+                'main' => ['seasonable'],
+                'view' => ['head'],
+                'lifestyle' => ['chilled']
+            ],
+            'Single Track' => [
+                'main' => ['luxurious'],
+                'view' => ['other'],
+            ],
+            'Cloudy Floater' => [
+                'main' => ['luxurious'],
+                'view' => ['full'],
+                'lifestyle' => ['chilled','swimming']
+            ],
         ];
 
         foreach ($productCategories as $productName => $groups) {

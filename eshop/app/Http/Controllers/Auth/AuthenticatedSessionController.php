@@ -27,44 +27,48 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
         $request->session()->regenerate();
 
-        // Prenesenie session kosika
-        $sessionCart = session()->get('cart', []);
-
-        if (!empty($sessionCart)) {
-            $cart = \App\Models\Cart::firstOrCreate(
-                ['user_id' => Auth::id()],
-                ['total_price' => 0]
-            );
-
-            foreach ($sessionCart as $item) {
-                $existing = \App\Models\CartItem::where('cart_id', $cart->id)
-                    ->where('product_id', $item['product_id'])
-                    ->first();
-
-                if ($existing) {
-                    $existing->quantity += $item['quantity'];
-                    $existing->save();
-                } else {
-                    \App\Models\CartItem::create([
-                        'cart_id' => $cart->id,
-                        'product_id' => $item['product_id'],
-                        'quantity' => $item['quantity'],
-                    ]);
-                }
-            }
-
-            $cart->total_price = $cart->cartItems()
-                ->join('products', 'cart_items.product_id', '=', 'products.id')
-                ->sum(\DB::raw('cart_items.quantity * products.price'));
-            $cart->save();
-
-            session()->forget('cart');
-        }
+        $this->transferSessionCart();
 
         if (Auth::user()->roles->contains('name', 'ADMIN')) {
             return redirect()->intended(route('admin.panel'));
         }
         return redirect()->intended(route('account.edit'));
+    }
+
+    public function transferSessionCart(): void
+    {
+        $sessionCart = session()->get('cart', []);
+
+        if (empty($sessionCart)) return;
+
+        $cart = \App\Models\Cart::firstOrCreate(
+            ['user_id' => Auth::id()],
+            ['total_price' => 0]
+        );
+
+        foreach ($sessionCart as $item) {
+            $existing = \App\Models\CartItem::where('cart_id', $cart->id)
+                ->where('product_id', $item['product_id'])
+                ->first();
+
+            if ($existing) {
+                $existing->quantity += $item['quantity'];
+                $existing->save();
+            } else {
+                \App\Models\CartItem::create([
+                    'cart_id' => $cart->id,
+                    'product_id' => $item['product_id'],
+                    'quantity' => $item['quantity'],
+                ]);
+            }
+        }
+
+        $cart->total_price = $cart->cartItems()
+            ->join('products', 'cart_items.product_id', '=', 'products.id')
+            ->sum(\DB::raw('cart_items.quantity * products.price'));
+        $cart->save();
+
+        session()->forget('cart');
     }
 
     /**

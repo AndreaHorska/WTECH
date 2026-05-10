@@ -25,6 +25,8 @@ pridat kacky
 
 Max inputy
 
+Cart na mobile zle ukazuje ked su polozky v kosiku
+
 Na formular pri cart mozno foreach, kategorie atd.
 
 ---------------------------------------
