@@ -47,7 +47,9 @@
                                 <span class="option-icon">{{ $method->icon }}</span>
                                 <span class="option-name">{{ $method->name }}</span>
                                 <span class="option-price">{{ $method->fee > 0 ? number_format($method->fee, 2, ',', ' ') . ' €' : 'free' }}</span>
-                                <span class="option-eta">{{ $method->eta_text }}</span>
+                                <span class="option-eta">
+                                    {{ $method->eta_days === 0 ? 'Today' : 'by ' . now()->addDays($method->eta_days)->format('d.m.') }}
+                                </span>
                             </label>
                         @endforeach
                     </div>

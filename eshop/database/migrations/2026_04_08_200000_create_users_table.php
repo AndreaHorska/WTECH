@@ -14,7 +14,6 @@ return new class extends Migration
             $table->string('password');
 
             $table->foreignId('user_info_id')
-                ->nullable()
                 ->references('id')
                 ->on('user_info')
                 ->restrictOnDelete();

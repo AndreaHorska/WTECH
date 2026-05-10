@@ -647,7 +647,7 @@ body {
 
 .option-price, .option-eta {
     color: #333;
-    min-width: 60px;
+    min-width: 70px;
     text-align: right;
 }
 

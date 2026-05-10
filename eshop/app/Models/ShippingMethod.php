@@ -10,7 +10,7 @@ class ShippingMethod extends Model
         'name',
         'fee',
         'icon_key',
-        'eta_text',
+        'eta_days',
     ];
 
     protected $casts = [

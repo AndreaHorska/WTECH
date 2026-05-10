@@ -17,13 +17,13 @@ class ShippingMethodSeeder extends Seeder
                 'name' => 'Home Delivery',
                 'fee' => 2.99,
                 'icon_key' => 'home',
-                'eta_text' => 'by 28.9.',
+                'eta_days' => 3,
             ],
             [
                 'name' => 'Store Pickup',
                 'fee' => 0,
                 'icon_key' => 'store',
-                'eta_text' => 'now',
+                'eta_days' => 0,
             ],
         ];
 
@@ -33,7 +33,7 @@ class ShippingMethodSeeder extends Seeder
                 [
                     'fee' => $method['fee'],
                     'icon_key' => $method['icon_key'],
-                    'eta_text' => $method['eta_text'],
+                    'eta_days' => $method['eta_days'],
                 ]
             );
         }
