@@ -215,6 +215,14 @@ class ProductImageSeeder extends Seeder
                 'image/frayer.png',
                 'image/frayer2.png',
             ],
+            'Double Track' => [
+                'image/double_track.png',
+                'image/double_track2.png',
+            ],
+            'The Golden Paw' => [
+                'image/golden_paw.png',
+                'image/golden_paw2.png',
+            ],
         ];
 
         foreach ($images as $productName => $paths) {
