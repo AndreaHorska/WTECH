@@ -63,8 +63,8 @@ class ProductImageSeeder extends Seeder
                 'image/wave_rider2.png',
             ],
             'Summer Chiller' => [
-                'image/summer_chiller1.png',
                 'image/summer_chiller2.png',
+                'image/summer_chiller1.png',
             ],
             'Sir Quackalot' => [
                 'image/sir_quackalot1.png',
@@ -177,6 +177,15 @@ class ProductImageSeeder extends Seeder
             'Tuby' => [
                 'image/tuby.png',
                 'image/tuby2.png',
+            ],
+            'Duck Chilling' => [
+                'image/duck_chilling.png',
+                'image/duck_chilling2.png',
+                'image/duck_chilling3.png',
+            ],
+            'Floater' => [
+                'image/floater.png',
+                'image/floater2.png',
             ],
 
         ];

@@ -35,6 +35,7 @@
                 <a href="https://www.flaticon.com/free-icons/bird" title="bird icons">Bird icons created by Freepik - Flaticon</a>
                 <a href="https://www.flaticon.com/free-icons/feather" title="feather icons">Feather icons created by Icongeek26 - Flaticon</a>
                 <a href="https://www.flaticon.com/free-icons/footprint" title="footprint icons">Footprint icons created by surang - Flaticon</a>
+                <a href="https://www.flaticon.com/free-icons/kid" title="kid icons">Kid icons created by photo3idea_studio - Flaticon</a>
                 
             </div>
         </div>

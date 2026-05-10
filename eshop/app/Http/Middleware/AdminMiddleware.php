@@ -15,6 +15,6 @@ class AdminMiddleware
             return $next($request);
         }
 
-        return redirect('/')->with('error', 'Nemáš prístup.');
+        return redirect('/')->with('error', 'Admin access only.');
     }
 }

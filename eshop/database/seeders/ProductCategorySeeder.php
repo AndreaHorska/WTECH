@@ -221,6 +221,15 @@ class ProductCategorySeeder extends Seeder
                 'gear' => ['other'],
                 'view' => ['full'],
             ],
+            'Duck Chilling' => [
+                'main' => ['funny','seasonal'],
+                'view' => ['other'],
+            ],
+            'Floater' => [
+                'main' => ['seasonal', 'funny'],
+                'view' => ['other'],
+                'lifestyle' => ['chilled', 'swimming'],
+            ],
 
         ];
 
