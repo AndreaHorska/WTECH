@@ -115,7 +115,7 @@
                 <div class="items-label">Items per page</div>
                 <div class="items-options">
                     @foreach ([10, 25, 50] as $option)
-                        <a href="{{ route('products.index', array_merge(request()->query(), ['sort' => $sort, 'per_page' => $option])) }}"
+                        <a href="{{ route('products.index', array_merge(request()->query(), ['sort' => $sort, 'per_page' => $option, 'page' => 1])) }}"
                             @class(['active' => $perPage === $option])>{{ $option }}</a>
                         @if (!$loop->last) / @endif
                     @endforeach
