@@ -103,10 +103,6 @@ class ProductImageSeeder extends Seeder
                 'image/dj_quack.png',
                 'image/dj_quack2.png',
             ],
-            'Inspector Bob' => [
-                'image/detective.png',
-                'image/detective2.png',
-            ],
             'Ducks on the Shelf' => [
                 'image/ducks_shelf.png',
                 'image/ducks_shelf2.png',

@@ -132,12 +132,6 @@ class ProductCategorySeeder extends Seeder
                 'view' => ['full'],
                 'lifestyle' => ['chilled']
             ],
-            'Inspector Bob' => [
-                'main' => ['luxurious'],
-                'gear' => ['other'],
-                'view' => ['full'],
-                'lifestyle' => ['quirky']
-            ],
             'Ducks on the Shelf' => [
                 'main' => ['luxurious'],
                 'view' => ['full'],
