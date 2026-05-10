@@ -194,7 +194,10 @@ class ProductController extends Controller {
             ->whereHas('categories', function ($q) use ($categoryIds) {
                 $q->whereIn('categories.id', $categoryIds);
             })
-            ->inRandomOrder()
+            ->withCount(['categories as shared_categories' => function ($q) use ($categoryIds) {
+                $q->whereIn('categories.id', $categoryIds);
+            }])
+            ->orderBy('shared_categories', 'desc')
             ->limit(5)
             ->get();
 
