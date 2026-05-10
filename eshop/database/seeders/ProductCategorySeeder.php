@@ -149,13 +149,13 @@ class ProductCategorySeeder extends Seeder
                 'lifestyle' => ['chilled']
             ],
             'Santa Quack' => [
-                'main' => ['seasonable'],
+                'main' => ['seasonal'],
                 'gear' => ['hat'],
                 'view' => ['head'],
                 'lifestyle' => ['chilled']
             ],
             'Mr. Pipi' => [
-                'main' => ['seasonable'],
+                'main' => ['seasonal'],
                 'view' => ['head'],
                 'lifestyle' => ['chilled']
             ],
@@ -169,12 +169,12 @@ class ProductCategorySeeder extends Seeder
                 'lifestyle' => ['chilled','swimming']
             ],
             'The Quacktastic Trio' => [
-                'main' => ['seasonable'],
+                'main' => ['seasonal'],
                 'view' => ['full'],
                 'lifestyle' => ['chilled']
             ],
             'Eggs' => [
-                'main' => ['seasonable'],
+                'main' => ['seasonal'],
                 'view' => ['other'],
             ],
             'Businessman' => [
