@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('name', 50)->unique();
             $table->decimal('fee', 8, 2)->default(0);
             $table->string('icon_key', 30)->nullable();
-            $table->integer('eta_days')->default(3)->nullable();        });
+            $table->integer('eta_days')->default(3)->nullable();
+        });
     }
 
     /**
