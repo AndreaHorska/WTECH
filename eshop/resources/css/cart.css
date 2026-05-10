@@ -729,7 +729,19 @@ body {
         gap: 0.75rem;
     }
 
+    .cart-item-title,
     .summary-item-title {
+        text-align: center;
+    }
+
+    .cart-item-info {
+        width: 100%;
+    }
+
+    .cart-item-description {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
         text-align: center;
     }
 }
