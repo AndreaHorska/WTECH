@@ -22,6 +22,8 @@
                 <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by amonrat rungreangfangsai - Flaticon</a>
                 <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by photo3idea_studio - Flaticon</a>
                 <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by Fabien Bienefeld - Flaticon</a>
+                <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by Pixelmeetup - Flaticon</a>
+                <a href="https://www.flaticon.com/free-icons/duck" title="duck icons">Duck icons created by amoghdesign - Flaticon</a>
 
                 <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber-duck icons">Rubber-duck icons created by Freepik - Flaticon</a>
                 <a href="https://www.flaticon.com/free-icons/rubber-duck" title="rubber duck icons">Rubber duck icons created by vectorsmarket15 - Flaticon</a>
