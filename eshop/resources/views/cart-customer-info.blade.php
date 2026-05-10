@@ -32,7 +32,7 @@
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="first-name">First Name</label>
-                            <input type="text" id="first-name" name="first-name" placeholder="Jozef"
+                            <input type="text" id="first-name" name="first-name" placeholder="John"
                                    value="{{ old('first-name', $userInfo->first_name ?? '') }}" required>
                             @error('first-name')
                                 <div class="text-danger small">{{ $message }}</div>
@@ -40,7 +40,7 @@
                         </div>
                         <div class="form-group">
                             <label for="last-name">Last Name</label>
-                            <input type="text" id="last-name" name="last-name" placeholder="Mrkvicka"
+                            <input type="text" id="last-name" name="last-name" placeholder="Doe"
                                    value="{{ old('last-name', $userInfo->last_name ?? '') }}" required>
                             @error('last-name')
                                 <div class="text-danger small">{{ $message }}</div>
@@ -48,7 +48,7 @@
                         </div>
                         <div class="form-group full-width">
                             <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="jozko.mrkvicka@stuba.sk"
+                            <input type="email" id="email" name="email" placeholder="john.doe@stuba.sk"
                                    value="{{ old('email', auth()->user()?->email ?? '') }}" required>
                             @error('email')
                                 <div class="text-danger small">{{ $message }}</div>
@@ -126,7 +126,7 @@
                         <div class="form-group full-width">
                             <label for="billing-company">Company Name (Optional)</label>
                             <input type="text" id="billing-company" name="billing-company"
-                                   placeholder="Firma s.r.o." value="{{ old('billing-company') }}">
+                                   placeholder="Company s.r.o." value="{{ old('billing-company') }}">
                         </div>
                         <div class="form-group half-width">
                             <label for="billing-street">Street</label>
