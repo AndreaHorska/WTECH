@@ -32,7 +32,7 @@ class ProductController extends Controller {
         $maxPrice = (int) $request->query('max_price', 999999);
         $rating = (int) $request->query('rating', 0);
 
-        if (!in_array($perPage, [10, 25, 50, 100], true)) {
+        if (!in_array($perPage, [10, 25, 50], true)) {
             $perPage = 10;
         }
 
