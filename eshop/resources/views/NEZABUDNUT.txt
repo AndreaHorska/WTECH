@@ -23,11 +23,10 @@ Kategoria atribut description? Asi netreba
 
 pridat kacky
 
-Max inputy
-
-Cart na mobile zle ukazuje ked su polozky v kosiku
-
 Na formular pri cart mozno foreach, kategorie atd.
+
+recenzie
+
 
 ---------------------------------------
 HOTOVO, JEEEEEEJ:
@@ -81,4 +80,12 @@ Kliknutie na vsetky produkty
 
 verifikacia mailu, cisla
 mail validacia - a@a. / a@.a / a@.
+
+Cart na mobile
+
+kategorie u admina
+
+na mail nemozes ani kliknut?
+
+Max inputy
 
