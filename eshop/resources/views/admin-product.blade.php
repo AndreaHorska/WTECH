@@ -39,12 +39,16 @@
                             @endforelse
                         @endif
                         <div class="thumb border border-gray add-thumb" onclick="document.getElementById('newImageInput').click()">+</div>
+                        @error('images')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
                     <input type="file" id="newImageInput" name="images[]" hidden>
                     <div class="main_product_box">
                         <img id="mainImage" src="{{ asset($product?->images->first()?->image_path ?? 'image/upload-placeholder.png') }}" alt="main image">
                     </div>
                 </div>
+                
 
                 <div class="product_info">
                     <label>Product name</label>

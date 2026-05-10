@@ -52,10 +52,10 @@ class AdminProductController extends Controller
             'description' => 'nullable|string',
             'price' => 'required|min:0',
             'quantity' => 'required|integer|min:0',
+            'images' => 'required|array|min:1',
             'images.*' => 'image|mimes:jpg,jpeg,png,webp|max:2048',
             'categories' => 'array',
-            'categories.*' => 'exists:categories,id',
-
+            'categories.*' => 'nullable|exists:categories,id',
             'pcs' => 'required|integer|min:1|max:99999',
             'material' => 'required|string|max:100',
             'size' => 'required|string|max:50',
@@ -89,7 +89,7 @@ class AdminProductController extends Controller
         ]);
 
         if ($request->filled('categories')) {
-            $categories = array_filter($request->categories, fn($id) => !empty($id));
+            $categories = array_filter($request->categories, fn($id) => !empty($id) && is_numeric($id));
             $product->categories()->sync($categories);
         } else {
             $product->categories()->detach();
@@ -123,9 +123,10 @@ class AdminProductController extends Controller
             'description' => 'nullable|string',
             'price' => 'required',
             'quantity' => 'required|integer|min:0',
+            'images' => 'required|array|min:1',
             'images.*' => 'image|mimes:jpg,jpeg,png,webp|max:2048',
             'categories' => 'array',
-            'categories.*' => 'exists:categories,id',
+            'categories.*' => 'nullable|exists:categories,id',
             'pcs' => 'required|integer|min:1|max:99999',
             'material' => 'required|string|max:100',
             'size' => 'required|string|max:50',
@@ -161,7 +162,7 @@ class AdminProductController extends Controller
         ]);
 
         if ($request->filled('categories')) {
-            $categories = array_filter($request->categories, fn($id) => !empty($id));
+            $categories = array_filter($request->categories, fn($id) => !empty($id) && is_numeric($id));
             $product->categories()->sync($categories);
         }
 
