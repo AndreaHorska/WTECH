@@ -91,7 +91,6 @@ class CategorySeeder extends Seeder
                     ],
                     [
                         'name' => $item['name'],
-                        'description' => null,
                     ]
                 );
             }

@@ -126,12 +126,6 @@ class ProductCategorySeeder extends Seeder
                 'gear' => ['hat'],
                 'view' => ['full'],
             ],
-            'Chef Berry' => [
-                'main' => ['luxurious', 'funny'],
-                'gear' => ['other'],
-                'view' => ['full'],
-                'lifestyle' => ['chilled']
-            ],
             'Ducks on the Shelf' => [
                 'main' => ['luxurious'],
                 'view' => ['full'],
@@ -229,6 +223,16 @@ class ProductCategorySeeder extends Seeder
                 'main' => ['seasonal', 'funny'],
                 'view' => ['other'],
                 'lifestyle' => ['chilled', 'swimming'],
+            ],
+            'Springer' => [
+                'main' => ['seasonal'],
+                'view' => ['full'],
+                'lifestyle' => ['chilled', 'swimming'],
+            ],
+            'Normal Duck' => [
+                'main' => ['luxurious'],
+                'view' => ['full'],
+                'lifestyle' => ['chilled'],
             ],
 
         ];

@@ -187,6 +187,14 @@ class ProductImageSeeder extends Seeder
                 'image/floater.png',
                 'image/floater2.png',
             ],
+            'Springer' => [
+                'image/springer.png',
+                'image/springer2.png',
+            ],
+            'Normal Duck' => [
+                'image/normal_duck.png',
+                'image/normal_duck2.png',
+            ],
 
         ];
 
