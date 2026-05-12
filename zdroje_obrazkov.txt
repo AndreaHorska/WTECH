@@ -12,3 +12,9 @@
 
 5. Duck icons (additional) created by Freepik - Flaticon
    Link: https://www.flaticon.com/free-icons/duck
+
+
+               $shippingMethod = \App\Models\ShippingMethod::find($shippingMethodId);
+               $paymentMethod = \App\Models\PaymentMethod::find($paymentMethodId);
+
+               $total += $shippingMethod->fee + $paymentMethod->fee;

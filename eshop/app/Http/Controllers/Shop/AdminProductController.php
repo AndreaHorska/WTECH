@@ -52,8 +52,6 @@ class AdminProductController extends Controller
             'description' => 'nullable|string',
             'price' => 'required|min:0',
             'quantity' => 'required|integer|min:0',
-            'images' => 'required|array|min:1',
-            'images.*' => 'image|mimes:jpg,jpeg,png,webp|max:2048',
             'categories' => 'array',
             'categories.*' => 'nullable|exists:categories,id',
             'pcs' => 'required|integer|min:1|max:99999',
