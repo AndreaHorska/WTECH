@@ -266,6 +266,17 @@ class ProductCategorySeeder extends Seeder
                 'main' => ['luxurious'],
                 'view' => ['other'],
             ],
+            'Love Birds' => [
+                'main' => ['seasonal'],
+                'gear' => ['other'],
+                'view' => ['full'],
+            ],
+            'Party Ducker' => [
+                'main' => ['funny','seasonal'],
+                'gear' => ['hat','other'],
+                'view' => ['full'],
+                'lifestyle' => ['quirky'],
+            ],
         ];
 
         foreach ($productCategories as $productName => $groups) {

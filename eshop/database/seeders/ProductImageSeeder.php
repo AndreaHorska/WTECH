@@ -40,6 +40,7 @@ class ProductImageSeeder extends Seeder
             'Lovey' => [
                 'image/lovey.png',
                 'image/lovey2.png',
+                'image/lovey3.png',
             ],
             'Mallard' => [
                 'image/mallard.png',
@@ -199,10 +200,6 @@ class ProductImageSeeder extends Seeder
                 'image/bobik.png',
                 'image/bobik2.png',
             ],
-            'Bobik' => [
-                'image/bobik.png',
-                'image/bobik2.png',
-            ],
             'Magician' => [
                 'image/magician.png',
                 'image/magician.png',
@@ -222,6 +219,13 @@ class ProductImageSeeder extends Seeder
             'The Golden Paw' => [
                 'image/golden_paw.png',
                 'image/golden_paw2.png',
+            ],
+            'Party Ducker' => [
+                'image/party_ducker.png',
+            ],
+            'Love Birds' => [
+                'image/love-birds.png',
+                'image/love-birds(1).png',
             ],
         ];
 

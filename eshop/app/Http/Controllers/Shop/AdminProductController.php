@@ -52,6 +52,7 @@ class AdminProductController extends Controller
             'description' => 'nullable|string',
             'price' => 'required|min:0',
             'quantity' => 'required|integer|min:0',
+            'images.*' => 'image|mimes:jpg,jpeg,png,webp|max:2048',
             'categories' => 'array',
             'categories.*' => 'nullable|exists:categories,id',
             'pcs' => 'required|integer|min:1|max:99999',
@@ -61,6 +62,17 @@ class AdminProductController extends Controller
             'age' => 'required|string|max:30',
             'country_of_origin' => 'required|string|max:60',
         ]);
+
+        $existingImagesCount = $product->images()->count();
+        $deletedImagesCount = count($request->input('delete_images', []));
+        $newImagesCount = $request->hasFile('images') ? count($request->file('images')) : 0;
+
+        $finalCount = $existingImagesCount - $deletedImagesCount + $newImagesCount;
+
+        if ($finalCount <= 0) {
+            return back()->withErrors(['images' => 'Images are required.'])->withInput();
+        }
+
 
         $validator->after(function ($validator) use ($request) {
 
